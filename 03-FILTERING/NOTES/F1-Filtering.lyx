@@ -1,0 +1,8670 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{listings}
+\definecolor{hellgelb}{rgb}{1,1,0.85}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+\lstset{
+      language=Matlab,
+      float=hbp,
+      basicstyle=\footnotesize\ttfamily,
+      identifierstyle=\color{colIdentifier},
+      keywordstyle=\color{colKeys},
+      stringstyle=\color{colString},
+      commentstyle=\itshape\color{colComments},
+      columns=fixed,
+      tabsize=4,
+      frame=single,
+      framerule=1pt,
+      extendedchars=true,
+      showspaces=false,
+      showstringspaces=false,
+      numbers=left,
+      numberstyle=\tiny\ttfamily,
+      numbersep=1em,
+      breaklines=true,
+      breakindent=10pt,
+      backgroundcolor=\color{hellgelb},
+      breakautoindent=true,
+      captionpos=t,
+      xleftmargin=1em,
+      xrightmargin=\fboxsep
+}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 25mm
+\topmargin 25mm
+\rightmargin 25mm
+\bottommargin 25mm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle empty
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+chaptername}{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+thechapter}{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+\noindent
+L03: FILTERING
+\end_layout
+
+\begin_layout Standard
+A discrete probability distribution satisfies:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+0
+\backslash
+,
+\backslash
+leq
+\backslash
+, P
+\backslash
+left(x
+\backslash
+right)
+\backslash
+,
+\backslash
+leq
+\backslash
+, 1
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sum_{x
+\backslash
+,=
+\backslash
+,-
+\backslash
+infty}^{+
+\backslash
+infty} P
+\backslash
+left(x
+\backslash
+right)
+\backslash
+, =
+\backslash
+, 1
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig02.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig03.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+P
+\backslash
+left(A,
+\backslash
+,B
+\backslash
+right)
+\backslash
+, &= 
+\backslash
+, P
+\backslash
+left(B,
+\backslash
+,A
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+P
+\backslash
+left(A,
+\backslash
+,B
+\backslash
+right)
+\backslash
+, &=
+\backslash
+,P
+\backslash
+left(A
+\backslash
+,|
+\backslash
+,B
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(B
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+P
+\backslash
+left(B,
+\backslash
+,A
+\backslash
+right)
+\backslash
+, &=
+\backslash
+,P
+\backslash
+left(B
+\backslash
+,|
+\backslash
+,A
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(A
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+P
+\backslash
+left(A
+\backslash
+,|
+\backslash
+,B
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(B
+\backslash
+right)
+\backslash
+, &=
+\backslash
+, P
+\backslash
+left(B
+\backslash
+,|
+\backslash
+,A
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(A
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frac{P
+\backslash
+left(A
+\backslash
+,|
+\backslash
+,B
+\backslash
+right)}{P
+\backslash
+left(B
+\backslash
+,|
+\backslash
+,A
+\backslash
+right)}
+\backslash
+, &=
+\backslash
+,
+\backslash
+frac{P
+\backslash
+left(A
+\backslash
+right)}{P
+\backslash
+left(B
+\backslash
+right)}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+P
+\backslash
+left(A
+\backslash
+right) &=
+\backslash
+sum_{B
+\backslash
+, =
+\backslash
+, -
+\backslash
+infty}^{
+\backslash
+infty} P
+\backslash
+left(A,
+\backslash
+,B
+\backslash
+right)
+\backslash
+, =
+\backslash
+,
+\backslash
+sum_{B
+\backslash
+, =
+\backslash
+, -
+\backslash
+infty}^{
+\backslash
+infty} P
+\backslash
+left(A
+\backslash
+,|
+\backslash
+,B
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(B
+\backslash
+right)
+\backslash
+
+\backslash
+ P
+\backslash
+left(B
+\backslash
+right) &=
+\backslash
+sum_{A
+\backslash
+, =
+\backslash
+, -
+\backslash
+infty}^{
+\backslash
+infty} P
+\backslash
+left(B,
+\backslash
+,A
+\backslash
+right)
+\backslash
+, =
+\backslash
+,
+\backslash
+sum_{A
+\backslash
+, =
+\backslash
+, -
+\backslash
+infty}^{
+\backslash
+infty} P
+\backslash
+left(B
+\backslash
+,|
+\backslash
+,A
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(A
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+P
+\backslash
+left(99
+\backslash
+right) &=
+\backslash
+sum_{A
+\backslash
+, =
+\backslash
+, -
+\backslash
+infty}^{
+\backslash
+infty} P
+\backslash
+left(99, A
+\backslash
+right) = P
+\backslash
+left(99, 0
+\backslash
+right) = P
+\backslash
+left(99
+\backslash
+,|
+\backslash
+,0
+\backslash
+right)
+\backslash
+cdot P
+\backslash
+left(0
+\backslash
+right) = 0.25
+\backslash
+cdot 1.00 = 25
+\backslash
+
+\backslash
+ P
+\backslash
+left(100
+\backslash
+right) &=
+\backslash
+sum_{A
+\backslash
+, =
+\backslash
+, -
+\backslash
+infty}^{
+\backslash
+infty} P
+\backslash
+left(100, A
+\backslash
+right) = P
+\backslash
+left(100, 0
+\backslash
+right) = P
+\backslash
+left(100
+\backslash
+,|
+\backslash
+,0
+\backslash
+right)
+\backslash
+cdot P
+\backslash
+left(0
+\backslash
+right) = 0.50
+\backslash
+cdot 1.00 = 0.50
+\backslash
+
+\backslash
+ P
+\backslash
+left(101
+\backslash
+right) &=
+\backslash
+sum_{A
+\backslash
+, =
+\backslash
+, -
+\backslash
+infty}^{
+\backslash
+infty} P
+\backslash
+left(101, A
+\backslash
+right) = P
+\backslash
+left(101, 0
+\backslash
+right) = P
+\backslash
+left(101
+\backslash
+,|
+\backslash
+,0
+\backslash
+right)
+\backslash
+cdot P
+\backslash
+left(0
+\backslash
+right) = 0.25
+\backslash
+cdot 1.00 = 0.25
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+P
+\backslash
+left(198,
+\backslash
+,99
+\backslash
+right)
+\backslash
+,&=
+\backslash
+,P
+\backslash
+left(198
+\backslash
+,|
+\backslash
+,99
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(99
+\backslash
+right)
+\backslash
+,=
+\backslash
+,0.25
+\backslash
+,
+\backslash
+cdot
+\backslash
+,0.25
+\backslash
+,=
+\backslash
+,0.0625
+\backslash
+
+\backslash
+ P
+\backslash
+left(199,
+\backslash
+,99
+\backslash
+right)
+\backslash
+,&=
+\backslash
+,P
+\backslash
+left(199
+\backslash
+,|
+\backslash
+,99
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(99
+\backslash
+right)
+\backslash
+,=
+\backslash
+,0.50
+\backslash
+,
+\backslash
+cdot
+\backslash
+,0.25
+\backslash
+,=
+\backslash
+,0.1250
+\backslash
+
+\backslash
+ P
+\backslash
+left(200,
+\backslash
+,99
+\backslash
+right)
+\backslash
+,&=
+\backslash
+,P
+\backslash
+left(200
+\backslash
+,|
+\backslash
+,99
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(99
+\backslash
+right)
+\backslash
+,=
+\backslash
+,0.25
+\backslash
+,
+\backslash
+cdot
+\backslash
+,0.25
+\backslash
+,=
+\backslash
+,0.0625
+\backslash
+
+\backslash
+ P
+\backslash
+left(199,
+\backslash
+,100
+\backslash
+right)
+\backslash
+,&=
+\backslash
+,P
+\backslash
+left(199
+\backslash
+,|
+\backslash
+,100
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(100
+\backslash
+right)
+\backslash
+,=
+\backslash
+,0.25
+\backslash
+,
+\backslash
+cdot
+\backslash
+,0.50
+\backslash
+,=
+\backslash
+,0.1250
+\backslash
+
+\backslash
+ P
+\backslash
+left(200,
+\backslash
+,100
+\backslash
+right)
+\backslash
+,&=
+\backslash
+,P
+\backslash
+left(200
+\backslash
+,|
+\backslash
+,100
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(100
+\backslash
+right)
+\backslash
+,=
+\backslash
+,0.50
+\backslash
+,
+\backslash
+cdot
+\backslash
+,0.50
+\backslash
+,=
+\backslash
+,0.2500
+\backslash
+
+\backslash
+ P
+\backslash
+left(201,
+\backslash
+,100
+\backslash
+right)
+\backslash
+,&=
+\backslash
+,P
+\backslash
+left(201
+\backslash
+,|
+\backslash
+,100
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(100
+\backslash
+right)
+\backslash
+,=
+\backslash
+,0.25
+\backslash
+,
+\backslash
+cdot
+\backslash
+,0.50
+\backslash
+,=
+\backslash
+,0.1250
+\backslash
+
+\backslash
+ P
+\backslash
+left(200,
+\backslash
+,101
+\backslash
+right)
+\backslash
+,&=
+\backslash
+,P
+\backslash
+left(200
+\backslash
+,|
+\backslash
+,101
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(101
+\backslash
+right)
+\backslash
+,=
+\backslash
+,0.25
+\backslash
+,
+\backslash
+cdot
+\backslash
+,0.25
+\backslash
+,=
+\backslash
+,0.0625
+\backslash
+
+\backslash
+ P
+\backslash
+left(201,
+\backslash
+,101
+\backslash
+right)
+\backslash
+,&=
+\backslash
+,P
+\backslash
+left(201
+\backslash
+,|
+\backslash
+,101
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(101
+\backslash
+right)
+\backslash
+,=
+\backslash
+,0.50
+\backslash
+,
+\backslash
+cdot
+\backslash
+,0.25
+\backslash
+,=
+\backslash
+,0.1250
+\backslash
+
+\backslash
+ P
+\backslash
+left(202,
+\backslash
+,101
+\backslash
+right)
+\backslash
+,&=
+\backslash
+,P
+\backslash
+left(202
+\backslash
+,|
+\backslash
+,101
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,P
+\backslash
+left(101
+\backslash
+right)
+\backslash
+,=
+\backslash
+,0.25
+\backslash
+,
+\backslash
+cdot
+\backslash
+,0.25
+\backslash
+,=
+\backslash
+,0.0625
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+P
+\backslash
+left(198
+\backslash
+right)
+\backslash
+,&=
+\backslash
+,P
+\backslash
+left(198,
+\backslash
+,99
+\backslash
+right)
+\backslash
+,=
+\backslash
+,0.0625
+\backslash
+
+\backslash
+ P
+\backslash
+left(199
+\backslash
+right)
+\backslash
+,&=
+\backslash
+,P
+\backslash
+left(199,
+\backslash
+,99
+\backslash
+right)
+\backslash
+,+
+\backslash
+,P
+\backslash
+left(199,
+\backslash
+,100
+\backslash
+right)
+\backslash
+,=
+\backslash
+,0.1250
+\backslash
+,+
+\backslash
+,0.1250
+\backslash
+,=
+\backslash
+,0.2500
+\backslash
+
+\backslash
+ P
+\backslash
+left(200
+\backslash
+right)
+\backslash
+,&=
+\backslash
+,P
+\backslash
+left(200,
+\backslash
+,99
+\backslash
+right)
+\backslash
+,+
+\backslash
+,P
+\backslash
+left(200,
+\backslash
+,100
+\backslash
+right)
+\backslash
+,+
+\backslash
+,P
+\backslash
+left(200,
+\backslash
+,101
+\backslash
+right)
+\backslash
+,=
+\backslash
+,0.0625
+\backslash
+,+
+\backslash
+,0.2500
+\backslash
+,+
+\backslash
+,0.0625
+\backslash
+,=
+\backslash
+,0.3750
+\backslash
+
+\backslash
+ P
+\backslash
+left(201
+\backslash
+right)
+\backslash
+,&=
+\backslash
+,P
+\backslash
+left(201,
+\backslash
+,100
+\backslash
+right)
+\backslash
+,+
+\backslash
+,P
+\backslash
+left(201,
+\backslash
+,101
+\backslash
+right)
+\backslash
+,=
+\backslash
+,0.1250
+\backslash
+,+
+\backslash
+,0.1250
+\backslash
+,=
+\backslash
+,0.2500
+\backslash
+
+\backslash
+ P
+\backslash
+left(202
+\backslash
+right)
+\backslash
+,&=
+\backslash
+,P
+\backslash
+left(202,
+\backslash
+,101
+\backslash
+right)
+\backslash
+,=
+\backslash
+,0.0625
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig05.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig06.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig07.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A discrete probability distribution can be calculated using a discrete convoluti
+on operation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+P
+\backslash
+left[B
+\backslash
+right]
+\backslash
+,=
+\backslash
+,(f
+\backslash
+,*
+\backslash
+,g)
+\backslash
+left[B
+\backslash
+right]
+\backslash
+,=
+\backslash
+,
+\backslash
+sum_{A
+\backslash
+,=
+\backslash
+,-
+\backslash
+infty}^{
+\backslash
+infty} f
+\backslash
+left[B
+\backslash
+,-
+\backslash
+,A
+\backslash
+right]
+\backslash
+,
+\backslash
+cdot
+\backslash
+,g
+\backslash
+left[A
+\backslash
+right]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../FIGURES/fig09.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+P
+\backslash
+left[B
+\backslash
+right]&
+\backslash
+,=
+\backslash
+,f
+\backslash
+left[B
+\backslash
+,-
+\backslash
+,
+\backslash
+left(-
+\backslash
+infty
+\backslash
+right)
+\backslash
+right]
+\backslash
+,
+\backslash
+cdot
+\backslash
+,g
+\backslash
+left[-
+\backslash
+infty
+\backslash
+right]
+\backslash
+,+
+\backslash
+,
+\backslash
+ldots
+\backslash
+,+
+\backslash
+,f
+\backslash
+left[B
+\backslash
+,-
+\backslash
+,9
+\backslash
+right]
+\backslash
+,
+\backslash
+cdot
+\backslash
+,g
+\backslash
+left[9
+\backslash
+right]
+\backslash
+,+
+\backslash
+,
+\backslash
+
+\backslash
+ &
+\backslash
+,+
+\backslash
+,f
+\backslash
+left[B
+\backslash
+,-
+\backslash
+,10
+\backslash
+right]
+\backslash
+,
+\backslash
+cdot
+\backslash
+,g
+\backslash
+left[10
+\backslash
+right]
+\backslash
+,+
+\backslash
+,f
+\backslash
+left[B
+\backslash
+,-
+\backslash
+,11
+\backslash
+right]
+\backslash
+,
+\backslash
+cdot
+\backslash
+,g
+\backslash
+left[11
+\backslash
+right]
+\backslash
+,+
+\backslash
+,f
+\backslash
+left[B
+\backslash
+,-
+\backslash
+,12
+\backslash
+right]
+\backslash
+,
+\backslash
+cdot
+\backslash
+,g
+\backslash
+left[12
+\backslash
+right]
+\backslash
+,+
+\backslash
+,f
+\backslash
+left[B
+\backslash
+,-
+\backslash
+,13
+\backslash
+right]
+\backslash
+,
+\backslash
+cdot
+\backslash
+,g
+\backslash
+left[13
+\backslash
+right]
+\backslash
+,+
+\backslash
+,
+\backslash
+
+\backslash
+ &
+\backslash
+,+
+\backslash
+,f
+\backslash
+left[B
+\backslash
+,-
+\backslash
+,14
+\backslash
+right]
+\backslash
+,
+\backslash
+cdot
+\backslash
+,g
+\backslash
+left[14
+\backslash
+right]
+\backslash
+,+
+\backslash
+,
+\backslash
+ldots
+\backslash
+,+
+\backslash
+,f
+\backslash
+left[B
+\backslash
+,-
+\backslash
+,
+\backslash
+infty
+\backslash
+right]
+\backslash
+,
+\backslash
+cdot
+\backslash
+,g
+\backslash
+left[
+\backslash
+infty
+\backslash
+right]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$g
+\backslash
+left[
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+right]
+\backslash
+, =
+\backslash
+, 0$
+\end_layout
+
+\end_inset
+
+ for
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$A
+\backslash
+, =
+\backslash
+, (-
+\backslash
+infty,
+\backslash
+, 9]
+\backslash
+,
+\backslash
+cup
+\backslash
+, [14,
+\backslash
+,
+\backslash
+infty)$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The first non-zero value of the function
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$g
+\backslash
+left[
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+right]$
+\end_layout
+
+\end_inset
+
+ appears at
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$A
+\backslash
+, =
+\backslash
+, 10$
+\end_layout
+
+\end_inset
+
+,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$g
+\backslash
+left[10
+\backslash
+right]
+\backslash
+, =
+\backslash
+, 0.25$
+\end_layout
+
+\end_inset
+
+, and the last non-zero value appears at
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$A
+\backslash
+, =
+\backslash
+, 13$
+\end_layout
+
+\end_inset
+
+,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$g
+\backslash
+left[13
+\backslash
+right]
+\backslash
+, =
+\backslash
+, 0.125$
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The first non-zero value of the function
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$f
+\backslash
+left[
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+right]$
+\end_layout
+
+\end_inset
+
+ appears at:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+B
+\backslash
+, -
+\backslash
+, 10
+\backslash
+, =
+\backslash
+, 5
+\backslash
+,
+\backslash
+rightarrow
+\backslash
+, B
+\backslash
+, =
+\backslash
+, 15
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\end_inset
+
+and the last non-zero value appears at
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+B
+\backslash
+, -
+\backslash
+, 13
+\backslash
+, =
+\backslash
+, 7
+\backslash
+,
+\backslash
+rightarrow
+\backslash
+, B
+\backslash
+, =
+\backslash
+, 20
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+The length of the discrete probability distribution
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P
+\backslash
+left[B
+\backslash
+right]$
+\end_layout
+
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+N
+\backslash
+, +
+\backslash
+, M
+\backslash
+, -
+\backslash
+, 1
+\backslash
+, =
+\backslash
+, 3
+\backslash
+, +
+\backslash
+, 4
+\backslash
+, -
+\backslash
+, 1
+\backslash
+, =
+\backslash
+, 6
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\end_inset
+
+The first non-zero value of
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P
+\backslash
+left[B
+\backslash
+right]$
+\end_layout
+
+\end_inset
+
+ is
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{first n where $g
+\backslash
+left[ n
+\backslash
+right]
+\backslash
+,
+\backslash
+neq
+\backslash
+, 0
+\backslash
+, +$ first m where $f
+\backslash
+left[ m
+\backslash
+right]
+\backslash
+,
+\backslash
+neq
+\backslash
+, 0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+5
+\backslash
+, +
+\backslash
+, 10
+\backslash
+, =
+\backslash
+, 15
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The last non-zero value of
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P
+\backslash
+left[B
+\backslash
+right]$
+\end_layout
+
+\end_inset
+
+ is
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{last n where $g
+\backslash
+left[ n
+\backslash
+right]
+\backslash
+,
+\backslash
+neq
+\backslash
+, 0
+\backslash
+, +$ last m where $f
+\backslash
+left[ m
+\backslash
+right]
+\backslash
+,
+\backslash
+neq
+\backslash
+, 0$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+7
+\backslash
+, +
+\backslash
+, 13
+\backslash
+, =
+\backslash
+, 20
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or alternatively
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{The first non-zero value of $P
+\backslash
+left[ B
+\backslash
+right]
+\backslash
+, +
+\backslash
+, length
+\backslash
+left( P
+\backslash
+left[ B
+\backslash
+right]
+\backslash
+right)
+\backslash
+, -
+\backslash
+, 1$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+15
+\backslash
+, +
+\backslash
+, 6
+\backslash
+, -
+\backslash
+, 1
+\backslash
+, =
+\backslash
+, 20
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Graphical calculation of the convolution operation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig11.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+P
+\backslash
+left[B
+\backslash
+right]
+\backslash
+,=
+\backslash
+,(f
+\backslash
+,*
+\backslash
+,g)
+\backslash
+left[B
+\backslash
+right]
+\backslash
+,=
+\backslash
+,
+\backslash
+sum_{A
+\backslash
+,=
+\backslash
+,-
+\backslash
+infty}^{
+\backslash
+infty} f
+\backslash
+left[B
+\backslash
+,-
+\backslash
+,A
+\backslash
+right]
+\backslash
+,
+\backslash
+cdot
+\backslash
+,g
+\backslash
+left[A
+\backslash
+right]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig13.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Pseudo-code to compute a discrete convolution:
+\end_layout
+
+\begin_layout Plain Layout
+
+total_length = len(f.values) + len(g.values) - 1
+\end_layout
+
+\begin_layout Plain Layout
+
+P = [0] * total_length
+\end_layout
+
+\begin_layout Plain Layout
+
+fsp = f.start_pos # Position of the first non-zero value in f.values
+\end_layout
+
+\begin_layout Plain Layout
+
+gsp = g.start_pos # Position of the first non-zero value in g.values
+\end_layout
+
+\begin_layout Plain Layout
+
+psp = tsp + gsp    # Position of the first non-zero value in P.values
+\end_layout
+
+\begin_layout Plain Layout
+
+for i in xrange(0, total_length): #From 0 to total_length-1
+\end_layout
+
+\begin_layout Plain Layout
+
+    for j in xrange(i, -1, -1):   #From i to 0
+\end_layout
+
+\begin_layout Plain Layout
+
+        P[i] += f.values[i -j] * g.values[j]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig14.pdf
+	lyxscale 50
+	scale 68
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig16.pdf
+	lyxscale 50
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(x
+\backslash
+, |
+\backslash
+, z
+\backslash
+right)
+\backslash
+, =
+\backslash
+,
+\backslash
+frac{p
+\backslash
+left(z
+\backslash
+, |
+\backslash
+, x
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(x
+\backslash
+right)}{p
+\backslash
+left(z
+\backslash
+right)}
+\backslash
+, =
+\backslash
+,
+\backslash
+frac{p
+\backslash
+left(z
+\backslash
+, |
+\backslash
+, x
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(x
+\backslash
+right)}{
+\backslash
+sum_{
+\backslash
+tau
+\backslash
+, =
+\backslash
+, -
+\backslash
+infty}^{+
+\backslash
+infty}p
+\backslash
+left(z,
+\backslash
+,
+\backslash
+tau
+\backslash
+right)}
+\backslash
+, =
+\backslash
+,
+\backslash
+frac{p
+\backslash
+left(z
+\backslash
+, |
+\backslash
+, x
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(x
+\backslash
+right)}{
+\backslash
+sum_{
+\backslash
+tau
+\backslash
+, =
+\backslash
+, -
+\backslash
+infty}^{+
+\backslash
+infty}p
+\backslash
+left(z
+\backslash
+, |
+\backslash
+,
+\backslash
+tau
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(
+\backslash
+tau
+\backslash
+right)}
+\backslash
+, =
+\backslash
+,
+\backslash
+alpha
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(z
+\backslash
+, |
+\backslash
+, x
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(x
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig17.pdf
+	lyxscale 50
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig19.pdf
+	lyxscale 50
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig20.pdf
+	lyxscale 50
+	scale 90
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Motion - Convolution
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left( x
+\backslash
+right)
+\backslash
+, =
+\backslash
+,
+\backslash
+sum_{y
+\backslash
+, =
+\backslash
+, -
+\backslash
+infty}^{+
+\backslash
+infty}  p
+\backslash
+left( x,
+\backslash
+, y
+\backslash
+right)
+\backslash
+, =
+\backslash
+,
+\backslash
+sum_{y
+\backslash
+, =
+\backslash
+, -
+\backslash
+infty}^{+
+\backslash
+infty}  p
+\backslash
+left( x
+\backslash
+, |
+\backslash
+, y
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(y
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Measurement - Multiplication
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(x
+\backslash
+, |
+\backslash
+, z
+\backslash
+right)
+\backslash
+, =
+\backslash
+,
+\backslash
+alpha
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(z
+\backslash
+, |
+\backslash
+, x
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(x
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+THE BAYES FILTER IN 1 DIMENSION
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig21.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Belief with bar,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+overline{bel}
+\backslash
+left(x_t
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+: after the robot has moved and before the robot takes measurements:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(x_t
+\backslash
+, |
+\backslash
+, u_t,
+\backslash
+, z_{t-1}
+\backslash
+right)
+\backslash
+, =
+\backslash
+, &
+\backslash
+int_{x_{t-1}
+\backslash
+, =
+\backslash
+, -
+\backslash
+infty}^{+
+\backslash
+infty} p
+\backslash
+left(x_t,
+\backslash
+, x_{t-1}
+\backslash
+, |
+\backslash
+, u_t,
+\backslash
+, z_{t-1}
+\backslash
+right)
+\backslash
+, dx_{t-1}
+\backslash
+, =
+\backslash
+,
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+=
+\backslash
+, &
+\backslash
+int_{x_{t-1}
+\backslash
+, =
+\backslash
+, -
+\backslash
+infty}^{+
+\backslash
+infty} p
+\backslash
+left(x_t
+\backslash
+, |
+\backslash
+, x_{t-1},
+\backslash
+, u_t,
+\backslash
+, z_{t-1}
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(x_{t-1}
+\backslash
+, |
+\backslash
+, u_t,
+\backslash
+, z_{t-1}
+\backslash
+right)
+\backslash
+, dx_{t-1}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(x_t
+\backslash
+, |
+\backslash
+, u_t,
+\backslash
+, z_{t-1}
+\backslash
+right)
+\backslash
+, &
+\backslash
+longrightarrow
+\backslash
+, p
+\backslash
+left(x_t
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(x_t
+\backslash
+, |
+\backslash
+, x_{t-1},
+\backslash
+, u_t,
+\backslash
+, z_{t-1}
+\backslash
+right)
+\backslash
+, &
+\backslash
+longrightarrow
+\backslash
+, p
+\backslash
+left(x_t
+\backslash
+, |
+\backslash
+, x_{t-1},
+\backslash
+, u_t
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(x_{t-1}
+\backslash
+, |
+\backslash
+, u_t,
+\backslash
+, z_{t-1}
+\backslash
+right)
+\backslash
+, &
+\backslash
+longrightarrow
+\backslash
+, p
+\backslash
+left(x_{t-1}
+\backslash
+, |
+\backslash
+, z_{t-1}
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{bel}
+\backslash
+left(x_{t}
+\backslash
+right)
+\backslash
+, &=
+\backslash
+, p
+\backslash
+left(x_t
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+bel
+\backslash
+left(x_{t-1}
+\backslash
+right)
+\backslash
+, &=
+\backslash
+, p
+\backslash
+left(x_{t-1}
+\backslash
+, |
+\backslash
+, z_{t-1}
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{bel}
+\backslash
+left(x_t
+\backslash
+right)
+\backslash
+, =
+\backslash
+,
+\backslash
+int_{x_{t-1}
+\backslash
+, =
+\backslash
+, -
+\backslash
+infty}^{+
+\backslash
+infty} p
+\backslash
+left(x_t
+\backslash
+, |
+\backslash
+, x_{t-1},
+\backslash
+, u_t
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, bel
+\backslash
+left(x_{t-1}
+\backslash
+right)
+\backslash
+, dx_{t-1}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Belief without bar,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$bel
+\backslash
+left(x_t
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+: after the robot has moved and after the robot has taken measurements:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+bel
+\backslash
+left(x_t
+\backslash
+right)
+\backslash
+, =
+\backslash
+, p
+\backslash
+left(x_t
+\backslash
+, |
+\backslash
+, z_t
+\backslash
+right)
+\backslash
+, =
+\backslash
+,
+\backslash
+frac{p
+\backslash
+left(z_t
+\backslash
+, |
+\backslash
+, x_t
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(x_t
+\backslash
+right)}{p
+\backslash
+left(z_t
+\backslash
+right)}
+\backslash
+, =
+\backslash
+,
+\backslash
+alpha
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(z_t
+\backslash
+, |
+\backslash
+, x_t
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{bel}
+\backslash
+left(x_t
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+INPUT:
+\series default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$bel
+\backslash
+left(x_{t-1}
+\backslash
+right),
+\backslash
+, u_t,
+\backslash
+, z_t$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+OUTPUT:
+\series default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$bel
+\backslash
+left(x_t
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Normal distribution:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+v
+\backslash
+,
+\backslash
+sim
+\backslash
+,
+\backslash
+mathcal{N}(v,
+\backslash
+,
+\backslash
+mu,
+\backslash
+,
+\backslash
+sigma^{2})
+\backslash
+, =
+\backslash
+,
+\backslash
+frac{1}{
+\backslash
+sigma
+\backslash
+sqrt{2
+\backslash
+pi}}
+\backslash
+, e^{-
+\backslash
+frac{1}{2}
+\backslash
+left(
+\backslash
+frac{v
+\backslash
+, -
+\backslash
+,
+\backslash
+mu}{
+\backslash
+sigma}
+\backslash
+right)^2}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig23.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+z_t
+\backslash
+, &=
+\backslash
+, c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_t
+\backslash
+, +
+\backslash
+,
+\backslash
+epsilon_{Q_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(
+\backslash
+epsilon_{Q_t}
+\backslash
+right)
+\backslash
+, &=
+\backslash
+,
+\backslash
+mathcal{N}
+\backslash
+left(0,
+\backslash
+,
+\backslash
+sigma_{Q_t}^2
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(z_t
+\backslash
+, |
+\backslash
+, x_t
+\backslash
+right)
+\backslash
+, & =
+\backslash
+,
+\backslash
+mathcal{N}(c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_t,
+\backslash
+,
+\backslash
+sigma_{Q_t}^{2})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{bel}
+\backslash
+left(x_t
+\backslash
+right)
+\backslash
+, & =
+\backslash
+,
+\backslash
+mathcal{N}(
+\backslash
+overline{
+\backslash
+mu_t},
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+bel
+\backslash
+left(x_t
+\backslash
+right)
+\backslash
+, & =
+\backslash
+, p
+\backslash
+left(x_t
+\backslash
+, |
+\backslash
+, z_t
+\backslash
+right)
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+alpha
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(z_t
+\backslash
+, |
+\backslash
+, x_t
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{bel}
+\backslash
+left(x_t
+\backslash
+right)
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& =
+\backslash
+,
+\backslash
+alpha'
+\backslash
+,
+\backslash
+cdot
+\backslash
+, e^{-
+\backslash
+frac{1}{2}
+\backslash
+left(
+\backslash
+frac{z_t
+\backslash
+, -
+\backslash
+, c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_t}{
+\backslash
+sigma_{Q_t}}
+\backslash
+right)^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+, e^{-
+\backslash
+frac{1}{2}
+\backslash
+left(
+\backslash
+frac{x_t
+\backslash
+, -
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}}{
+\backslash
+overline{
+\backslash
+sigma_t}}
+\backslash
+right)^2}
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& =
+\backslash
+,
+\backslash
+alpha'
+\backslash
+,
+\backslash
+cdot
+\backslash
+, e^{-
+\backslash
+left(
+\backslash
+frac{1}{2}
+\backslash
+left(
+\backslash
+frac{z_t
+\backslash
+, -
+\backslash
+, c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_t}{
+\backslash
+sigma_{Q_t}}
+\backslash
+right)^2
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{1}{2}
+\backslash
+left(
+\backslash
+frac{x_t
+\backslash
+, -
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}}{
+\backslash
+overline{
+\backslash
+sigma_t}}
+\backslash
+right)^2
+\backslash
+right)}
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& =
+\backslash
+,
+\backslash
+alpha''
+\backslash
+,
+\backslash
+cdot
+\backslash
+, e^{-
+\backslash
+frac{1}{2}
+\backslash
+left(
+\backslash
+frac{x_t
+\backslash
+, -
+\backslash
+,
+\backslash
+mu_t}{
+\backslash
+sigma_t}
+\backslash
+right)^2}
+\backslash
+, =
+\backslash
+,
+\backslash
+mathcal{N}(
+\backslash
+mu_t,
+\backslash
+,
+\backslash
+sigma_t^{2})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+f
+\backslash
+left(x
+\backslash
+right)
+\backslash
+, &=
+\backslash
+,
+\backslash
+frac{1}{2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+, A
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(x
+\backslash
+, -
+\backslash
+, B
+\backslash
+right)^2
+\backslash
+, +
+\backslash
+, C
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frac{df
+\backslash
+left(x
+\backslash
+right)}{dx}
+\backslash
+, &=
+\backslash
+, A
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(x
+\backslash
+, -
+\backslash
+, B
+\backslash
+right)
+\backslash
+, =
+\backslash
+, 0
+\backslash
+,
+\backslash
+rightarrow
+\backslash
+, x
+\backslash
+, =
+\backslash
+, B
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frac{d^2f
+\backslash
+left(x
+\backslash
+right)}{dx^2}
+\backslash
+,& =
+\backslash
+, A
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+f
+\backslash
+left(x_t
+\backslash
+right)
+\backslash
+, &=
+\backslash
+,
+\backslash
+frac{1}{2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+, A
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(x_t
+\backslash
+, -
+\backslash
+, B
+\backslash
+right)^2
+\backslash
+, +
+\backslash
+, C
+\backslash
+, =
+\backslash
+,
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+frac{1}{2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+frac{1}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(z_t
+\backslash
+, -
+\backslash
+, c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_t
+\backslash
+right)^2
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{1}{2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+frac{1}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(x_t
+\backslash
+, -
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+right)^2
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frac{d^2f
+\backslash
+left(x_t
+\backslash
+right)}{dx_t^2}
+\backslash
+, &=
+\backslash
+, A
+\backslash
+, =
+\backslash
+,
+\backslash
+frac{c_t^2}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+,+
+\backslash
+,
+\backslash
+frac{1}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frac{df
+\backslash
+left(x_t
+\backslash
+right)}{dx_t}
+\backslash
+, &=
+\backslash
+, A
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(x_t
+\backslash
+, -
+\backslash
+, B
+\backslash
+right)
+\backslash
+, =
+\backslash
+,
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+frac{1}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(z_t
+\backslash
+, -
+\backslash
+, c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_t
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(-c_t
+\backslash
+right)
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{1}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(x_t
+\backslash
+, -
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+right)
+\backslash
+, =
+\backslash
+,
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+, x_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(
+\backslash
+frac{c_t^2}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{1}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}
+\backslash
+right)
+\backslash
+, -
+\backslash
+,
+\backslash
+frac{z_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, c_t}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+,-
+\backslash
+,
+\backslash
+frac{
+\backslash
+overline{
+\backslash
+mu_t}}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}
+\backslash
+, =
+\backslash
+,0
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+x_t
+\backslash
+, =
+\backslash
+, B
+\backslash
+, =
+\backslash
+,
+\backslash
+frac{
+\backslash
+frac{z_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, c_t}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{
+\backslash
+overline{
+\backslash
+mu_t}}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}}{
+\backslash
+frac{c_t^2}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{1}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}}
+\backslash
+, =
+\backslash
+,
+\backslash
+frac{
+\backslash
+frac{z_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, c_t}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{
+\backslash
+overline{
+\backslash
+mu_t}}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}}{A}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+alpha'
+\backslash
+,
+\backslash
+cdot
+\backslash
+, e^{-
+\backslash
+left(
+\backslash
+frac{1}{2}
+\backslash
+left(
+\backslash
+frac{z_t
+\backslash
+, -
+\backslash
+, c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_t}{
+\backslash
+sigma_{Q_t}}
+\backslash
+right)^2
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{1}{2}
+\backslash
+left(
+\backslash
+frac{x_t
+\backslash
+, -
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}}{
+\backslash
+overline{
+\backslash
+sigma_t}}
+\backslash
+right)^2
+\backslash
+right)}
+\backslash
+, =
+\backslash
+,
+\backslash
+alpha'
+\backslash
+,
+\backslash
+cdot
+\backslash
+, e^{-
+\backslash
+left(
+\backslash
+frac{1}{2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+, A
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(x_t
+\backslash
+, -
+\backslash
+, B
+\backslash
+right)^2
+\backslash
+, +
+\backslash
+, C
+\backslash
+right)}
+\backslash
+, =
+\backslash
+,
+\backslash
+alpha''
+\backslash
+,
+\backslash
+cdot
+\backslash
+, e^{-
+\backslash
+frac{1}{2}
+\backslash
+left(
+\backslash
+frac{x_t
+\backslash
+, -
+\backslash
+,
+\backslash
+mu_t}{
+\backslash
+sigma_t}
+\backslash
+right)^2}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+alpha'
+\backslash
+,
+\backslash
+cdot
+\backslash
+, e^{-
+\backslash
+left(
+\backslash
+frac{1}{2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+, A
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(x_t
+\backslash
+, -
+\backslash
+, B
+\backslash
+right)^2
+\backslash
+, +
+\backslash
+, C
+\backslash
+right)}
+\backslash
+, &=
+\backslash
+,
+\backslash
+alpha''
+\backslash
+,
+\backslash
+cdot
+\backslash
+, e^{-
+\backslash
+frac{1}{2}
+\backslash
+left(
+\backslash
+frac{x_t
+\backslash
+, -
+\backslash
+,
+\backslash
+mu_t}{
+\backslash
+sigma_t}
+\backslash
+right)^2}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+alpha'
+\backslash
+,
+\backslash
+cdot
+\backslash
+, e^{-C}
+\backslash
+,
+\backslash
+cdot
+\backslash
+, e^{-
+\backslash
+frac{1}{2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+, A
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(x_t
+\backslash
+, -
+\backslash
+, B
+\backslash
+right)^2}
+\backslash
+, &=
+\backslash
+,
+\backslash
+alpha''
+\backslash
+,
+\backslash
+cdot
+\backslash
+, e^{-
+\backslash
+frac{1}{2}
+\backslash
+left(
+\backslash
+frac{x_t
+\backslash
+, -
+\backslash
+,
+\backslash
+mu_t}{
+\backslash
+sigma_t}
+\backslash
+right)^2}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frac{1}{
+\backslash
+sigma_t^2}
+\backslash
+, &=
+\backslash
+, A
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_t^2
+\backslash
+, &=
+\backslash
+,
+\backslash
+frac{1}{A}
+\backslash
+, =
+\backslash
+,
+\backslash
+frac{1}{
+\backslash
+frac{c_t^2}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{1}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}}
+\backslash
+, =
+\backslash
+,
+\backslash
+frac{
+\backslash
+sigma_{Q_t}^2
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2}{c_t^2
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\backslash
+, +
+\backslash
+,
+\backslash
+sigma_{Q_t}^2}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+mu_t
+\backslash
+, =
+\backslash
+, B
+\backslash
+, =
+\backslash
+,
+\backslash
+frac{
+\backslash
+frac{z_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, c_t}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{
+\backslash
+overline{
+\backslash
+mu_t}}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}}{A}
+\backslash
+, &=
+\backslash
+,
+\backslash
+sigma_t^2
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(
+\backslash
+frac{z_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, c_t}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{
+\backslash
+overline{
+\backslash
+mu_t}}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& =
+\backslash
+,
+\backslash
+sigma_t^2
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(
+\backslash
+frac{z_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, c_t}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{
+\backslash
+overline{
+\backslash
+mu_t}}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+sigma_t^2
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(
+\backslash
+frac{c_t}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(z_t
+\backslash
+, -
+\backslash
+, c_t
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+, +
+\backslash
+, c_t
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+right)
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{
+\backslash
+overline{
+\backslash
+mu_t}}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+sigma_t^2
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(
+\backslash
+frac{c_t}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(z_t
+\backslash
+, -
+\backslash
+, c_t
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+right)
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{c_t^2}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{
+\backslash
+overline{
+\backslash
+mu_t}}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+sigma_t^2
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(
+\backslash
+frac{c_t}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(z_t
+\backslash
+, -
+\backslash
+, c_t
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+right)
+\backslash
+, +
+\backslash
+,
+\backslash
+left(
+\backslash
+frac{c_t^2}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{1}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+sigma_t^2
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(
+\backslash
+frac{c_t}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(z_t
+\backslash
+, -
+\backslash
+, c_t
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+right)
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{1}{
+\backslash
+sigma_t^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+frac{
+\backslash
+sigma_t^2}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+, c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(z_t
+\backslash
+, -
+\backslash
+, c_t
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+right)
+\backslash
+, +
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+KALMAN GAIN
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+K_t
+\backslash
+, &=
+\backslash
+,
+\backslash
+frac{
+\backslash
+sigma_t^2}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+, c_t
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+mu_t
+\backslash
+, &=
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+, +
+\backslash
+, K_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(z_t
+\backslash
+, -
+\backslash
+, c_t
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+mu_t$
+\end_layout
+
+\end_inset
+
+ is the estimated state (or corrected state), aka 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{x}_t$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+overline{
+\backslash
+mu_t}$
+\end_layout
+
+\end_inset
+
+ is the predicted state, aka 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+tilde{x}_t$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$K_t$
+\end_layout
+
+\end_inset
+
+ is the Kalman gain.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$z_t$
+\end_layout
+
+\end_inset
+
+ is the actual measurement.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$c_t
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}$
+\end_layout
+
+\end_inset
+
+ is the expected measurement.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+left(z_t
+\backslash
+, -
+\backslash
+, c_t
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+ is called innovation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+K_t
+\backslash
+, =
+\backslash
+,
+\backslash
+frac{
+\backslash
+sigma_t^2}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+, c_t
+\backslash
+,=
+\backslash
+,
+\backslash
+frac{c_t}{
+\backslash
+sigma_{Q_t}^2
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(
+\backslash
+frac{c_t^2}{
+\backslash
+sigma_{Q_t}^2}
+\backslash
+, +
+\backslash
+,
+\backslash
+frac{1}{
+\backslash
+overline{
+\backslash
+sigma_t}^2}
+\backslash
+right)}
+\backslash
+, =
+\backslash
+,
+\backslash
+frac{c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2}{c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\backslash
+, +
+\backslash
+,
+\backslash
+sigma_{Q_t}^2}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{Q_t}^2
+\backslash
+,
+\backslash
+,
+\backslash
+,
+\backslash
+uparrow
+\backslash
+,
+\backslash
+,
+\backslash
+,
+\backslash
+longrightarrow
+\backslash
+, K_t
+\backslash
+,
+\backslash
+downarrow
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+K_t
+\backslash
+, &=
+\backslash
+,
+\backslash
+frac{c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2}{c_t^2
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\backslash
+, +
+\backslash
+,
+\backslash
+sigma_{Q_t}^2}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+mu_t
+\backslash
+, &=
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+, +
+\backslash
+, K_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(z_t
+\backslash
+, -
+\backslash
+, c_t
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_t^2
+\backslash
+, &=
+\backslash
+,
+\backslash
+left(1
+\backslash
+, -
+\backslash
+, K_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, c_t
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+K_t
+\backslash
+, &=
+\backslash
+, 0
+\backslash
+,
+\backslash
+,
+\backslash
+longrightarrow
+\backslash
+,
+\backslash
+,
+\backslash
+sigma_t^2
+\backslash
+, =
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+K_t
+\backslash
+, &>
+\backslash
+, 0
+\backslash
+,
+\backslash
+,
+\backslash
+longrightarrow
+\backslash
+,
+\backslash
+,
+\backslash
+sigma_t^2
+\backslash
+, <
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig24.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+x_t
+\backslash
+, &=
+\backslash
+, a_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_{t-1}
+\backslash
+, +
+\backslash
+, b_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, u_t
+\backslash
+, +
+\backslash
+,
+\backslash
+epsilon_{R_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The term
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$b_t$
+\end_layout
+
+\end_inset
+
+ is a coefficient that converts from control space to state space.
+\end_layout
+
+\begin_layout Standard
+The term
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+epsilon_{R_t}$
+\end_layout
+
+\end_inset
+
+ is the system noise:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(
+\backslash
+epsilon_{R_t}
+\backslash
+right)
+\backslash
+, &=
+\backslash
+,
+\backslash
+mathcal{N}
+\backslash
+left(0,
+\backslash
+,
+\backslash
+sigma_{R_t}^2
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(x_t
+\backslash
+, |
+\backslash
+, x_{t-1},
+\backslash
+, u_t
+\backslash
+right)
+\backslash
+, &=
+\backslash
+,
+\backslash
+mathcal{N}
+\backslash
+left(
+\backslash
+mu_*,
+\backslash
+,
+\backslash
+sigma_*^2
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+mu_*
+\backslash
+, =
+\backslash
+, E
+\backslash
+begin{pmatrix}x_t
+\backslash
+, |
+\backslash
+, x_{t-1},
+\backslash
+, u_t
+\backslash
+end{pmatrix}
+\backslash
+, &=
+\backslash
+, E
+\backslash
+begin{pmatrix}a_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_{t-1}
+\backslash
+, +
+\backslash
+, b_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, u_t
+\backslash
+, +
+\backslash
+,
+\backslash
+epsilon_{R_t}
+\backslash
+, |
+\backslash
+, x_{t-1},
+\backslash
+, u_t
+\backslash
+end{pmatrix}
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+, E
+\backslash
+begin{pmatrix}a_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_{t-1}
+\backslash
+, |
+\backslash
+, x_{t-1}
+\backslash
+end{pmatrix}
+\backslash
+, +
+\backslash
+, E
+\backslash
+begin{pmatrix}b
+\backslash
+,
+\backslash
+cdot
+\backslash
+, u_{t}
+\backslash
+, |
+\backslash
+, u_t
+\backslash
+end{pmatrix}
+\backslash
+, +
+\backslash
+, E
+\backslash
+begin{pmatrix}
+\backslash
+epsilon_{R_t}
+\backslash
+end{pmatrix}
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&= a_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_{t-1}
+\backslash
+, +
+\backslash
+, b_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, u_t
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_*^2
+\backslash
+, &=
+\backslash
+, E
+\backslash
+begin{pmatrix}
+\backslash
+left(x_t
+\backslash
+, -
+\backslash
+, E
+\backslash
+begin{pmatrix}x_t
+\backslash
+end{pmatrix}
+\backslash
+right)^2
+\backslash
+, |
+\backslash
+, x_{t-1},
+\backslash
+, u_t
+\backslash
+end{pmatrix}
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+, E
+\backslash
+begin{pmatrix}
+\backslash
+left(a_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_{t-1}
+\backslash
+, +
+\backslash
+, b_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, u_t
+\backslash
+, +
+\backslash
+,
+\backslash
+epsilon_{R_t}
+\backslash
+, -
+\backslash
+, a_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_{t-1}
+\backslash
+, -
+\backslash
+, b_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, u_t
+\backslash
+right)^2
+\backslash
+, |
+\backslash
+, x_{t-1},
+\backslash
+, u_t
+\backslash
+end{pmatrix}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+, E
+\backslash
+begin{pmatrix}
+\backslash
+epsilon_{R_t}^2
+\backslash
+end{pmatrix}
+\backslash
+, =
+\backslash
+,
+\backslash
+, E
+\backslash
+begin{pmatrix}
+\backslash
+left(
+\backslash
+epsilon_{R_t}
+\backslash
+, -
+\backslash
+, 0
+\backslash
+right)^2
+\backslash
+end{pmatrix}
+\backslash
+, =
+\backslash
+,
+\backslash
+sigma_{R_t}^2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(x_t
+\backslash
+, |
+\backslash
+, x_{t-1},
+\backslash
+, u_t
+\backslash
+right)
+\backslash
+, &=
+\backslash
+,
+\backslash
+mathcal{N}
+\backslash
+left(
+\backslash
+mu_*,
+\backslash
+sigma_*^2
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+mathcal{N}
+\backslash
+left(a_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_{t-1}
+\backslash
+, +
+\backslash
+, b_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, u_t,
+\backslash
+,
+\backslash
+sigma_{R_t}^2
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{bel}
+\backslash
+left(x_t
+\backslash
+right)
+\backslash
+, &=
+\backslash
+,
+\backslash
+int_{x_{t-1} = -
+\backslash
+infty}^{+
+\backslash
+infty}{p
+\backslash
+left(x_t
+\backslash
+, |
+\backslash
+, x_{t-1},
+\backslash
+, u_t
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, bel
+\backslash
+left(x_{t-1}
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, dx_{t-1}}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+int_{x_{t-1} = -
+\backslash
+infty}^{
+\backslash
+infty}{
+\backslash
+mathcal{N}
+\backslash
+left(a_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_{t-1}
+\backslash
+, +
+\backslash
+, b_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, u_t,
+\backslash
+,
+\backslash
+sigma_{R_t}^2
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+mathcal{N}
+\backslash
+left(
+\backslash
+mu_{t-1},
+\backslash
+,
+\backslash
+sigma_{t-1}^2
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, dx_{t-1}}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+gamma
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+int_{x_{t-1} = -
+\backslash
+infty}^{+
+\backslash
+infty}{e^{-
+\backslash
+frac{1}{2}
+\backslash
+left(
+\backslash
+frac{x_t
+\backslash
+, -
+\backslash
+,
+\backslash
+left(a_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_{t-1}
+\backslash
+, + b_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+,u_t
+\backslash
+right)}{
+\backslash
+sigma_{R_t}}
+\backslash
+right)^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+, e^{-
+\backslash
+frac{1}{2}
+\backslash
+left(
+\backslash
+frac{x_{t-1}
+\backslash
+, -
+\backslash
+,
+\backslash
+mu_{t-1}}{
+\backslash
+sigma_{t-1}}
+\backslash
+right)^2}
+\backslash
+,
+\backslash
+cdot
+\backslash
+, dx_{t-1}}
+\backslash
+, =
+\backslash
+,
+\backslash
+mathcal{N}
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu_t},
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+(More details about this expressions in the book
+\begin_inset Quotes eld
+\end_inset
+
+Probabilistic Robotics
+\begin_inset Quotes erd
+\end_inset
+
+ (Thrun, Burgardm, Fox))
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig25.pdf
+	lyxscale 50
+	scale 110
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+THE KALMAN FILTER IN 1 DIMENSION
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+PREDICTION:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+x_t
+\backslash
+, &=
+\backslash
+, a_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_{t-1}
+\backslash
+, +
+\backslash
+, b_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, u_t
+\backslash
+, +
+\backslash
+,
+\backslash
+epsilon_{R_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\series default
+The term
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+epsilon_{R_t}$
+\end_layout
+
+\end_inset
+
+ is the system noise:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(
+\backslash
+epsilon_{R_t}
+\backslash
+right)
+\backslash
+, &=
+\backslash
+,
+\backslash
+mathcal{N}
+\backslash
+left(0,
+\backslash
+,
+\backslash
+sigma_{R_t}^2
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(x_t
+\backslash
+, |
+\backslash
+, x_{t-1},
+\backslash
+, u_t
+\backslash
+right)
+\backslash
+, &=
+\backslash
+,
+\backslash
+mathcal{N}
+\backslash
+left(a_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_{t-1}
+\backslash
+, +
+\backslash
+, b_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, u_t,
+\backslash
+,
+\backslash
+sigma_{R_t}^2
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+bel
+\backslash
+left(x_{t-1}
+\backslash
+right)
+\backslash
+, &=
+\backslash
+, p
+\backslash
+left(x_{t-1}
+\backslash
+, |
+\backslash
+, z_{t-1}
+\backslash
+right)
+\backslash
+, =
+\backslash
+,
+\backslash
+frac{p
+\backslash
+left(z_{t-1}
+\backslash
+, |
+\backslash
+, x_{t-1}
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(x_{t-1}
+\backslash
+right)}{p
+\backslash
+left(z_{t-1}
+\backslash
+right)}
+\backslash
+ =
+\backslash
+,
+\backslash
+alpha
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(z_{t-1}
+\backslash
+, |
+\backslash
+, x_{t-1}
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{bel}
+\backslash
+left(x_{t-1}
+\backslash
+right)
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+mathcal{N}(
+\backslash
+mu_{t-1},
+\backslash
+,
+\backslash
+sigma_{t-1}^{2})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{bel}
+\backslash
+left(x_t
+\backslash
+right)
+\backslash
+, &=
+\backslash
+,
+\backslash
+int_{x_{t-1} = -
+\backslash
+infty}^{+
+\backslash
+infty}{p
+\backslash
+left(x_t
+\backslash
+, |
+\backslash
+, x_{t-1},
+\backslash
+, u_t
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, bel
+\backslash
+left(x_{t-1}
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, dx_{t-1}}
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+int_{x_{t-1} = -
+\backslash
+infty}^{+
+\backslash
+infty}{
+\backslash
+mathcal{N}
+\backslash
+left(a_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_{t-1}
+\backslash
+, +
+\backslash
+, b_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, u_t,
+\backslash
+,
+\backslash
+sigma_{R_t}^2
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+mathcal{N}
+\backslash
+left(
+\backslash
+mu_{t-1},
+\backslash
+,
+\backslash
+sigma_{t-1}^2
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+, dx_{t-1}}
+\backslash
+, =
+\backslash
+,
+\backslash
+mathcal{N}
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu_t},
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^{2}
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\series bold
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+, &=
+\backslash
+, a_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+mu_{t-1}
+\backslash
+, +
+\backslash
+, b_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, u_t
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\backslash
+, &=
+\backslash
+, a_t^2
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+sigma_{t-1}^2
+\backslash
+, +
+\backslash
+,
+\backslash
+sigma_{R_t}^2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+CORRECTION:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+z_t
+\backslash
+, &=
+\backslash
+, c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_t
+\backslash
+, +
+\backslash
+,
+\backslash
+epsilon_{Q_t}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\series default
+The term
+\series bold
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+epsilon_{Q_t}$
+\end_layout
+
+\end_inset
+
+
+\series default
+is the measurement noise:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(
+\backslash
+epsilon_{Q_t}
+\backslash
+right)
+\backslash
+, &=
+\backslash
+,
+\backslash
+mathcal{N}
+\backslash
+left(0,
+\backslash
+,
+\backslash
+sigma_{Q_t}^2
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\series bold
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(z_t
+\backslash
+, |
+\backslash
+, x_t
+\backslash
+right)
+\backslash
+, & =
+\backslash
+,
+\backslash
+mathcal{N}(c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_t,
+\backslash
+,
+\backslash
+sigma_{Q_t}^{2})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{bel}
+\backslash
+left(x_t
+\backslash
+right)
+\backslash
+, & =
+\backslash
+,
+\backslash
+mathcal{N}(
+\backslash
+overline{
+\backslash
+mu_t},
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+bel
+\backslash
+left(x_t
+\backslash
+right)
+\backslash
+, & =
+\backslash
+, p
+\backslash
+left(x_t
+\backslash
+, |
+\backslash
+, z_t
+\backslash
+right)
+\backslash
+, =
+\backslash
+,
+\backslash
+alpha
+\backslash
+,
+\backslash
+cdot
+\backslash
+, p
+\backslash
+left(z_t
+\backslash
+, |
+\backslash
+, x_t
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{bel}
+\backslash
+left(x_t
+\backslash
+right)
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& =
+\backslash
+,
+\backslash
+alpha
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+mathcal{N}(c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, x_t,
+\backslash
+,
+\backslash
+sigma_{Q_t}^{2})
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+mathcal{N}(
+\backslash
+overline{
+\backslash
+mu_t},
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2)
+\backslash
+, =
+\backslash
+,
+\backslash
+mathcal{N}(
+\backslash
+mu_t,
+\backslash
+,
+\backslash
+sigma_t^{2})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+K_t
+\backslash
+, &=
+\backslash
+,
+\backslash
+frac{c_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2}{c_t^2
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\backslash
+, +
+\backslash
+,
+\backslash
+sigma_{Q_t}^2}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+mu_t
+\backslash
+, &=
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+, +
+\backslash
+, K_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(z_t
+\backslash
+, -
+\backslash
+, c_t
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_t^2
+\backslash
+, &=
+\backslash
+,
+\backslash
+left(1
+\backslash
+, -
+\backslash
+, K_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, c_t
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+K_t
+\backslash
+, &=
+\backslash
+, 0
+\backslash
+,
+\backslash
+,
+\backslash
+longrightarrow
+\backslash
+,
+\backslash
+,
+\backslash
+mu_t
+\backslash
+, =
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t},
+\backslash
+,
+\backslash
+sigma_t^2
+\backslash
+, =
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+K_t
+\backslash
+, &>
+\backslash
+, 0
+\backslash
+,
+\backslash
+,
+\backslash
+longrightarrow
+\backslash
+,
+\backslash
+,
+\backslash
+sigma_t^2
+\backslash
+, <
+\backslash
+,
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig26.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig28.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
