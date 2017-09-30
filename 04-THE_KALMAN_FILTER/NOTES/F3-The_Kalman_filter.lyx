@@ -1,0 +1,10299 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{listings}
+\definecolor{hellgelb}{rgb}{1,1,0.85}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+\lstset{
+      language=Matlab,
+      float=hbp,
+      basicstyle=\footnotesize\ttfamily,
+      identifierstyle=\color{colIdentifier},
+      keywordstyle=\color{colKeys},
+      stringstyle=\color{colString},
+      commentstyle=\itshape\color{colComments},
+      columns=fixed,
+      tabsize=4,
+      frame=single,
+      framerule=1pt,
+      extendedchars=true,
+      showspaces=false,
+      showstringspaces=false,
+      numbers=left,
+      numberstyle=\tiny\ttfamily,
+      numbersep=1em,
+      breaklines=true,
+      breakindent=10pt,
+      backgroundcolor=\color{hellgelb},
+      breakautoindent=true,
+      captionpos=t,
+      xleftmargin=1em,
+      xrightmargin=\fboxsep
+}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{pifont}
+\usepackage{color}
+\usepackage{accents}
+
+\delimitershortfall=-1pt
+\let\Right\right
+\let\Left\left
+\makeatletter
+\def\right#1{\Right#1\@ifnextchar){\!\right}{}}
+\def\left#1{\Left#1\@ifnextchar({\!\left}{}}
+\newcommand{\mathleft}{\@fleqntrue\@mathmargin0pt}
+\newcommand{\mathcenter}{\@fleqnfalse}
+\makeatother
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 25mm
+\topmargin 25mm
+\rightmargin 25mm
+\bottommargin 25mm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+chaptername}{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+thechapter}{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+THE EXTENDED KALMAN FILTER
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{x}_t 
+\backslash
+, = 
+\backslash
+, g
+\backslash
+left(
+\backslash
+vec{x}_{t-1},
+\backslash
+, 
+\backslash
+vec{u}_t
+\backslash
+right)
+\backslash
+
+\backslash
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{pmatrix*}[l]
+\end_layout
+
+\begin_layout Plain Layout
+
+x_t
+\backslash
+,=
+\backslash
+,g_1
+\backslash
+left(x_{t-1},
+\backslash
+,
+\backslash
+vec{u}_t
+\backslash
+right)
+\backslash
+,=
+\backslash
+, x_{t-1}
+\backslash
+,+
+\backslash
+,
+\backslash
+left(Rs_t 
+\backslash
+,+
+\backslash
+,
+\backslash
+dfrac{W}{2}
+\backslash
+right)
+\backslash
+left(+
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+,+
+\backslash
+,
+\backslash
+alpha_t
+\backslash
+right)
+\backslash
+,-
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)&
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+y_t
+\backslash
+,=
+\backslash
+,g_2
+\backslash
+left(y_{t-1},
+\backslash
+,
+\backslash
+vec{u}_t
+\backslash
+right)
+\backslash
+,=
+\backslash
+,y_{t-1}
+\backslash
+,+
+\backslash
+,
+\backslash
+left(Rs_t
+\backslash
+,+
+\backslash
+,
+\backslash
+dfrac{W}{2}
+\backslash
+right)
+\backslash
+left(-
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t
+\backslash
+right)
+\backslash
+,+
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+theta_t
+\backslash
+,=
+\backslash
+,g_3
+\backslash
+left(
+\backslash
+theta_{t-1},
+\backslash
+,
+\backslash
+vec{u}_t
+\backslash
+right)
+\backslash
+,=
+\backslash
+,
+\backslash
+theta_{t-1}
+\backslash
+,+
+\backslash
+,
+\backslash
+alpha_t
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix*}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+alpha_t 
+\backslash
+,=
+\backslash
+,f_1
+\backslash
+left(
+\backslash
+vec{u}_t
+\backslash
+right)
+\backslash
+,=
+\backslash
+,
+\backslash
+dfrac{r_t 
+\backslash
+,-
+\backslash
+, l_t}{W}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+Rs_t 
+\backslash
+,=
+\backslash
+,f_2
+\backslash
+left(
+\backslash
+vec{u}_t
+\backslash
+right)
+\backslash
+,=
+\backslash
+,
+\backslash
+dfrac{l_t}{
+\backslash
+alpha_t} 
+\backslash
+,=
+\backslash
+, 
+\backslash
+left(
+\backslash
+frac{l_t}{r_t 
+\backslash
+,-
+\backslash
+, l_t}
+\backslash
+right)
+\backslash
+,W
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{z}_t 
+\backslash
+,&=
+\backslash
+, 
+\backslash
+begin{pmatrix}D_t
+\backslash
+
+\backslash
+ 
+\backslash
+phi_t 
+\backslash
+end{pmatrix}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+hat{z}}_t 
+\backslash
+,&=
+\backslash
+, 
+\backslash
+begin{pmatrix}
+\backslash
+hat{D}_t
+\backslash
+
+\backslash
+ 
+\backslash
+hat{
+\backslash
+phi}_t 
+\backslash
+end{pmatrix} 
+\backslash
+,=
+\backslash
+, h
+\backslash
+left(
+\backslash
+vec{x}_t,
+\backslash
+,
+\backslash
+vec{p}_W
+\backslash
+right)
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Because the motion model, function 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$g
+\backslash
+left(
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+, and the measure model, function 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$h
+\backslash
+left(
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+In this video lecture the terms 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{D}_t$
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{
+\backslash
+phi}_t$
+\end_layout
+
+\end_inset
+
+ are called 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$r$
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+alpha$
+\end_layout
+
+\end_inset
+
+, respectively.
+ I use other names just to avoid confusions with other terms that appears
+ during the course.
+\end_layout
+
+\end_inset
+
+ , are non-linear I have to use another version of the N-dimensional Kalman
+ filter called: 
+\series bold
+the extended Kalman filter (EKF)
+\series default
+.
+\end_layout
+
+\begin_layout Paragraph*
+THE PREDICTION STEP
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{pmatrix*}[l] 
+\backslash
+overline{
+\backslash
+mu}_{x_t}
+\backslash
+,=
+\backslash
+,g_1
+\backslash
+left(
+\backslash
+mu_{x_{t-1}},
+\backslash
+,
+\backslash
+vec{u}_t
+\backslash
+right)
+\backslash
+,=
+\backslash
+, 
+\backslash
+mu_{x_{t-1}}
+\backslash
+,+
+\backslash
+,
+\backslash
+left(Rs_t 
+\backslash
+,+
+\backslash
+,
+\backslash
+dfrac{W}{2}
+\backslash
+right)
+\backslash
+left(+
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+mu_{
+\backslash
+theta_{t-1}}
+\backslash
+,+
+\backslash
+,
+\backslash
+alpha_t
+\backslash
+right)
+\backslash
+,-
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+mu_{
+\backslash
+theta_{t-1}}
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+ 
+\backslash
+overline{
+\backslash
+mu}_{y_t}
+\backslash
+,=
+\backslash
+,g_2
+\backslash
+left(
+\backslash
+mu_{y_{t-1}},
+\backslash
+,
+\backslash
+vec{u}_t
+\backslash
+right)
+\backslash
+,=
+\backslash
+, 
+\backslash
+mu_{y_{t-1}}
+\backslash
+,+
+\backslash
+,
+\backslash
+left(Rs_t 
+\backslash
+,+
+\backslash
+,
+\backslash
+dfrac{W}{2}
+\backslash
+right)
+\backslash
+left(-
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+mu_{
+\backslash
+theta_{t-1}}
+\backslash
+,+
+\backslash
+,
+\backslash
+alpha_t
+\backslash
+right)
+\backslash
+,+
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+mu_{
+\backslash
+theta_{t-1}}
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+ 
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t}
+\backslash
+,=
+\backslash
+,g_3
+\backslash
+left(
+\backslash
+mu_{
+\backslash
+theta_{t-1}},
+\backslash
+,
+\backslash
+vec{u}_t
+\backslash
+right)
+\backslash
+,=
+\backslash
+,
+\backslash
+mu_{
+\backslash
+theta_{t-1}}
+\backslash
+,+
+\backslash
+,
+\backslash
+alpha_t 
+\backslash
+end{pmatrix*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+Sigma}_t 
+\backslash
+,=
+\backslash
+, G_t 
+\backslash
+,
+\backslash
+cdot
+\backslash
+, 
+\backslash
+Sigma_{t-1} 
+\backslash
+,
+\backslash
+cdot
+\backslash
+, G_t^T 
+\backslash
+,+
+\backslash
+, R_t
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The covariance matrix 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_t$
+\end_layout
+
+\end_inset
+
+ is due to the propagation of the noise belonging to the control commands
+ through the motion model.
+ The covariance matrix 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+Sigma_{control,t}$
+\end_layout
+
+\end_inset
+
+ is due to the noise belonging to the control commands.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_t ~ 
+\backslash
+in ~ 
+\backslash
+mathbb{R}^{3 
+\backslash
+times 2}, 
+\backslash
+, 
+\backslash
+Sigma_{control,t} ~ 
+\backslash
+in ~ 
+\backslash
+mathbb{R}^{2 
+\backslash
+times 2}$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+R_t 
+\backslash
+,=
+\backslash
+, V_t 
+\backslash
+,
+\backslash
+cdot
+\backslash
+, 
+\backslash
+Sigma_{control,t} 
+\backslash
+,
+\backslash
+cdot
+\backslash
+, V_t^{T}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sigma_{control,t} 
+\backslash
+,=
+\backslash
+, 
+\backslash
+begin{pmatrix}
+\backslash
+sigma_{l_t}^2 & 0
+\backslash
+
+\backslash
+ 0 & 
+\backslash
+sigma_{r_t}^2
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The variance in the left control, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+sigma_{l_t}^2$
+\end_layout
+
+\end_inset
+
+, and the variance in the right control, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+sigma_{r_t}^2$
+\end_layout
+
+\end_inset
+
+, are defined as
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Terms of a variance add quadratically.
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{l_t}^2 
+\backslash
+,=
+\backslash
+, 
+\backslash
+left(p_1
+\backslash
+,l_t
+\backslash
+right)^2 
+\backslash
+,+
+\backslash
+, 
+\backslash
+left(p_2
+\backslash
+,
+\backslash
+left(l_t 
+\backslash
+,-
+\backslash
+, r_t
+\backslash
+right)
+\backslash
+right)^2
+\backslash
+
+\backslash
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{r_t}^2 
+\backslash
+,=
+\backslash
+, 
+\backslash
+left(p_1
+\backslash
+,r_t
+\backslash
+right)^2 
+\backslash
+,+
+\backslash
+, 
+\backslash
+left(p_2
+\backslash
+,
+\backslash
+left(l_t 
+\backslash
+,-
+\backslash
+, r_t
+\backslash
+right)
+\backslash
+right)^2
+\backslash
+
+\backslash
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+0 
+\backslash
+, 
+\backslash
+leq 
+\backslash
+, p_1 
+\backslash
+,
+\backslash
+leq
+\backslash
+, 1
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+0 
+\backslash
+, 
+\backslash
+leq 
+\backslash
+, p_2 
+\backslash
+,
+\backslash
+leq
+\backslash
+, 1
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These variances capture the exactness of the motion on the left and right
+ wheels of the robot.
+ The fact that the covariance matrix 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+Sigma_{control,t}$
+\end_layout
+
+\end_inset
+
+ is diagonal assumes that there is no correlation between the control command
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$l_t$
+\end_layout
+
+\end_inset
+
+ and the control command 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$r_t$
+\end_layout
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$p_1$
+\end_layout
+
+\end_inset
+
+ takes into account the error in the motion when the robot moves straight
+ forward.
+ Therefore, the value of the term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$p_1$
+\end_layout
+
+\end_inset
+
+ is normally small, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$p1 
+\backslash
+approx 0$
+\end_layout
+
+\end_inset
+
+.
+ The term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$p_2$
+\end_layout
+
+\end_inset
+
+ takes into account the error when the robot turns.
+ There's a lot of slipping of the wheels/tracks on the ground when the robot
+ turns.
+ Therefore, the value of the term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$p_2$
+\end_layout
+
+\end_inset
+
+ is normally greater than the value of the term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$p_1$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$G_t$
+\end_layout
+
+\end_inset
+
+ is the jacobian matrix of the function 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$g
+\backslash
+left(
+\backslash
+vec{x}_{t-1},
+\backslash
+, 
+\backslash
+vec{u}_t
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+ with respect to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{x}_{t-1}$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+G_t 
+\backslash
+,=
+\backslash
+, 
+\backslash
+dfrac{
+\backslash
+partial g
+\backslash
+left(
+\backslash
+vec{x}_{t-1},
+\backslash
+, 
+\backslash
+vec{u}_t
+\backslash
+right)}{
+\backslash
+partial
+\backslash
+vec{x}_{t-1}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+,=
+\backslash
+, 
+\backslash
+begin{pmatrix}
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial x_{t-1}} & 
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial y_{t-1}} & 
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial 
+\backslash
+theta_{t-1}}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial x_{t-1}} & 
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial y_{t-1}} & 
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial 
+\backslash
+theta_{t-1}}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_3}{
+\backslash
+partial x_{t-1}} & 
+\backslash
+dfrac{
+\backslash
+partial g_3}{
+\backslash
+partial y_{t-1}} & 
+\backslash
+dfrac{
+\backslash
+partial g_3}{
+\backslash
+partial 
+\backslash
+theta_{t-1}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$r_t 
+\backslash
+,
+\backslash
+neq
+\backslash
+, l_t$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial x_{t-1}} 
+\backslash
+,&=
+\backslash
+, 1
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial y_{t-1}} 
+\backslash
+,&=
+\backslash
+, 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial 
+\backslash
+theta_{t-1}} 
+\backslash
+,&=
+\backslash
+, 
+\backslash
+left(Rs_t 
+\backslash
+,+
+\backslash
+, 
+\backslash
+dfrac{W}{2}
+\backslash
+right)
+\backslash
+left(+
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial x_{t-1}} 
+\backslash
+,&=
+\backslash
+, 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial y_{t-1}} 
+\backslash
+,&=
+\backslash
+, 1
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial 
+\backslash
+theta_{t-1}} 
+\backslash
+,&=
+\backslash
+, 
+\backslash
+left(Rs_t 
+\backslash
+,+
+\backslash
+, 
+\backslash
+dfrac{W}{2}
+\backslash
+right)
+\backslash
+left(+
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_3}{
+\backslash
+partial x_{t-1}} 
+\backslash
+,&=
+\backslash
+, 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_3}{
+\backslash
+partial y_{t-1}} 
+\backslash
+,&=
+\backslash
+, 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_3}{
+\backslash
+partial 
+\backslash
+theta_{t-1}} 
+\backslash
+,&=
+\backslash
+, 1
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+G_t 
+\backslash
+,=
+\backslash
+, 
+\backslash
+begin{pmatrix}1 & 0 & 
+\backslash
+left(Rs_t 
+\backslash
+,+
+\backslash
+, 
+\backslash
+dfrac{W}{2}
+\backslash
+right)
+\backslash
+left(+
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+[10pt]
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+0 & 1 & 
+\backslash
+left(Rs_t 
+\backslash
+,+
+\backslash
+, 
+\backslash
+dfrac{W}{2}
+\backslash
+right)
+\backslash
+left(+
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+0 & 0 & 1
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the terms 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial 
+\backslash
+theta_{t-1}}$
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial 
+\backslash
+theta_{t-1}}$
+\end_layout
+
+\end_inset
+
+ there is a singularity when 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$l_t 
+\backslash
+,=
+\backslash
+, r_t$
+\end_layout
+
+\end_inset
+
+, because 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+alpha_t 
+\backslash
+,=
+\backslash
+, 0$
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$Rs_t 
+\backslash
+,=
+\backslash
+, 
+\backslash
+infty$
+\end_layout
+
+\end_inset
+
+.
+ Therefore, we have to derived new expressions for these terms when the
+ control commands are equal.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$ l_t
+\backslash
+,=
+\backslash
+,r_t $
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial
+\backslash
+theta_{t-1}} 
+\backslash
+,
+\backslash
+stackrel{l_t=r_t}{=} 
+\backslash
+, &
+\backslash
+lim_{l_t 
+\backslash
+to r_t}
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial 
+\backslash
+theta_{t-1}} 
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+=
+\backslash
+, &
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+left(Rs_t 
+\backslash
+,+
+\backslash
+, 
+\backslash
+dfrac{W}{2}
+\backslash
+right)
+\backslash
+left(
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right) 
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+= 
+\backslash
+, &
+\backslash
+lim_{l_t 
+\backslash
+to r_t} Rs_t
+\backslash
+,
+\backslash
+left(
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{W}{2}
+\backslash
+,
+\backslash
+left(
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+=
+\backslash
+, &
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{l_t}{
+\backslash
+alpha_t}
+\backslash
+,
+\backslash
+left(
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{W}{2}
+\backslash
+,
+\backslash
+left(
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+= 
+\backslash
+, &
+\backslash
+dfrac{l_t}{0}
+\backslash
+,
+\backslash
+left(0
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 
+\backslash
+dfrac{W}{2}
+\backslash
+,
+\backslash
+left(0
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial
+\backslash
+theta_{t-1}} 
+\backslash
+,
+\backslash
+stackrel{l_t=r_t}{=} 
+\backslash
+, &
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial 
+\backslash
+theta_{t-1}} 
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+=
+\backslash
+, &
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{l_t
+\backslash
+,
+\backslash
+left(
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)}{
+\backslash
+alpha_t} 
+\backslash
+,=
+\backslash
+, 
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{num
+\backslash
+left(
+\backslash
+alpha_t
+\backslash
+right)}{den
+\backslash
+left(
+\backslash
+alpha_t
+\backslash
+right)} 
+\backslash
+, 
+\backslash
+stackrel{
+\backslash
+text{L'Hôpital}}{=} 
+\backslash
+, 
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{num'
+\backslash
+left(
+\backslash
+alpha_t
+\backslash
+right)}{den'
+\backslash
+left(
+\backslash
+alpha_t
+\backslash
+right)} 
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+= 
+\backslash
+, &
+\backslash
+dfrac{-
+\backslash
+,l_t 
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t
+\backslash
+right)}{1} 
+\backslash
+,=
+\backslash
+, -
+\backslash
+,l_t 
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right) 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial
+\backslash
+theta_{t-1}} 
+\backslash
+, 
+\backslash
+stackrel{l_t=r_t}{=} 
+\backslash
+, &
+\backslash
+lim_{l_t
+\backslash
+to r_t}
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial 
+\backslash
+theta_{t-1}} 
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+=
+\backslash
+, &
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+left(Rs_t 
+\backslash
+,+
+\backslash
+, 
+\backslash
+dfrac{W}{2}
+\backslash
+right)
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right) 
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+= 
+\backslash
+, &
+\backslash
+lim_{l_t 
+\backslash
+to r_t} Rs_t
+\backslash
+,
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{W}{2}
+\backslash
+,
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+=
+\backslash
+, &
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{l_t}{
+\backslash
+alpha_t}
+\backslash
+,
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{W}{2}
+\backslash
+,
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+= 
+\backslash
+, &
+\backslash
+dfrac{l_t}{0}
+\backslash
+,
+\backslash
+left(0
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 
+\backslash
+dfrac{W}{2}
+\backslash
+,
+\backslash
+left(0
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial
+\backslash
+theta_{t-1}} 
+\backslash
+,
+\backslash
+stackrel{l_t=r_t}{=} 
+\backslash
+, &
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial 
+\backslash
+theta_{t-1}} 
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+=
+\backslash
+,&
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{l_t
+\backslash
+,
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t 
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)}{
+\backslash
+alpha_t}
+\backslash
+,=
+\backslash
+, 
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{num
+\backslash
+left(
+\backslash
+alpha_t
+\backslash
+right)}{den
+\backslash
+left(
+\backslash
+alpha_t
+\backslash
+right)} 
+\backslash
+, 
+\backslash
+stackrel{
+\backslash
+text{L'Hôpital}}{=} 
+\backslash
+, 
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{num'
+\backslash
+left(
+\backslash
+alpha_t
+\backslash
+right)}{den'
+\backslash
+left(
+\backslash
+alpha_t
+\backslash
+right)} 
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+= 
+\backslash
+, &
+\backslash
+dfrac{l_t 
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+alpha_t
+\backslash
+right)}{1} 
+\backslash
+,=
+\backslash
+, 
+\backslash
+,l_t 
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right) 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+G_t 
+\backslash
+,=
+\backslash
+, 
+\backslash
+begin{pmatrix} 1 & 0 & -
+\backslash
+,l_t 
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+0 & 1 & 
+\backslash
+,l_t 
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+0 & 0 & 1
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_t$
+\end_layout
+
+\end_inset
+
+ is the jacobian matrix of the function 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$g
+\backslash
+left(
+\backslash
+vec{x}_{t-1},
+\backslash
+, 
+\backslash
+vec{u}_t
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+ with respect to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{u}_t$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+V_t 
+\backslash
+,=
+\backslash
+, 
+\backslash
+dfrac{
+\backslash
+partial g
+\backslash
+left(
+\backslash
+vec{x}_{t-1},
+\backslash
+, 
+\backslash
+vec{u}_t
+\backslash
+right)}{
+\backslash
+partial 
+\backslash
+vec{u}_t}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+,=
+\backslash
+, 
+\backslash
+begin{pmatrix}
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial l_t} & 
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial r_t}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial l_t} & 
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial r_t}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_3}{
+\backslash
+partial l_t} & 
+\backslash
+dfrac{
+\backslash
+partial g_3}{
+\backslash
+partial r_t}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+left(Rs_t 
+\backslash
+,+
+\backslash
+, 
+\backslash
+dfrac{W}{2}
+\backslash
+right) 
+\backslash
+,=
+\backslash
+, 
+\backslash
+left(
+\backslash
+dfrac{l_t}{r_t 
+\backslash
+,-
+\backslash
+, l_t} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+dfrac{1}{2}
+\backslash
+right)
+\backslash
+,W 
+\backslash
+,=
+\backslash
+, 
+\backslash
+left(
+\backslash
+dfrac{r_t 
+\backslash
+,+
+\backslash
+, l_t}{r_t 
+\backslash
+,-
+\backslash
+, l_t}
+\backslash
+right)
+\backslash
+,
+\backslash
+dfrac{W}{2}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{pmatrix*}[l]
+\end_layout
+
+\begin_layout Plain Layout
+
+x_t
+\backslash
+,=
+\backslash
+,x_{t-1}
+\backslash
+,+
+\backslash
+,
+\backslash
+left(
+\backslash
+dfrac{r_t 
+\backslash
+,+
+\backslash
+, l_t}{r_t 
+\backslash
+,-
+\backslash
+, l_t}
+\backslash
+right)
+\backslash
+,
+\backslash
+dfrac{W}{2}
+\backslash
+,
+\backslash
+left(+
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+, + 
+\backslash
+, 
+\backslash
+dfrac{r_t 
+\backslash
+,-
+\backslash
+, l_t}{W}
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+y_t
+\backslash
+,=
+\backslash
+,y_{t-1}
+\backslash
+,+
+\backslash
+,
+\backslash
+left(
+\backslash
+dfrac{r_t 
+\backslash
+,+
+\backslash
+, l_t}{r_t 
+\backslash
+,-
+\backslash
+, l_t}
+\backslash
+right)
+\backslash
+,
+\backslash
+dfrac{W}{2}
+\backslash
+,
+\backslash
+left(-
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+, + 
+\backslash
+, 
+\backslash
+dfrac{r_t 
+\backslash
+,-
+\backslash
+, l_t}{W}
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+theta_t
+\backslash
+,=
+\backslash
+,
+\backslash
+theta_{t-1}
+\backslash
+,+
+\backslash
+,
+\backslash
+alpha_t
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$l_t 
+\backslash
+,
+\backslash
+neq
+\backslash
+, r_t$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial l_t} 
+\backslash
+,&=
+\backslash
+, 
+\backslash
+left(
+\backslash
+left(
+\backslash
+dfrac{r_t 
+\backslash
+,+
+\backslash
+, l_t}{r_t 
+\backslash
+,-
+\backslash
+, l_t}
+\backslash
+right)
+\backslash
+,
+\backslash
+dfrac{W}{2}
+\backslash
+right)' 
+\backslash
+, 
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+, + 
+\backslash
+, 
+\backslash
+dfrac{r_t 
+\backslash
+,-
+\backslash
+, l_t}{W}
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right) 
+\backslash
+,+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&+
+\backslash
+, 
+\backslash
+left(
+\backslash
+left(
+\backslash
+dfrac{r_t 
+\backslash
+,+
+\backslash
+, l_t}{r_t 
+\backslash
+,-
+\backslash
+, l_t}
+\backslash
+right)
+\backslash
+,
+\backslash
+,
+\backslash
+dfrac{W}{2}
+\backslash
+right)
+\backslash
+, 
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+, + 
+\backslash
+, 
+\backslash
+dfrac{r_t 
+\backslash
+,-
+\backslash
+, l_t}{W}
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)' 
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+dfrac{W}{2}
+\backslash
+,
+\backslash
+left(
+\backslash
+dfrac{1
+\backslash
+,
+\backslash
+left(r_t 
+\backslash
+,-
+\backslash
+, l_t
+\backslash
+right)-
+\backslash
+left(-1
+\backslash
+right)
+\backslash
+left(r_t
+\backslash
+,+
+\backslash
+,l_t
+\backslash
+right)}{
+\backslash
+left(r_t 
+\backslash
+,-
+\backslash
+, l_t
+\backslash
+right)^2}
+\backslash
+right)
+\backslash
+,
+\backslash
+left(
+\backslash
+,
+\backslash
+ldots
+\backslash
+,
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 
+\backslash
+left(
+\backslash
+dfrac{r_t 
+\backslash
+,+
+\backslash
+, l_t}{r_t 
+\backslash
+,-
+\backslash
+, l_t}
+\backslash
+right)
+\backslash
+,
+\backslash
+dfrac{W}{2}
+\backslash
+,cos
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+dfrac{r_t 
+\backslash
+,-
+\backslash
+, l_t}{W}
+\backslash
+right)
+\backslash
+,
+\backslash
+left(-
+\backslash
+,
+\backslash
+dfrac{1}{W}
+\backslash
+right)
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,W
+\backslash
+,
+\backslash
+dfrac{r_t}{
+\backslash
+left(r_t
+\backslash
+,-
+\backslash
+,l_t
+\backslash
+right)^2}
+\backslash
+,
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+, + 
+\backslash
+, 
+\backslash
+alpha_t
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+dfrac{1}{2}
+\backslash
+left(
+\backslash
+dfrac{r_t 
+\backslash
+,+
+\backslash
+, l_t}{r_t 
+\backslash
+,-
+\backslash
+, l_t}
+\backslash
+right)
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+,+
+\backslash
+,
+\backslash
+alpha_t
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial l_t} 
+\backslash
+,=
+\backslash
+, W
+\backslash
+,
+\backslash
+dfrac{r_t}{
+\backslash
+left(r_t
+\backslash
+,-
+\backslash
+,l_t
+\backslash
+right)^2}
+\backslash
+,
+\backslash
+left(-
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+, + 
+\backslash
+, 
+\backslash
+alpha_t
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+dfrac{1}{2}
+\backslash
+left(
+\backslash
+dfrac{r_t 
+\backslash
+,+
+\backslash
+, l_t}{r_t 
+\backslash
+,-
+\backslash
+, l_t}
+\backslash
+right)
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+,+
+\backslash
+,
+\backslash
+alpha_t
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_3}{
+\backslash
+partial l_t} 
+\backslash
+,=
+\backslash
+, -
+\backslash
+,
+\backslash
+frac{1}{W}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial r_t} 
+\backslash
+,=
+\backslash
+, -
+\backslash
+,W
+\backslash
+,
+\backslash
+dfrac{l_t}{
+\backslash
+left(r_t
+\backslash
+,-
+\backslash
+,l_t
+\backslash
+right)^2}
+\backslash
+,
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+, + 
+\backslash
+, 
+\backslash
+alpha_t
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 
+\backslash
+dfrac{1}{2}
+\backslash
+left(
+\backslash
+dfrac{r_t 
+\backslash
+,+
+\backslash
+, l_t}{r_t 
+\backslash
+,-
+\backslash
+, l_t}
+\backslash
+right)
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+,+
+\backslash
+,
+\backslash
+alpha_t
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial r_t} 
+\backslash
+,=
+\backslash
+, -
+\backslash
+,W
+\backslash
+,
+\backslash
+dfrac{l_t}{
+\backslash
+left(r_t
+\backslash
+,-
+\backslash
+,l_t
+\backslash
+right)^2}
+\backslash
+,
+\backslash
+left(-
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+, + 
+\backslash
+, 
+\backslash
+alpha_t
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 
+\backslash
+dfrac{1}{2}
+\backslash
+left(
+\backslash
+dfrac{r_t 
+\backslash
+,+
+\backslash
+, l_t}{r_t 
+\backslash
+,-
+\backslash
+, l_t}
+\backslash
+right)
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+,+
+\backslash
+,
+\backslash
+alpha_t
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_3}{
+\backslash
+partial r_t} 
+\backslash
+,=
+\backslash
+, 
+\backslash
+frac{1}{W}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the terms 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial l_t}$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial l_t}$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial r_t}$
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial r_t}$
+\end_layout
+
+\end_inset
+
+ there is a singularity when 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$l_t 
+\backslash
+,=
+\backslash
+, r_t$
+\end_layout
+
+\end_inset
+
+, because 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+alpha_t 
+\backslash
+,=
+\backslash
+, 0$
+\end_layout
+
+\end_inset
+
+.
+ Therefore, we have to derived new expressions for these terms when the
+ control commands are equal.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$ l_t 
+\backslash
+,=
+\backslash
+, r_t $
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial l_{t}} 
+\backslash
+, 
+\backslash
+stackrel{l_t=r_t}{=} 
+\backslash
+, &
+\backslash
+,
+\backslash
+lim_{l_t
+\backslash
+to r_t}
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial l_{t}} 
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+=&
+\backslash
+,W
+\backslash
+,
+\backslash
+dfrac{r_t}{
+\backslash
+left(0
+\backslash
+right)^2}
+\backslash
+,
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1} 
+\backslash
+, + 
+\backslash
+, 0
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+dfrac{1}{2}
+\backslash
+left(
+\backslash
+dfrac{2
+\backslash
+,r_t}{0}
+\backslash
+right)
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+,+
+\backslash
+,0
+\backslash
+right)
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+=&
+\backslash
+,W
+\backslash
+,
+\backslash
+dfrac{r_t}{
+\backslash
+left(0
+\backslash
+right)^2}
+\backslash
+,
+\backslash
+left(0
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+dfrac{1}{2}
+\backslash
+left(
+\backslash
+dfrac{2
+\backslash
+,r_t}{0}
+\backslash
+right)
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial l_t} 
+\backslash
+,
+\backslash
+stackrel{l_t=r_t}{=} 
+\backslash
+, &
+\backslash
+,
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial l_t} 
+\backslash
+, 
+\backslash
+stackrel{
+\backslash
+text{L'Hôpital}}{=} 
+\backslash
+, 
+\backslash
+dfrac{1}{2}
+\backslash
+left(
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right) 
+\backslash
+,+ 
+\backslash
+, 
+\backslash
+dfrac{l_t}{W}
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial r_t} 
+\backslash
+,
+\backslash
+stackrel{l_t=r_t}{=} 
+\backslash
+, &
+\backslash
+,
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{
+\backslash
+partial g_1}{
+\backslash
+partial r_t} 
+\backslash
+, 
+\backslash
+stackrel{
+\backslash
+text{L'Hôpital}}{=} 
+\backslash
+, 
+\backslash
+dfrac{1}{2}
+\backslash
+left(
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right) 
+\backslash
+,- 
+\backslash
+, 
+\backslash
+dfrac{l_t}{W}
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial l_t} 
+\backslash
+,
+\backslash
+stackrel{l_t=r_t}{=} 
+\backslash
+, &
+\backslash
+,
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial l_t} 
+\backslash
+, 
+\backslash
+stackrel{
+\backslash
+text{L'Hôpital}}{=} 
+\backslash
+, 
+\backslash
+dfrac{1}{2}
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right) 
+\backslash
+,- 
+\backslash
+, 
+\backslash
+dfrac{l_t}{W}
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial r_t} 
+\backslash
+,
+\backslash
+stackrel{l_t=r_t}{=} 
+\backslash
+, &
+\backslash
+,
+\backslash
+lim_{l_t 
+\backslash
+to r_t} 
+\backslash
+dfrac{
+\backslash
+partial g_2}{
+\backslash
+partial r_t} 
+\backslash
+, 
+\backslash
+stackrel{
+\backslash
+text{L'Hôpital}}{=} 
+\backslash
+, 
+\backslash
+dfrac{1}{2}
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right) 
+\backslash
+,+ 
+\backslash
+, 
+\backslash
+dfrac{l_t}{W}
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+V_t 
+\backslash
+,=
+\backslash
+, 
+\backslash
+begin{pmatrix} 
+\backslash
+dfrac{1}{2}
+\backslash
+left(
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right) 
+\backslash
+,+ 
+\backslash
+, 
+\backslash
+dfrac{l_t}{W}
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right) & 
+\backslash
+dfrac{1}{2}
+\backslash
+left(
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right) 
+\backslash
+,- 
+\backslash
+, 
+\backslash
+dfrac{l_t}{W}
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{1}{2}
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right) 
+\backslash
+,- 
+\backslash
+, 
+\backslash
+dfrac{l_t}{W}
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right) & 
+\backslash
+dfrac{1}{2}
+\backslash
+left(
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right) 
+\backslash
+,+ 
+\backslash
+, 
+\backslash
+dfrac{l_t}{W}
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_{t-1}
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+-
+\backslash
+,
+\backslash
+frac{1}{W} & 
+\backslash
+frac{1}{W}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+THE CORRECTION STEP 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I call
+\emph on
+ detected landmark 
+\emph default
+to a landmark that is detected by the algorithm in a scan, which is taken
+ by the robot's laser scanner in the world.
+ 
+\end_layout
+
+\begin_layout Standard
+The term 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{z}_t 
+\backslash
+,=
+\backslash
+, 
+\backslash
+begin{pmatrix}D_t
+\backslash
+
+\backslash
+ 
+\backslash
+phi_t 
+\backslash
+end{pmatrix}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is a measurement that the algorithm calculates in a scan.
+ This measurement is comprised by the distance from the laser scanner to
+ a detected landmark, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$D_t$
+\end_layout
+
+\end_inset
+
+, and the angle formed between the laser scanner's longitudinal axis and
+ the straight line that joints the laser scanner with the detected landmark.
+\end_layout
+
+\begin_layout Standard
+Let's define the term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{z}_{it}$
+\end_layout
+
+\end_inset
+
+ as the measurement computed for each detected landmark in a scan:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{z}_{it} 
+\backslash
+,=
+\backslash
+, 
+\backslash
+begin{pmatrix}D_{it}
+\backslash
+
+\backslash
+ 
+\backslash
+phi_{it} 
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$i
+\backslash
+,=
+\backslash
+,1,
+\backslash
+,
+\backslash
+ldots,
+\backslash
+,N_s$
+\end_layout
+
+\end_inset
+
+.
+ Example: Let's suppose that the algorithm detects 4 landmark in a scan,
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N_s
+\backslash
+,=
+\backslash
+,4$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig52.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{z}_{1t} 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+begin{pmatrix}D_{1t}
+\backslash
+
+\backslash
+ 
+\backslash
+phi_{1t}
+\backslash
+end{pmatrix}, ~ 
+\backslash
+vec{z}_{2t} 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+begin{pmatrix}D_{2t}
+\backslash
+
+\backslash
+ 
+\backslash
+phi_{2t}
+\backslash
+end{pmatrix}, ~ 
+\backslash
+vec{z}_{3t} 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+begin{pmatrix}D_{3t}
+\backslash
+
+\backslash
+ 
+\backslash
+phi_{3t}
+\backslash
+end{pmatrix}, ~ 
+\backslash
+vec{z}_{4t}  
+\backslash
+, = 
+\backslash
+, 
+\backslash
+begin{pmatrix}D_{4t}
+\backslash
+
+\backslash
+ 
+\backslash
+phi_{4t}
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I called 
+\emph on
+world landmark
+\emph default
+ to a landmark that it's placed in a specific position in the world that
+ the algorithm knows since the beginning of its execution.
+\end_layout
+
+\begin_layout Standard
+The notation to reference in a generic way the position of any landmark
+ is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{p}_W
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+x_W
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+y_W
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+The notation to reference to the position of the landmark number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j$
+\end_layout
+
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+vec{p}_W}_j
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+{x_W}_j
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+{x_W}_j
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j
+\backslash
+,=
+\backslash
+,1,
+\backslash
+,
+\backslash
+ldots,
+\backslash
+,N_w$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The first task that the algorithm has to accomplish is to match each detected
+ landmark with a world landmark.
+ These matches among the detected landmarks and the world landmarks are
+ based on the proximity among them.
+ 
+\end_layout
+
+\begin_layout Standard
+The algorithm calculates the global coordinates of each detected landmark
+ using the robot's predicted pose, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t$
+\end_layout
+
+\end_inset
+
+, computed in the predicted step, and each term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{z}_{it}$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The global coordinates of each detected landmark are:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+x_{i} 
+\backslash
+,&=
+\backslash
+, 
+\backslash
+overline{
+\backslash
+mu}_{x_{lt}}
+\backslash
+,+
+\backslash
+,D_{it}
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+phi_{it}
+\backslash
+right)
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{x_t} 
+\backslash
+,+
+\backslash
+, sd
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t}
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, D_{it}
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+phi_{it}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+y_{i} 
+\backslash
+,&=
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{y_{lt}}
+\backslash
+,+
+\backslash
+, D_{it}
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+phi_{it}
+\backslash
+right)
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{y_t} 
+\backslash
+,+
+\backslash
+, sd
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t}
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, D_{it}
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+phi_{it}
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$i
+\backslash
+,=
+\backslash
+, 1,
+\backslash
+, 2,
+\backslash
+, 
+\backslash
+ldots,
+\backslash
+, N_s$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The next step for the algorithm is to match each detected landmark with
+ the nearest world landmark.
+ This task is possible since the algorithm now knows the global coordinates
+ of each detected landmark and each world landmark.
+ Let's suppose, that the algorithm has matched detected landmark number
+ 1 with world landmark number 2, detected landmark number 2 with world landmark
+ number 7, detected landmark number 3 with world landmark number 5 and detected
+ landmark number 4 with world landmark number 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+left(i
+\backslash
+,=
+\backslash
+,1,
+\backslash
+,j
+\backslash
+,=
+\backslash
+,2
+\backslash
+right),
+\backslash
+,
+\backslash
+left(i
+\backslash
+,=
+\backslash
+,2,
+\backslash
+,j
+\backslash
+,=
+\backslash
+,7
+\backslash
+right),
+\backslash
+,
+\backslash
+left(i
+\backslash
+,=
+\backslash
+,3,
+\backslash
+,j
+\backslash
+,=
+\backslash
+,5
+\backslash
+right),
+\backslash
+,
+\backslash
+left(i
+\backslash
+,=
+\backslash
+,4,
+\backslash
+,j
+\backslash
+,=
+\backslash
+,1
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If the distance from a detected landmark to its matched world landmark is
+ bigger than a maximum threshold, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+epsilon$
+\end_layout
+
+\end_inset
+
+, then this pair of detected landmark-world landmark is rejected.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sqrt{
+\backslash
+left(x_i
+\backslash
+,-
+\backslash
+,{x_W}_j
+\backslash
+right)^2
+\backslash
+,+
+\backslash
+,
+\backslash
+left(y_i
+\backslash
+,-
+\backslash
+,{y_W}_j
+\backslash
+right)^2}
+\backslash
+,&
+\backslash
+leq
+\backslash
+,
+\backslash
+epsilon~
+\backslash
+longrightarrow~
+\backslash
+text{match accepted}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sqrt{
+\backslash
+left(x_i
+\backslash
+,-
+\backslash
+,{x_W}_j
+\backslash
+right)^2
+\backslash
+,+
+\backslash
+,
+\backslash
+left(y_i
+\backslash
+,-
+\backslash
+,{y_W}_j
+\backslash
+right)^2}
+\backslash
+,&>
+\backslash
+,
+\backslash
+epsilon~
+\backslash
+longrightarrow~
+\backslash
+text{match rejected}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's suppose that the second match in this example is rejected since it
+ doesn't satisfy the threshold condition.
+ Therefore, the resulting matches are:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+left(i
+\backslash
+,=
+\backslash
+,1,
+\backslash
+,j
+\backslash
+,=
+\backslash
+,2
+\backslash
+right),
+\backslash
+,
+\backslash
+left(i
+\backslash
+,=
+\backslash
+,3,
+\backslash
+,j
+\backslash
+,=
+\backslash
+,5
+\backslash
+right),
+\backslash
+,
+\backslash
+left(i
+\backslash
+,=
+\backslash
+,4,
+\backslash
+,j
+\backslash
+,=
+\backslash
+,1
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Before continuing it's necessary to define the concept of the expected measureme
+nt.
+ The term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+hat{z}}_t$
+\end_layout
+
+\end_inset
+
+ is called expected measurement.
+ The expected measurement to a world landmark is comprised by the distance
+ from the laser scanner to a world landmark, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{D}_t$
+\end_layout
+
+\end_inset
+
+, and the angle defined between the laser scanner's longitudinal axis and
+ the straight line that joints the laser scanner with the world landmark.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+hat{z}}_t 
+\backslash
+,=
+\backslash
+, h
+\backslash
+left(
+\backslash
+vec{x}_t,
+\backslash
+,
+\backslash
+vec{p}_W
+\backslash
+right)
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix*}[l]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hat{D}_t
+\backslash
+,=
+\backslash
+,h_1
+\backslash
+left(
+\backslash
+vec{x}_{t},
+\backslash
+,
+\backslash
+vec{p}_W
+\backslash
+right)
+\backslash
+,=
+\backslash
+,
+\backslash
+sqrt{
+\backslash
+left(x_W 
+\backslash
+,-
+\backslash
+, x_{lt}
+\backslash
+right)^2 
+\backslash
+,+
+\backslash
+, 
+\backslash
+left(y_W 
+\backslash
+,-
+\backslash
+, y_{lt}
+\backslash
+right)^2}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hat{
+\backslash
+phi}_t
+\backslash
+,=
+\backslash
+,h_2
+\backslash
+left(
+\backslash
+vec{x}_{t},
+\backslash
+,
+\backslash
+vec{p}_W
+\backslash
+right)
+\backslash
+,=
+\backslash
+,
+\backslash
+arctan
+\backslash
+left(
+\backslash
+dfrac{y_W 
+\backslash
+,-
+\backslash
+, y_{lt}}{x_W 
+\backslash
+,-
+\backslash
+, x_{lt}}  
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+theta_t
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix*}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{pmatrix*}[l]
+\end_layout
+
+\begin_layout Plain Layout
+
+x_{lt}
+\backslash
+,=
+\backslash
+,x_t
+\backslash
+,+
+\backslash
+,sd
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_t
+\backslash
+right)
+\backslash
+
+\backslash
+[5pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+y_{lt}
+\backslash
+,=
+\backslash
+,y_t
+\backslash
+,+
+\backslash
+,sd
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_t
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix*}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The value 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}$
+\end_layout
+
+\end_inset
+
+ indicates the expected measurement between the scanner laser's predicted
+ position, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_{lt}$
+\end_layout
+
+\end_inset
+
+, and the position of the landmark number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j,
+\backslash
+,{
+\backslash
+vec{p}_W}_j$
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+,=
+\backslash
+,h
+\backslash
+left(
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t,
+\backslash
+,{
+\backslash
+vec{p}_W}_j
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{pmatrix*}[l]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hat{D}_{jt}
+\backslash
+,=
+\backslash
+,h_1
+\backslash
+left(
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t,
+\backslash
+,{
+\backslash
+vec{p}_W}_j
+\backslash
+right)
+\backslash
+,=
+\backslash
+,
+\backslash
+sqrt{
+\backslash
+left({x_W}_j 
+\backslash
+,-
+\backslash
+, 
+\backslash
+overline{
+\backslash
+mu}_{x_{lt}}
+\backslash
+right)^2 
+\backslash
+,+
+\backslash
+, 
+\backslash
+left({y_W}_j 
+\backslash
+,-
+\backslash
+, 
+\backslash
+overline{
+\backslash
+mu}_{y_{lt}}
+\backslash
+right)^2}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hat{
+\backslash
+phi}_{jt}
+\backslash
+,=
+\backslash
+,h_2
+\backslash
+left(
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t,
+\backslash
+,{
+\backslash
+vec{p}_W}_j
+\backslash
+right)
+\backslash
+,=
+\backslash
+,
+\backslash
+arctan
+\backslash
+left(
+\backslash
+dfrac{{y_W}_j 
+\backslash
+,-
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{y_{lt}}}{{x_W}_j
+\backslash
+,-
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{x_{lt}}}  
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix*}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig50.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then for each world landmark successfully matched to a detected landmark
+ the algorithm computes the distance from the laser scanner's predicted
+ pose to that world landmark, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{D}_{jt}$
+\end_layout
+
+\end_inset
+
+, and the angle defined between the laser scanner's predicted longitudinal
+ axis and the imaginary line that joints the laser scanner's predicted position
+ with that world landmark, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{
+\backslash
+phi}_{jt}$
+\end_layout
+
+\end_inset
+
+.
+ These computations are carried out with the function 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$h
+\backslash
+left(
+\backslash
+vec{x}_t,
+\backslash
+,
+\backslash
+vec{p}_W
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+.
+ Therefore the algorithm computes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+hat{z}}_{2t}
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\backslash
+hat{D}_{2t}
+\backslash
+
+\backslash
+ 
+\backslash
+hat{
+\backslash
+phi}_{2t}
+\backslash
+end{pmatrix}
+\backslash
+,=
+\backslash
+,h
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_t,
+\backslash
+,{
+\backslash
+vec{p}_W}_2
+\backslash
+right)
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+hat{z}}_{5t}
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\backslash
+hat{D}_{5t}
+\backslash
+
+\backslash
+ 
+\backslash
+hat{
+\backslash
+phi}_{5t}
+\backslash
+end{pmatrix}
+\backslash
+,=
+\backslash
+,h
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_t,
+\backslash
+,{
+\backslash
+vec{p}_W}_5
+\backslash
+right)
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+hat{z}}_{1t}
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\backslash
+hat{D}_{1t}
+\backslash
+
+\backslash
+ 
+\backslash
+hat{
+\backslash
+phi}_{1t}
+\backslash
+end{pmatrix}
+\backslash
+,=
+\backslash
+,h
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_t,
+\backslash
+,{
+\backslash
+vec{p}_W}_1
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So, at this moment the algorithm has ended with the matching between detected
+ landmarks and world landmarks.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+left(
+\backslash
+vec{z}_{1t},
+\backslash
+, 
+\backslash
+vec{
+\backslash
+hat{z}}_{2t}
+\backslash
+right),
+\backslash
+, 
+\backslash
+left(
+\backslash
+vec{z}_{3t},
+\backslash
+, 
+\backslash
+vec{
+\backslash
+hat{z}}_{5t}
+\backslash
+right),
+\backslash
+, 
+\backslash
+left(
+\backslash
+vec{z}_{4t},
+\backslash
+, 
+\backslash
+vec{
+\backslash
+hat{z}}_{1t}
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{z}_{1t} 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+begin{pmatrix}D_{1t}
+\backslash
+
+\backslash
+ 
+\backslash
+phi_{1t}
+\backslash
+end{pmatrix}, ~ 
+\backslash
+vec{z}_{3t} 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+begin{pmatrix}D_{3t}
+\backslash
+
+\backslash
+ 
+\backslash
+phi_{3t}
+\backslash
+end{pmatrix}, ~ 
+\backslash
+vec{z}_{4t}  
+\backslash
+, = 
+\backslash
+, 
+\backslash
+begin{pmatrix}D_{4t}
+\backslash
+
+\backslash
+ 
+\backslash
+phi_{4t}
+\backslash
+end{pmatrix}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+hat{z}}_{2t} 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+begin{pmatrix}
+\backslash
+hat{D}_{2t}
+\backslash
+
+\backslash
+ 
+\backslash
+hat{
+\backslash
+phi}_{2t}
+\backslash
+end{pmatrix}, ~ 
+\backslash
+vec{
+\backslash
+hat{z}}_{5t} 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+begin{pmatrix}
+\backslash
+hat{D}_{5t}
+\backslash
+
+\backslash
+ 
+\backslash
+hat{
+\backslash
+phi}_{5t}
+\backslash
+end{pmatrix}, ~ 
+\backslash
+vec{
+\backslash
+hat{z}}_{1t}  
+\backslash
+, = 
+\backslash
+, 
+\backslash
+begin{pmatrix}
+\backslash
+hat{D}_{1t}
+\backslash
+
+\backslash
+ 
+\backslash
+hat{
+\backslash
+phi}_{4t}
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For each one of the previous matches the algorithm performs a correction
+ step.
+ All these correction steps are carried out in a row, one after the other.
+ In the example there are three matches, so there are three correction steps
+ in a row.
+ In each correction step the algorithm computes the terms 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$H_t,
+\backslash
+, K_t,
+\backslash
+, 
+\backslash
+vec{
+\backslash
+mu}_t$
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+Sigma_t$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$H_t$
+\end_layout
+
+\end_inset
+
+ is the jacobian matrix of the funcion 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$h
+\backslash
+left(
+\backslash
+vec{x}_t,
+\backslash
+vec{p}_W
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+ with respect to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{x}_t$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+H_t 
+\backslash
+,=
+\backslash
+, 
+\backslash
+dfrac{
+\backslash
+partial h
+\backslash
+left(
+\backslash
+vec{x}_t,
+\backslash
+,
+\backslash
+vec{p}_W
+\backslash
+right)}{
+\backslash
+partial 
+\backslash
+vec{x}_t}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+,=
+\backslash
+, 
+\backslash
+begin{pmatrix}
+\backslash
+dfrac{
+\backslash
+partial h_1}{
+\backslash
+partial x_t} & 
+\backslash
+dfrac{
+\backslash
+partial h_1}{
+\backslash
+partial y_t} & 
+\backslash
+dfrac{
+\backslash
+partial h_1}{
+\backslash
+partial 
+\backslash
+theta_t}
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial h_2}{
+\backslash
+partial x_t} & 
+\backslash
+dfrac{
+\backslash
+partial h_2}{
+\backslash
+partial y_t} & 
+\backslash
+dfrac{
+\backslash
+partial h_2}{
+\backslash
+partial 
+\backslash
+theta_t}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's give a shorter name to some terms that are going to appear immediately:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+Delta x}_t
+\backslash
+,
+\backslash
+triangleq
+\backslash
+,
+\backslash
+left(x_W 
+\backslash
+,-
+\backslash
+, x_{lt}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+Delta y}_t
+\backslash
+,
+\backslash
+triangleq
+\backslash
+,
+\backslash
+left(y_W 
+\backslash
+,-
+\backslash
+, y_{lt}
+\backslash
+right) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+q_t
+\backslash
+,
+\backslash
+triangleq
+\backslash
+, 
+\backslash
+left(x_W 
+\backslash
+,-
+\backslash
+, x_{lt}
+\backslash
+right)^2 
+\backslash
+,+
+\backslash
+, 
+\backslash
+left(y_W 
+\backslash
+,-
+\backslash
+, y_{lt}
+\backslash
+right)^2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial h_1}{
+\backslash
+partial x_t} 
+\backslash
+,&=
+\backslash
+, -
+\backslash
+,
+\backslash
+left(
+\backslash
+dfrac{x_W 
+\backslash
+,-
+\backslash
+, x_{lt}}{
+\backslash
+sqrt{q_t}}
+\backslash
+right) 
+\backslash
+,=
+\backslash
+, -
+\backslash
+,
+\backslash
+dfrac{{
+\backslash
+Delta x}_t}{
+\backslash
+sqrt{q_t}}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial h_1}{
+\backslash
+partial y_t} 
+\backslash
+,&=
+\backslash
+, -
+\backslash
+,
+\backslash
+left(
+\backslash
+dfrac{y_W 
+\backslash
+,-
+\backslash
+, y_{lt}}{
+\backslash
+sqrt{q_t}}
+\backslash
+right) 
+\backslash
+,=
+\backslash
+, -
+\backslash
+,
+\backslash
+dfrac{{
+\backslash
+Delta y}_t}{
+\backslash
+sqrt{q_t}}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial h_1}{
+\backslash
+partial 
+\backslash
+theta_t} 
+\backslash
+,&=
+\backslash
+, 
+\backslash
+dfrac{1}{2
+\backslash
+,
+\backslash
+sqrt{q_t}}
+\backslash
+left(2
+\backslash
+,{
+\backslash
+Delta x}_t
+\backslash
+,sd
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_t
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 2
+\backslash
+,{
+\backslash
+Delta y}_t
+\backslash
+,sd
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_t
+\backslash
+right)
+\backslash
+right) 
+\backslash
+,=
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&=
+\backslash
+, 
+\backslash
+dfrac{sd}{
+\backslash
+sqrt{q_t}}
+\backslash
+,
+\backslash
+left({
+\backslash
+Delta x}_t
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_t
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, {
+\backslash
+Delta y}_t
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_t
+\backslash
+right)
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial h_2}{
+\backslash
+partial x_t} 
+\backslash
+,&=
+\backslash
+, 
+\backslash
+dfrac{{
+\backslash
+Delta y}_t}{q_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial h_2}{
+\backslash
+partial y_t} 
+\backslash
+,&=
+\backslash
+, -
+\backslash
+,
+\backslash
+dfrac{{
+\backslash
+Delta x}_t}{q_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dfrac{
+\backslash
+partial h_2}{
+\backslash
+partial 
+\backslash
+theta_t} 
+\backslash
+,&=
+\backslash
+,-
+\backslash
+,
+\backslash
+dfrac{sd}{q_t}
+\backslash
+,
+\backslash
+left({
+\backslash
+Delta x}_t
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+theta_t
+\backslash
+right) 
+\backslash
+, + 
+\backslash
+, {
+\backslash
+Delta y}_t
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+theta_t
+\backslash
+right)
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 1
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the first correction step the terms 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t$
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+overline{
+\backslash
+Sigma}_t$
+\end_layout
+
+\end_inset
+
+, computed in the predicted step, are used to compute the terms 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$H_t,
+\backslash
+, K_t,
+\backslash
+, 
+\backslash
+vec{
+\backslash
+mu}_t$
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+Sigma_t$
+\end_layout
+
+\end_inset
+
+.
+ If there is more than one correction step, from the second correction step
+ onwards the results obtained at the end of the previous correction step
+ are feed into the current correction step that is about to star.
+ Therefore, It can be said that at the end of each intermediate correction
+ step the algorithm gives a partial corrected result.
+ Only at the end of the last correction step there is a definitive corrected
+ result, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+mu_t$
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+Sigma_t$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Continuing with our example, because of the algorithm could only match three
+ of those detected landmarks with world landmarks only three correction
+ steps are performed, one after the other, i.e, in a row, using a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{for}
+\end_layout
+
+\end_inset
+
+ loop, even though four landmarks were detected in the scan.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mathleft
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+mu}_t
+\backslash
+,=
+\backslash
+,
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sigma_t
+\backslash
+,=
+\backslash
+,
+\backslash
+overline{
+\backslash
+Sigma}_t
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+mathcenter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+texttt{for } k
+\backslash
+,=
+\backslash
+,1
+\backslash
+texttt{ to }N_{
+\backslash
+texttt{matches}}:$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+H_t
+\backslash
+left(
+\backslash
+vec{
+\backslash
+mu}_t,
+\backslash
+,{
+\backslash
+vec{p}_W}_j^{
+\backslash
+,
+\backslash
+left(
+\backslash
+texttt{match k}
+\backslash
+right)}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+K_t 
+\backslash
+,=
+\backslash
+, 
+\backslash
+Sigma_t 
+\backslash
+,
+\backslash
+cdot
+\backslash
+, H_t^T 
+\backslash
+,
+\backslash
+cdot
+\backslash
+, 
+\backslash
+left(H_t 
+\backslash
+,
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+Sigma_t 
+\backslash
+,
+\backslash
+cdot
+\backslash
+, H_t^T 
+\backslash
+,+
+\backslash
+, Q
+\backslash
+right)^{-1}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+mu}_t 
+\backslash
+,=
+\backslash
+, 
+\backslash
+vec{
+\backslash
+mu}_t 
+\backslash
+, + 
+\backslash
+, K_t 
+\backslash
+,
+\backslash
+cdot
+\backslash
+, 
+\backslash
+left(
+\backslash
+vec{z}_{it}^{
+\backslash
+,
+\backslash
+left(
+\backslash
+texttt{match k}
+\backslash
+right)}
+\backslash
+,-
+\backslash
+, 
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}^{
+\backslash
+,
+\backslash
+left(
+\backslash
+texttt{match k}
+\backslash
+right)}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sigma_t 
+\backslash
+,=
+\backslash
+, 
+\backslash
+left(I 
+\backslash
+,-
+\backslash
+, K_t 
+\backslash
+,
+\backslash
+cdot
+\backslash
+, H_t
+\backslash
+right)
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+Sigma_t
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{z}_{it}^{
+\backslash
+,
+\backslash
+left(
+\backslash
+texttt{match k}
+\backslash
+right)}
+\backslash
+,-
+\backslash
+, 
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}^{
+\backslash
+,
+\backslash
+left(
+\backslash
+texttt{match k}
+\backslash
+right)}$
+\end_layout
+
+\end_inset
+
+ is called 
+\series bold
+innovation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$Q$
+\end_layout
+
+\end_inset
+
+ is the measurement covariance matrix, defined as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+Q 
+\backslash
+,=
+\backslash
+, 
+\backslash
+begin{pmatrix}
+\backslash
+sigma_D^2 & 0
+\backslash
+
+\backslash
+ 0 & 
+\backslash
+sigma_
+\backslash
+phi^2
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and appears in the probability density function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(
+\backslash
+vec{z}_t 
+\backslash
+, 
+\backslash
+mid 
+\backslash
+, 
+\backslash
+vec{x}_t
+\backslash
+right) 
+\backslash
+,=
+\backslash
+, 
+\backslash
+mathcal{N}
+\backslash
+left(
+\backslash
+vec{
+\backslash
+hat{z}}_t,
+\backslash
+, Q
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The first interesting thing that can be observed in the matrix 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$Q$
+\end_layout
+
+\end_inset
+
+ is that it doesn't depend on the time, subscript 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t$
+\end_layout
+
+\end_inset
+
+, therefore, it's a constant matrix.
+ The second thing I observe is that the matrix 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$Q$
+\end_layout
+
+\end_inset
+
+ is diagonal, so it means that the random variables 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$D_t$
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+phi_t$
+\end_layout
+
+\end_inset
+
+ are uncorrelated.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+A note about angles:
+\end_layout
+
+\begin_layout Standard
+Sometimes it's necessary to subtract two angles and a bit of attention has
+ to be paid in order to prevent mistakes when computing the difference.
+ For example, when the algorithm computes the innovation it has to subtract
+ the term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+hat{z}}_t$
+\end_layout
+
+\end_inset
+
+ from the term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{z}_t$
+\end_layout
+
+\end_inset
+
+.
+ In this operation there is involved a subtraction of two angles.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{z}_t 
+\backslash
+,-
+\backslash
+, 
+\backslash
+vec{
+\backslash
+hat{z}}_t 
+\backslash
+,=
+\backslash
+, 
+\backslash
+begin{pmatrix}D_t 
+\backslash
+,-
+\backslash
+, 
+\backslash
+hat{D}_t
+\backslash
+
+\backslash
+ 
+\backslash
+phi_t 
+\backslash
+,-
+\backslash
+, 
+\backslash
+hat{
+\backslash
+phi}_t
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's suppose that:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phi_t 
+\backslash
+,&=
+\backslash
+, +
+\backslash
+,180^{
+\backslash
+circ} 
+\backslash
+,-
+\backslash
+, 
+\backslash
+delta
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hat{
+\backslash
+phi}_t 
+\backslash
+,&=
+\backslash
+, -
+\backslash
+,180^{
+\backslash
+circ} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+epsilon
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and the angles 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+delta$
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+epsilon$
+\end_layout
+
+\end_inset
+
+ are contained in the first quadrant, i.e, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$0^{
+\backslash
+circ}
+\backslash
+,
+\backslash
+leq
+\backslash
+,
+\backslash
+delta
+\backslash
+,
+\backslash
+leq
+\backslash
+,90^{
+\backslash
+circ}$
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$0^{
+\backslash
+circ}
+\backslash
+,
+\backslash
+leq
+\backslash
+,
+\backslash
+epsilon
+\backslash
+,
+\backslash
+leq
+\backslash
+,90^{
+\backslash
+circ}$
+\end_layout
+
+\end_inset
+
+.
+ Therefore, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+phi_t$
+\end_layout
+
+\end_inset
+
+ is necessarily located in the second quadrant, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$90^{
+\backslash
+circ}
+\backslash
+,
+\backslash
+leq
+\backslash
+,
+\backslash
+phi_t
+\backslash
+,
+\backslash
+leq
+\backslash
+,180^{
+\backslash
+circ}$
+\end_layout
+
+\end_inset
+
+, and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{
+\backslash
+phi}_t$
+\end_layout
+
+\end_inset
+
+ is necessarily located in the third quadrant, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$-
+\backslash
+,180^{
+\backslash
+circ}
+\backslash
+,
+\backslash
+leq
+\backslash
+,
+\backslash
+hat{
+\backslash
+phi}_t
+\backslash
+,
+\backslash
+leq
+\backslash
+,-
+\backslash
+,90^{
+\backslash
+circ}$
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phi_t 
+\backslash
+,-
+\backslash
+, 
+\backslash
+hat{
+\backslash
+phi}_t 
+\backslash
+,=
+\backslash
+, 180^{
+\backslash
+circ} 
+\backslash
+,-
+\backslash
+, 
+\backslash
+delta 
+\backslash
+,-
+\backslash
+,
+\backslash
+left(-
+\backslash
+,180^{
+\backslash
+circ} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+epsilon
+\backslash
+right) 
+\backslash
+,=
+\backslash
+, 360^{
+\backslash
+circ} 
+\backslash
+,-
+\backslash
+,
+\backslash
+left(
+\backslash
+delta 
+\backslash
+,+
+\backslash
+, 
+\backslash
+epsilon
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+180^{
+\backslash
+circ}
+\backslash
+,
+\backslash
+leq
+\backslash
+,
+\backslash
+phi_t 
+\backslash
+,-
+\backslash
+, 
+\backslash
+hat{
+\backslash
+phi}_t
+\backslash
+,
+\backslash
+leq
+\backslash
+,360^{
+\backslash
+circ}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you are working with angles in the range 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+left[-
+\backslash
+,180^{
+\backslash
+circ},
+\backslash
+, +
+\backslash
+,180^{
+\backslash
+circ}
+\backslash
+right]$
+\end_layout
+
+\end_inset
+
+ the angle 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+phi_t 
+\backslash
+,-
+\backslash
+, 
+\backslash
+hat{
+\backslash
+phi}_t$
+\end_layout
+
+\end_inset
+
+, which is in the range 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+left[+
+\backslash
+,180^{
+\backslash
+circ},
+\backslash
+,+
+\backslash
+,360^{
+\backslash
+circ}
+\backslash
+right]$
+\end_layout
+
+\end_inset
+
+, is not admissible.
+ The angle that you would like is 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$-
+\backslash
+,
+\backslash
+left(
+\backslash
+delta
+\backslash
+,+
+\backslash
+,
+\backslash
+epsilon
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+, which is in the range 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+left[-
+\backslash
+,180^{
+\backslash
+circ},
+\backslash
+, +
+\backslash
+,180^{
+\backslash
+circ}
+\backslash
+right]$
+\end_layout
+
+\end_inset
+
+.
+ So, every time you work with angles that must belong to the range 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+left[-
+\backslash
+,180^{
+\backslash
+circ},
+\backslash
+, +
+\backslash
+,180^{
+\backslash
+circ}
+\backslash
+right]$
+\end_layout
+
+\end_inset
+
+ you must do the following correction:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+left(
+\backslash
+left(
+\backslash
+left(
+\backslash
+phi_t 
+\backslash
+,-
+\backslash
+, 
+\backslash
+hat{
+\backslash
+phi}_t
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 
+\backslash
+pi
+\backslash
+right)
+\backslash
+bmod
+\backslash
+,2
+\backslash
+pi
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 
+\backslash
+pi
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Example:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+delta 
+\backslash
+,&=
+\backslash
+, 30^{
+\backslash
+circ}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+epsilon 
+\backslash
+,&=
+\backslash
+, 45^{
+\backslash
+circ}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phi_t 
+\backslash
+,&=
+\backslash
+, +
+\backslash
+,180^{
+\backslash
+circ} 
+\backslash
+,-
+\backslash
+, 
+\backslash
+delta 
+\backslash
+,=
+\backslash
+, +
+\backslash
+,150^{
+\backslash
+circ}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hat{
+\backslash
+phi}_t 
+\backslash
+,&=
+\backslash
+, -
+\backslash
+,180^{
+\backslash
+circ} 
+\backslash
+,+
+\backslash
+, 
+\backslash
+epsilon 
+\backslash
+,=
+\backslash
+, -135^{
+\backslash
+circ}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phi_t 
+\backslash
+,-
+\backslash
+, 
+\backslash
+hat{
+\backslash
+phi}_t 
+\backslash
+,&=
+\backslash
+, 150^{
+\backslash
+circ} 
+\backslash
+,-
+\backslash
+,
+\backslash
+left(-
+\backslash
+,135^{
+\backslash
+circ}
+\backslash
+right) 
+\backslash
+,=
+\backslash
+,150^{
+\backslash
+circ} 
+\backslash
+,+
+\backslash
+,135^{
+\backslash
+circ}
+\backslash
+,=
+\backslash
+,285^{
+\backslash
+circ}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+left(
+\backslash
+phi_t 
+\backslash
+,-
+\backslash
+, 
+\backslash
+hat{
+\backslash
+phi}_t
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 180^{
+\backslash
+circ} 
+\backslash
+,&=
+\backslash
+, 285^{
+\backslash
+circ}
+\backslash
+,+
+\backslash
+,180^{
+\backslash
+circ}
+\backslash
+,=
+\backslash
+,465^{
+\backslash
+circ}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+left(
+\backslash
+left(
+\backslash
+phi_t 
+\backslash
+,-
+\backslash
+, 
+\backslash
+hat{
+\backslash
+phi}_t
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 180^{
+\backslash
+circ}
+\backslash
+right)
+\backslash
+bmod
+\backslash
+,360^{
+\backslash
+circ} 
+\backslash
+,&=
+\backslash
+,465^{
+\backslash
+circ}
+\backslash
+bmod 360^{
+\backslash
+circ}
+\backslash
+,=
+\backslash
+,105^{
+\backslash
+circ}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+left(
+\backslash
+left(
+\backslash
+left(
+\backslash
+phi_t 
+\backslash
+,-
+\backslash
+, 
+\backslash
+hat{
+\backslash
+phi}_t
+\backslash
+right) 
+\backslash
+,+
+\backslash
+, 180^{
+\backslash
+circ}
+\backslash
+right)
+\backslash
+bmod
+\backslash
+,360^{
+\backslash
+circ}
+\backslash
+right) 
+\backslash
+,-
+\backslash
+, 180^{
+\backslash
+circ} 
+\backslash
+,&=
+\backslash
+, 105^{
+\backslash
+circ} 
+\backslash
+,-
+\backslash
+, 180^{
+\backslash
+circ} 
+\backslash
+,=
+\backslash
+, -
+\backslash
+,75^{
+\backslash
+circ} 
+\backslash
+,=
+\backslash
+, -
+\backslash
+,
+\backslash
+left(
+\backslash
+delta
+\backslash
+,+
+\backslash
+,
+\backslash
+epsilon
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig54.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t 
+\backslash
+,&= 
+\backslash
+, 
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{x_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{y_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix} 
+\backslash
+,=
+\backslash
+, 
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+widetilde{x}_t
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+widetilde{y}_t
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+widetilde{
+\backslash
+theta}_t
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix} 
+\backslash
+,=
+\backslash
+, 
+\backslash
+vec{
+\backslash
+widetilde{x}}_t 
+\backslash
+
+\backslash
+[10pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+mu}_t 
+\backslash
+,&= 
+\backslash
+, 
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+mu_{x_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+mu_{y_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+mu_{
+\backslash
+theta_t}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix} 
+\backslash
+,=
+\backslash
+, 
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+widehat{x}_t
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+widehat{y}_t
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+widehat{
+\backslash
+theta}_t
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix} 
+\backslash
+,=
+\backslash
+, 
+\backslash
+vec{
+\backslash
+widehat{x}}_t
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{landscape}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig56.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{landscape}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
