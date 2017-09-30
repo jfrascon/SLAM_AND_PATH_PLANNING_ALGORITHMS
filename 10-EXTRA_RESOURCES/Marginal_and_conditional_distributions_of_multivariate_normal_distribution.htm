@@ -1,0 +1,581 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- saved from url=(0067)http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node7.html -->
+<html class="gr__fourier_eng_hmc_edu"><script src="chrome-extension://obkfjhifkbhimlocpddgamonjihinpak/script/safebrowse.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Marginal and conditional distributions of multivariate normal distribution</title>
+<meta name="description" content="Marginal and conditional distributions of multivariate normal distribution">
+<meta name="keywords" content="gaussianprocess">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+
+<meta name="Generator" content="LaTeX2HTML v2002-2-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<link rel="STYLESHEET" href="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/gaussianprocess.css">
+
+<link rel="previous" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node6.html">
+<link rel="up" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node5.html">
+<link rel="next" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node8.html">
+</head>
+
+<body data-gr-c-s-loaded="true">
+<!--Navigation Panel-->
+<a name="tex2html87" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node8.html">
+<img width="37" height="24" align="BOTTOM" border="0" alt="next" src="file:///sw/share/lib/latex2html/icons/next.png"></a> 
+<a name="tex2html85" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node5.html">
+<img width="26" height="24" align="BOTTOM" border="0" alt="up" src="file:///sw/share/lib/latex2html/icons/up.png"></a> 
+<a name="tex2html81" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node6.html">
+<img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="file:///sw/share/lib/latex2html/icons/prev.png"></a>   
+<br>
+<b> Next:</b> <a name="tex2html88" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node8.html">Appendix B: Kernels and</a>
+<b> Up:</b> <a name="tex2html86" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node5.html">Appendix A: Conditional and</a>
+<b> Previous:</b> <a name="tex2html82" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node6.html">Inverse and determinant of</a>
+<br>
+<br>
+<!--End of Navigation Panel-->
+
+<h3><a name="SECTION00014200000000000000">
+Marginal and conditional distributions of multivariate normal distribution</a>
+</h3>
+
+<p>
+Assume an n-dimensional random vector 
+<br></p><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+{\bf x}=\left[\begin{array}{c}{\bf x}_1\\{\bf x}_2\end{array}\right]
+\end{displaymath}
+ -->
+
+<img width="85" height="54" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img164.png" alt="\begin{displaymath}{\bf x}=\left[\begin{array}{c}{\bf x}_1 {\bf x}_2\end{array}\right] \end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+has a normal distribution <!-- MATH
+ $N({\bf x},\mu,\Sigma)$
+ -->
+<img width="89" height="37" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img165.png" alt="$N({\bf x},\mu,\Sigma)$"> with
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+\mu=\left[\begin{array}{c}\mu_1 \\\mu_2\end{array}\right]\;\;\;
+\mbox{and}\;\;\;\;
+   \Sigma=\left[\begin{array}{cc}\Sigma_{11} & \Sigma_{12}\\
+      \Sigma_{21}&\Sigma_{22}\end{array}\right]
+\end{displaymath}
+ -->
+
+<img width="301" height="54" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img166.png" alt="\begin{displaymath}\mu=\left[\begin{array}{c}\mu_1  \mu_2\end{array}\right]\;\...
+...1} &amp; \Sigma_{12}\\
+\Sigma_{21}&amp;\Sigma_{22}\end{array}\right] \end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+where <img width="24" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img167.png" alt="${\bf x}_1$"> and <img width="24" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img168.png" alt="${\bf x}_2$"> are two subvectors of respective
+dimensions <img width="14" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img169.png" alt="$p$"> and <img width="14" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img170.png" alt="$q$"> with <img width="82" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img142.png" alt="$p+q=n$">. Note that <!-- MATH
+ $\Sigma=\Sigma^T$
+ -->
+<img width="67" height="19" align="BOTTOM" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img171.png" alt="$\Sigma=\Sigma^T$">, and 
+<!-- MATH
+ $\Sigma_{21}=\Sigma_{21}^T$
+ -->
+<img width="85" height="40" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img172.png" alt="$\Sigma_{21}=\Sigma_{21}^T$">.
+
+<p>
+<b>Theorem 4:</b>
+
+</p><p>
+<b>Part a</b> The marginal distributions of <img width="24" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img167.png" alt="${\bf x}_1$"> and <img width="24" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img168.png" alt="${\bf x}_2$"> are 
+also normal with mean vector <img width="21" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img173.png" alt="$\mu_i$"> and covariance matrix <img width="28" height="35" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img174.png" alt="$\Sigma_{ii}$"> 
+(<img width="63" height="34" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img175.png" alt="$i=1,2$">), respectively.
+
+</p><p>
+<b>Part b</b> The conditional distribution of <img width="21" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img176.png" alt="${\bf x}_i$"> given <img width="23" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img177.png" alt="${\bf x}_j$"> 
+is also normal with mean vector 
+<br></p><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+\mu_{i|j}=\mu_i+\Sigma_{ij}\Sigma_{jj}^{-1}({\bf x}_j-\mu_j)
+\end{displaymath}
+ -->
+
+<img width="221" height="35" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img178.png" alt="\begin{displaymath}\mu_{i\vert j}=\mu_i+\Sigma_{ij}\Sigma_{jj}^{-1}({\bf x}_j-\mu_j) \end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+and covariance matrix 
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+\Sigma_{i|j}=\Sigma_{jj}-\Sigma_{ij}^T\Sigma_{ii}^{-1}\Sigma_{ij}
+\end{displaymath}
+ -->
+
+<img width="184" height="35" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img179.png" alt="\begin{displaymath}\Sigma_{i\vert j}=\Sigma_{jj}-\Sigma_{ij}^T\Sigma_{ii}^{-1}\Sigma_{ij} \end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+
+<p>
+<b>Proof:</b> The joint density of <img width="16" height="16" align="BOTTOM" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img46.png" alt="${\bf x}$"> is:
+<br></p><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+f({\bf x})=f({\bf x}_1,{\bf x}_2)=\frac{1}{(2\pi)^{n/2|\Sigma|^{1/2}}}
+  exp[-\frac{1}{2}({\bf x}-\mu)^T\Sigma^{-1}({\bf x}-\mu)]
+  =\frac{1}{(2\pi)^{n/2|\Sigma|^{1/2}}}exp[-\frac{1}{2}Q({\bf x}_1,{\bf x}_2)]
+\end{displaymath}
+ -->
+
+<img width="732" height="51" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img180.png" alt="\begin{displaymath}f({\bf x})=f({\bf x}_1,{\bf x}_2)=\frac{1}{(2\pi)^{n/2\vert\S...
+...vert\Sigma\vert^{1/2}}}exp[-\frac{1}{2}Q({\bf x}_1,{\bf x}_2)] \end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+where <img width="19" height="35" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img181.png" alt="$Q$"> is defined as
+<br>
+<div align="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+Q({\bf x}_1,{\bf x}_2)&=&({\bf x}-\mu)^T\Sigma^{-1}({\bf x}-\mu) 
+\nonumber \\
+&=&[({\bf x}_1-\mu_1)^T, ({\bf x}-\mu_2)^T]
+\left[\begin{array}{cc}\Sigma^{11} & \Sigma^{12}\\
+      \Sigma^{21}&\Sigma^{22}\end{array}\right] 
+\left[\begin{array}{c}{\bf x}_1-\mu_1\\{\bf x}_2-\mu_2\end{array}\right]
+\nonumber \\
+&=&({\bf x}_1-\mu_1)^T\Sigma^{11}({\bf x}_1-\mu_1)+
+2({\bf x}_1-\mu_1)^T\Sigma^{12}({\bf x}_2-\mu_2)+
+({\bf x}_2-\mu_2)^T\Sigma^{22}({\bf x}_2-\mu_2)
+\nonumber
+\end{eqnarray}
+ -->
+<table align="CENTER" cellpadding="0" width="100%">
+<tbody><tr valign="MIDDLE"><td nowrap="" align="RIGHT"><img width="80" height="37" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img182.png" alt="$\displaystyle Q({\bf x}_1,{\bf x}_2)$"></td>
+<td align="CENTER" nowrap=""><img width="19" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img27.png" alt="$\textstyle =$"></td>
+<td align="LEFT" nowrap=""><img width="168" height="42" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img183.png" alt="$\displaystyle ({\bf x}-\mu)^T\Sigma^{-1}({\bf x}-\mu)$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td align="CENTER" nowrap=""><img width="19" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img27.png" alt="$\textstyle =$"></td>
+<td align="LEFT" nowrap=""><img width="396" height="66" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img184.png" alt="$\displaystyle [({\bf x}_1-\mu_1)^T, ({\bf x}-\mu_2)^T]
+\left[\begin{array}{cc}\...
+...ght]
+\left[\begin{array}{c}{\bf x}_1-\mu_1  {\bf x}_2-\mu_2\end{array}\right]$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td align="CENTER" nowrap=""><img width="19" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img27.png" alt="$\textstyle =$"></td>
+<td align="LEFT" nowrap=""><img width="625" height="42" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img185.png" alt="$\displaystyle ({\bf x}_1-\mu_1)^T\Sigma^{11}({\bf x}_1-\mu_1)+
+2({\bf x}_1-\mu_1)^T\Sigma^{12}({\bf x}_2-\mu_2)+
+({\bf x}_2-\mu_2)^T\Sigma^{22}({\bf x}_2-\mu_2)$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+</tbody></table></div>
+<br clear="ALL"><p></p>
+Here we have assumed
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+\Sigma^{-1}=\left[\begin{array}{cc}\Sigma_{11} & \Sigma_{12}\\
+      \Sigma_{21}&\Sigma_{22}\end{array}\right]^{-1}=
+\left[\begin{array}{cc}\Sigma^{11} & \Sigma^{12}\\
+      \Sigma^{21}&\Sigma^{22}\end{array}\right]
+\end{displaymath}
+ -->
+
+<img width="307" height="58" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img186.png" alt="\begin{displaymath}\Sigma^{-1}=\left[\begin{array}{cc}\Sigma_{11} &amp; \Sigma_{12}\...
+...} &amp; \Sigma^{12}\\
+\Sigma^{21}&amp;\Sigma^{22}\end{array}\right]
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+According to theorem 2, we have
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+\Sigma^{11}=(\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{12}^T)^{-1}=
+\Sigma_{11}^{-1}+\Sigma_{11}^{-1}\Sigma_{12}(\Sigma_{22}-A^T_{12}\Sigma_{11}^{-1}\Sigma_{12})^{-1}\Sigma_{12}^T\Sigma_{11}^{-1}
+\end{displaymath}
+ -->
+
+<img width="566" height="33" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img187.png" alt="\begin{displaymath}\Sigma^{11}=(\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{1...
+...\Sigma_{11}^{-1}\Sigma_{12})^{-1}\Sigma_{12}^T\Sigma_{11}^{-1} \end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+\Sigma^{22}=(\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12})^{-1}=
+\Sigma_{22}^{-1}+\Sigma_{22}^{-1}\Sigma_{12}^T(\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{12}^T)^{-1}\Sigma_{12}\Sigma_{22}^{-1}
+\end{displaymath}
+ -->
+
+<img width="566" height="33" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img188.png" alt="\begin{displaymath}\Sigma^{22}=(\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_...
+...\Sigma_{22}^{-1}\Sigma_{12}^T)^{-1}\Sigma_{12}\Sigma_{22}^{-1} \end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+\Sigma^{12}=-\Sigma_{11}^{-1}\Sigma_{12}(\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12})^{-1}=(\Sigma^{21})^T
+\end{displaymath}
+ -->
+
+<img width="374" height="33" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img189.png" alt="\begin{displaymath}\Sigma^{12}=-\Sigma_{11}^{-1}\Sigma_{12}(\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12})^{-1}=(\Sigma^{21})^T \end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+Substituting the second expression for <img width="32" height="19" align="BOTTOM" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img190.png" alt="$\Sigma^{11}$">, first expression for <img width="32" height="19" align="BOTTOM" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img191.png" alt="$\Sigma^{22}$">, and <img width="32" height="19" align="BOTTOM" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img192.png" alt="$\Sigma^{12}$"> into <!-- MATH
+ $Q({\bf x}_1,{\bf x}_2)$
+ -->
+<img width="80" height="37" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img193.png" alt="$Q({\bf x}_1,{\bf x}_2)$"> to get:
+<br>
+<div align="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+Q({\bf x}_1,{\bf x}_2)
+&=&({\bf x}_1-\mu_1)^T
+[\Sigma_{11}^{-1}+\Sigma_{11}^{-1}\Sigma_{12}(\Sigma_{22}-A^T_{12}\Sigma_{11}^{-1}\Sigma_{12})^{-1}\Sigma_{12}^T\Sigma_{11}^{-1}]
+({\bf x}_1-\mu_1)
+\nonumber \\
+&&-2({\bf x}_1-\mu_1)^T
+[\Sigma_{11}^{-1}\Sigma_{12}(\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12})^{-1}]({\bf x}_2-\mu_2)
+\nonumber \\
+&&+({\bf x}_2-\mu_2)^T
+[(\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12})^{-1}]
+({\bf x}_2-\mu_2)
+\nonumber \\
+&=&({\bf x}_1-\mu_1)^T \Sigma_{11}^{-1} ({\bf x}_1-\mu_1)
+\nonumber \\
+&&+({\bf x}_1-\mu_1)^T 
+\Sigma_{11}^{-1}\Sigma_{12}(\Sigma_{22}-A^T_{12}\Sigma_{11}^{-1}\Sigma_{12})^{-1}\Sigma_{12}^T\Sigma_{11}^{-1}]
+({\bf x}_1-\mu_1)
+\nonumber \\
+&&-2({\bf x}_1-\mu_1)^T
+[\Sigma_{11}^{-1}\Sigma_{12}(\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12})^{-1}]({\bf x}_2-\mu_2)
+\nonumber \\
+&&+({\bf x}_2-\mu_2)^T
+[(\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12})^{-1}]
+({\bf x}_2-\mu_2)
+\nonumber \\
+&=&({\bf x}_1-\mu_1)^T \Sigma_{11}^{-1} ({\bf x}_1-\mu_1)
+\nonumber \\
+&&+[({\bf x}_2-\mu_2)-\Sigma_{12}^T\Sigma_{11}^{-1}({\bf x}_1-\mu_1)]^T
+(\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12})^{-1}
+[({\bf x}_2-\mu_2)-\Sigma_{12}^T\Sigma_{11}^{-1}({\bf x}_1-\mu_1)]
+\nonumber
+\end{eqnarray}
+ -->
+<table align="CENTER" cellpadding="0" width="100%">
+<tbody><tr valign="MIDDLE"><td nowrap="" align="RIGHT"><img width="80" height="37" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img182.png" alt="$\displaystyle Q({\bf x}_1,{\bf x}_2)$"></td>
+<td align="CENTER" nowrap=""><img width="19" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img27.png" alt="$\textstyle =$"></td>
+<td align="LEFT" nowrap=""><img width="522" height="42" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img194.png" alt="$\displaystyle ({\bf x}_1-\mu_1)^T
+[\Sigma_{11}^{-1}+\Sigma_{11}^{-1}\Sigma_{12}...
+...igma_{11}^{-1}\Sigma_{12})^{-1}\Sigma_{12}^T\Sigma_{11}^{-1}]
+({\bf x}_1-\mu_1)$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td>&nbsp;</td>
+<td align="LEFT" nowrap=""><img width="431" height="42" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img195.png" alt="$\displaystyle -2({\bf x}_1-\mu_1)^T
+[\Sigma_{11}^{-1}\Sigma_{12}(\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12})^{-1}]({\bf x}_2-\mu_2)$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td>&nbsp;</td>
+<td align="LEFT" nowrap=""><img width="362" height="42" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img196.png" alt="$\displaystyle +({\bf x}_2-\mu_2)^T
+[(\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12})^{-1}]
+({\bf x}_2-\mu_2)$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td align="CENTER" nowrap=""><img width="19" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img27.png" alt="$\textstyle =$"></td>
+<td align="LEFT" nowrap=""><img width="198" height="42" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img197.png" alt="$\displaystyle ({\bf x}_1-\mu_1)^T \Sigma_{11}^{-1} ({\bf x}_1-\mu_1)$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td>&nbsp;</td>
+<td align="LEFT" nowrap=""><img width="476" height="42" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img198.png" alt="$\displaystyle +({\bf x}_1-\mu_1)^T
+\Sigma_{11}^{-1}\Sigma_{12}(\Sigma_{22}-A^T_...
+...igma_{11}^{-1}\Sigma_{12})^{-1}\Sigma_{12}^T\Sigma_{11}^{-1}]
+({\bf x}_1-\mu_1)$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td>&nbsp;</td>
+<td align="LEFT" nowrap=""><img width="431" height="42" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img195.png" alt="$\displaystyle -2({\bf x}_1-\mu_1)^T
+[\Sigma_{11}^{-1}\Sigma_{12}(\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12})^{-1}]({\bf x}_2-\mu_2)$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td>&nbsp;</td>
+<td align="LEFT" nowrap=""><img width="362" height="42" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img196.png" alt="$\displaystyle +({\bf x}_2-\mu_2)^T
+[(\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12})^{-1}]
+({\bf x}_2-\mu_2)$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td align="CENTER" nowrap=""><img width="19" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img27.png" alt="$\textstyle =$"></td>
+<td align="LEFT" nowrap=""><img width="198" height="42" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img197.png" alt="$\displaystyle ({\bf x}_1-\mu_1)^T \Sigma_{11}^{-1} ({\bf x}_1-\mu_1)$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td>&nbsp;</td>
+<td align="LEFT" nowrap=""><img width="686" height="42" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img199.png" alt="$\displaystyle +[({\bf x}_2-\mu_2)-\Sigma_{12}^T\Sigma_{11}^{-1}({\bf x}_1-\mu_1...
+...a_{12})^{-1}
+[({\bf x}_2-\mu_2)-\Sigma_{12}^T\Sigma_{11}^{-1}({\bf x}_1-\mu_1)]$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+</tbody></table></div>
+<br clear="ALL"><p></p>
+The last equal sign is due to the following equations for any vectors 
+<img width="15" height="16" align="BOTTOM" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img200.png" alt="$u$"> and <img width="14" height="16" align="BOTTOM" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img201.png" alt="$v$"> and a symmetric matrix <img width="68" height="19" align="BOTTOM" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img202.png" alt="$A=A^T$">:
+<br>
+<div align="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+&&u^TAu-2u^TAv+v^TAv=u^T Au-u^TAv-u^TAv+v^TAv
+\nonumber \\
+&=&u^TA(u-v)-(u-v)^TAv=u^TA(u-v)-v^TA(u-v)
+\nonumber \\
+&=&(u-v)^TA(u-v)=(v-u)^TA(v-u) 
+\nonumber
+\end{eqnarray}
+ -->
+<table align="CENTER" cellpadding="0" width="100%">
+<tbody><tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td>&nbsp;</td>
+<td align="LEFT" nowrap=""><img width="470" height="42" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img203.png" alt="$\displaystyle u^TAu-2u^TAv+v^TAv=u^T Au-u^TAv-u^TAv+v^TAv$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td align="CENTER" nowrap=""><img width="19" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img27.png" alt="$\textstyle =$"></td>
+<td align="LEFT" nowrap=""><img width="448" height="42" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img204.png" alt="$\displaystyle u^TA(u-v)-(u-v)^TAv=u^TA(u-v)-v^TA(u-v)$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td align="CENTER" nowrap=""><img width="19" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img27.png" alt="$\textstyle =$"></td>
+<td align="LEFT" nowrap=""><img width="312" height="42" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img205.png" alt="$\displaystyle (u-v)^TA(u-v)=(v-u)^TA(v-u)$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+</tbody></table></div>
+<br clear="ALL"><p></p>
+We define
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+b\stackrel{\triangle}{=}\mu_2+\Sigma_{12}^T\Sigma_{11}^{-1}({\bf x}_1-\mu_1)
+\end{displaymath}
+ -->
+
+<img width="207" height="33" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img206.png" alt="\begin{displaymath}b\stackrel{\triangle}{=}\mu_2+\Sigma_{12}^T\Sigma_{11}^{-1}({\bf x}_1-\mu_1) \end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+A\stackrel{\triangle}{=}\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12}
+\end{displaymath}
+ -->
+
+<img width="175" height="33" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img207.png" alt="\begin{displaymath}A\stackrel{\triangle}{=}\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12} \end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+and
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+\left\{ \begin{array}{ll}
+  Q_1({\bf x}_1)&\stackrel{\triangle}{=}
+  ({\bf x}_1-\mu_1)^T \Sigma_{11}^{-1} ({\bf x}_1-\mu_1) \\
+  Q_2({\bf x}_1,{\bf x}_2)&\stackrel{\triangle}{=}
+[({\bf x}_2-\mu_2)-\Sigma_{12}^T\Sigma_{11}^{-1}({\bf x}_1-\mu_1)]^T
+(\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12})^{-1}
+[({\bf x}_2-\mu_2)-\Sigma_{12}^T\Sigma_{11}^{-1}({\bf x}_1-\mu_1)] \\
+&=({\bf x}_2-b)^T A^{-1}({\bf x}_2-b) 
+\end{array} \right.
+\end{displaymath}
+ -->
+
+<img width="807" height="87" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img208.png" alt="\begin{displaymath}\left\{ \begin{array}{ll}
+Q_1({\bf x}_1)&amp;\stackrel{\triangle...
+...\
+&amp;=({\bf x}_2-b)^T A^{-1}({\bf x}_2-b)
+\end{array} \right.
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+and get
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+Q({\bf x}_1,{\bf x}_2)=Q_1({\bf x}_1)+Q_2({\bf x}_1,{\bf x}_2)
+\end{displaymath}
+ -->
+
+<img width="260" height="33" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img209.png" alt="\begin{displaymath}Q({\bf x}_1,{\bf x}_2)=Q_1({\bf x}_1)+Q_2({\bf x}_1,{\bf x}_2) \end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+Now the joint distribution can be written as:
+<br>
+<div align="CENTER">
+
+<!-- MATH
+ \begin{eqnarray}
+f({\bf x})&=&f({\bf x}_1,{\bf x}_2)
+  =\frac{1}{(2\pi)^{n/2|\Sigma|^{1/2}}}exp[-\frac{1}{2}Q({\bf x}_1,{\bf x}_2)] 
+\nonumber \\
+&=&\frac{1}{(2\pi)^{n/2}|\Sigma_{11}|^{1/2} |\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12}|^{1/2}}exp[-\frac{1}{2}Q({\bf x}_1,{\bf x}_2)] 
+\nonumber \\
+&=&\frac{1}{(2\pi)^{p/2}|\Sigma_{11}|^{1/2}}exp[-\frac{1}{2}
+({\bf x}_1-\mu_1)^T\Sigma_{11}^{-1}({\bf x}_1-\mu_1)]
+\frac{1}{(2\pi)^{q/2}|A|^{1/2}}exp[-\frac{1}{2}({\bf x}_2-b)^T A^{-1}({\bf x}_2-b)]
+\nonumber \\
+&=&N({\bf x}_1,\mu_1,\Sigma_{11})\;N({\bf x}_2,b,A)
+\nonumber
+\end{eqnarray}
+ -->
+<table align="CENTER" cellpadding="0" width="100%">
+<tbody><tr valign="MIDDLE"><td nowrap="" align="RIGHT"><img width="42" height="37" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img210.png" alt="$\displaystyle f({\bf x})$"></td>
+<td align="CENTER" nowrap=""><img width="19" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img27.png" alt="$\textstyle =$"></td>
+<td align="LEFT" nowrap=""><img width="342" height="59" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img211.png" alt="$\displaystyle f({\bf x}_1,{\bf x}_2)
+=\frac{1}{(2\pi)^{n/2\vert\Sigma\vert^{1/2}}}exp[-\frac{1}{2}Q({\bf x}_1,{\bf x}_2)]$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td align="CENTER" nowrap=""><img width="19" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img27.png" alt="$\textstyle =$"></td>
+<td align="LEFT" nowrap=""><img width="438" height="59" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img212.png" alt="$\displaystyle \frac{1}{(2\pi)^{n/2}\vert\Sigma_{11}\vert^{1/2} \vert\Sigma_{22}...
+...T\Sigma_{11}^{-1}\Sigma_{12}\vert^{1/2}}exp[-\frac{1}{2}Q({\bf x}_1,{\bf x}_2)]$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td align="CENTER" nowrap=""><img width="19" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img27.png" alt="$\textstyle =$"></td>
+<td align="LEFT" nowrap=""><img width="726" height="59" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img213.png" alt="$\displaystyle \frac{1}{(2\pi)^{p/2}\vert\Sigma_{11}\vert^{1/2}}exp[-\frac{1}{2}...
+...i)^{q/2}\vert A\vert^{1/2}}exp[-\frac{1}{2}({\bf x}_2-b)^T A^{-1}({\bf x}_2-b)]$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+<tr valign="MIDDLE"><td nowrap="" align="RIGHT">&nbsp;</td>
+<td align="CENTER" nowrap=""><img width="19" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img27.png" alt="$\textstyle =$"></td>
+<td align="LEFT" nowrap=""><img width="213" height="37" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img214.png" alt="$\displaystyle N({\bf x}_1,\mu_1,\Sigma_{11})\;N({\bf x}_2,b,A)$"></td>
+<td width="10" align="RIGHT">
+&nbsp;</td></tr>
+</tbody></table></div>
+<br clear="ALL"><p></p>
+The third equal sign is due to theorem 3:
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+|\Sigma|=|\Sigma_{11}| |\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12}|
+\end{displaymath}
+ -->
+
+<img width="233" height="33" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img215.png" alt="\begin{displaymath}\vert\Sigma\vert=\vert\Sigma_{11}\vert \vert\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12}\vert\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+The marginal distribution of <img width="24" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img167.png" alt="${\bf x}_1$"> is
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+f_1({\bf x}_1)=\int f({\bf x}_1,{\bf x}_2) d{\bf x_2}
+=\frac{1}{(2\pi)^{p/2}|\Sigma_{11}|^{1/2}}exp[-\frac{1}{2}
+({\bf x}_1-\mu_1)^T\Sigma_{11}^{-1}({\bf x}_1-\mu_1)]
+\end{displaymath}
+ -->
+
+<img width="581" height="50" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img216.png" alt="\begin{displaymath}f_1({\bf x}_1)=\int f({\bf x}_1,{\bf x}_2) d{\bf x_2}
+=\frac{...
+...ac{1}{2}
+({\bf x}_1-\mu_1)^T\Sigma_{11}^{-1}({\bf x}_1-\mu_1)]
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+and the conditional distribution of <img width="24" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img168.png" alt="${\bf x}_2$"> given <img width="24" height="33" align="MIDDLE" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img167.png" alt="${\bf x}_1$"> is
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+f_{2|1}({\bf x}_2|{\bf x}_1)=\frac{f({\bf x}_1,{\bf x}_2)}{f({\bf x}_1)}
+=\frac{1}{(2\pi)^{q/2}|A|^{1/2}}exp[-\frac{1}{2}({\bf x}_2-b)^T A^{-1}({\bf x}_2-b)]
+\end{displaymath}
+ -->
+
+<img width="552" height="52" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img217.png" alt="\begin{displaymath}f_{2\vert 1}({\bf x}_2\vert{\bf x}_1)=\frac{f({\bf x}_1,{\bf ...
+...ert^{1/2}}exp[-\frac{1}{2}({\bf x}_2-b)^T A^{-1}({\bf x}_2-b)]
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+with
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+b=\mu_2+\Sigma_{12}^T\Sigma_{11}^{-1}({\bf x}_1-\mu_1)
+\end{displaymath}
+ -->
+
+<img width="207" height="33" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img218.png" alt="\begin{displaymath}b=\mu_2+\Sigma_{12}^T\Sigma_{11}^{-1}({\bf x}_1-\mu_1) \end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+<br><p></p>
+<div align="CENTER">
+<!-- MATH
+ \begin{displaymath}
+A=\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12}
+\end{displaymath}
+ -->
+
+<img width="175" height="33" border="0" src="./Marginal_and_conditional_distributions_of_multivariate_normal_distribution_files/img219.png" alt="\begin{displaymath}A=\Sigma_{22}-\Sigma_{12}^T\Sigma_{11}^{-1}\Sigma_{12} \end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+
+<p>
+</p><hr>
+<!--Navigation Panel-->
+<a name="tex2html87" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node8.html">
+<img width="37" height="24" align="BOTTOM" border="0" alt="next" src="file:///sw/share/lib/latex2html/icons/next.png"></a> 
+<a name="tex2html85" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node5.html">
+<img width="26" height="24" align="BOTTOM" border="0" alt="up" src="file:///sw/share/lib/latex2html/icons/up.png"></a> 
+<a name="tex2html81" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node6.html">
+<img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="file:///sw/share/lib/latex2html/icons/prev.png"></a>   
+<br>
+<b> Next:</b> <a name="tex2html88" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node8.html">Appendix B: Kernels and</a>
+<b> Up:</b> <a name="tex2html86" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node5.html">Appendix A: Conditional and</a>
+<b> Previous:</b> <a name="tex2html82" href="http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node6.html">Inverse and determinant of</a>
+<!--End of Navigation Panel-->
+<address>
+Ruye Wang
+2006-11-14
+</address>
+
+
+<span style="border-radius: 3px; text-indent: 20px; width: auto; padding: 0px 4px 0px 0px; text-align: center; font-style: normal; font-variant: normal; font-weight: bold; font-stretch: normal; font-size: 11px; line-height: 20px; font-family: &quot;Helvetica Neue&quot;, Helvetica, sans-serif; color: rgb(255, 255, 255); background: url(&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==&quot;) 3px 50% / 14px 14px no-repeat rgb(189, 8, 28); position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; -webkit-font-smoothing: antialiased;">Save</span><span style="width: 24px; height: 24px; background: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxtYXNrIGlkPSJtIj48cmVjdCBmaWxsPSIjZmZmIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiByeT0iNiIvPjxyZWN0IGZpbGw9IiMwMDAiIHg9IjUiIHk9IjUiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjEiIHJ5PSIxIi8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMTAiIHk9IjAiIHdpZHRoPSI0IiBoZWlnaHQ9IjI0Ii8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMCIgeT0iMTAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI0Ii8+PC9tYXNrPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IiNmZmYiIG1hc2s9InVybCgjbSkiLz48L3N2Zz4=&quot;) 50% 50% / 14px 14px no-repeat rgba(0, 0, 0, 0.4); position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; border-radius: 12px;"></span></body></html>

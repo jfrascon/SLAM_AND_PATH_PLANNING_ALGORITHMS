@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- saved from url=(0088)http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node2.html -->
+<html class="gr__math_mtu_edu"><script src="chrome-extension://obkfjhifkbhimlocpddgamonjihinpak/script/safebrowse.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The spectral theorem for symmetric matrices</title>
+<meta name="description" content="The spectral theorem for symmetric matrices">
+<meta name="keywords" content="spectral">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+
+<link rel="STYLESHEET" href="./The_spectral_theorem_for_symmetric_matrices_files/spectral.css">
+<link rel="next" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node3.html">
+<link rel="previous" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node1.html">
+<link rel="up" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/spectral.html">
+<link rel="next" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node3.html">
+</head>
+<body data-gr-c-s-loaded="true">
+<!--Navigation Panel-->
+<a name="tex2html28" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node3.html">
+<img width="37" height="24" align="BOTTOM" border="0" alt="next" src="./The_spectral_theorem_for_symmetric_matrices_files/next_motif.gif"></a> 
+<a name="tex2html26" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/spectral.html">
+<img width="26" height="24" align="BOTTOM" border="0" alt="up" src="./The_spectral_theorem_for_symmetric_matrices_files/up_motif.gif"></a> 
+<a name="tex2html20" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node1.html">
+<img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="./The_spectral_theorem_for_symmetric_matrices_files/previous_motif.gif"></a>   
+<br>
+<b> Next:</b> <a name="tex2html29" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node3.html">Understanding stationary points</a>
+<b> Up:</b> <a name="tex2html27" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/spectral.html">The spectral theorem and</a>
+<b> Previous:</b> <a name="tex2html21" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node1.html">Introduction</a>
+<br>
+<br>
+<!--End of Navigation Panel-->
+
+<h1><a name="SECTION00020000000000000000">
+The spectral theorem for symmetric matrices</a>
+</h1>
+
+<p>
+Symmetric matrices have many special properties, the most important of
+which are expressed in the following theorem:</p><p>
+</p><div><b>Theorem  2.1</b> &nbsp; 
+Suppose 
+<!-- MATH: $A\in{\bf {\rm R}}^{n\times n}$ -->
+<img width="73" height="33" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img6.gif" alt="$A\in{\bf {\rm R}}^{n\times n}$">
+is symmetric.  Then
+<dl compact="">
+<dt>1.
+</dt><dd>every eigenvalue <img width="13" height="15" align="BOTTOM" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img7.gif" alt="$\lambda$">
+of <i>A</i> is a real number and there exists
+a (real) eigenvector 
+<!-- MATH: $u\in{\bf {\rm R}}^n$ -->
+<img width="52" height="29" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img8.gif" alt="$u\in{\bf {\rm R}}^n$">
+corresponding to <img width="13" height="15" align="BOTTOM" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img7.gif" alt="$\lambda$">:
+
+<!-- MATH: $Au=\lambda u$ -->
+<img width="64" height="15" align="BOTTOM" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img9.gif" alt="$Au=\lambda u$">;
+</dd><dt>2.
+</dt><dd>eigenvectors corresponding to distinct eigenvalues are necessarily
+orthogonal:
+<br><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+Au^{(1)}=\lambda_1u^{(1)},\ Au^{(2)}=\lambda_2u^{(2)},\ \lambda_1\neq \lambda_2\ \Rightarrow\
+u^{(1)}\cdot u^{(2)}=0.
+
+\end{displaymath} -->
+
+<img width="415" height="27" src="./The_spectral_theorem_for_symmetric_matrices_files/img10.gif" alt="\begin{displaymath}Au^{(1)}=\lambda_1u^{(1)},\ Au^{(2)}=\lambda_2u^{(2)},\ \lambda_1\neq \lambda_2\ \Rightarrow\
+u^{(1)}\cdot u^{(2)}=0.
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+</dd><dt>3.
+</dt><dd>there exists a diagonal matrix 
+<!-- MATH: $D\in{\bf {\rm R}}^{n\times n}$ -->
+<img width="75" height="33" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img11.gif" alt="$D\in{\bf {\rm R}}^{n\times n}$">
+and an orthogonal matrix
+
+<!-- MATH: $U\in{\bf {\rm R}}^{n\times n}$ -->
+<img width="74" height="33" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img12.gif" alt="$U\in{\bf {\rm R}}^{n\times n}$">
+such that <i>A</i>=<i>UDU</i><sup><i>T</i></sup>.  The diagonal entries of <i>D</i> are the
+eigenvalues of <i>A</i> and the columns of <i>U</i> are the corresponding eigenvectors:
+<br><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+D=\mbox{diag}{(\lambda_1,\lambda_2,\ldots,\lambda_n)},\ U=[u^{(1)}|u^{(2)}|\ldots|u^{(n)}],\
+Au^{(i)}=\lambda_iu^{(i)},\ i=1,2,\ldots,n.
+
+\end{displaymath} -->
+
+
+<img width="556" height="28" src="./The_spectral_theorem_for_symmetric_matrices_files/img13.gif" alt="\begin{displaymath}D=\mbox{diag}{(\lambda_1,\lambda_2,\ldots,\lambda_n)},\ U=[u^...
+...s\vert u^{(n)}],\
+Au^{(i)}=\lambda_iu^{(i)},\ i=1,2,\ldots,n.
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p></dd></dl></div><p></p>
+An orthogonal matrix <i>U</i> satisfies, by definition, 
+<!-- MATH: $U^T=U^{-1}$ -->
+<i>U</i><sup><i>T</i></sup>=<i>U</i><sup>-1</sup>, which
+means that the columns of <i>U</i> are orthonormal (that is, any two of them
+are orthogonal and each has norm one).  The expression <i>A</i>=<i>UDU</i><sup><i>T</i></sup> of a
+symmetric matrix in terms of its eigenvalues and eigenvectors is referred to
+as the <i>spectral decomposition</i> of <i>A</i>.
+
+<p>
+The spectral theorem implies that there is a change of variables which
+transforms <i>A</i> into a diagonal matrix.  Before explaining this change of
+variables, I will show why it is important.  The reader will recall that
+every quadratic function in the <i>n</i> variables 
+<!-- MATH: $x_1,x_2,\ldots,x_n$ -->
+<img width="96" height="28" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img14.gif" alt="$x_1,x_2,\ldots,x_n$">
+can
+be expressed in the form
+<br></p><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+q(x)=x\cdot Hx=\sum_{i=1}^n\sum_{j=1}^nH_{ij}x_ix_j.
+\end{displaymath} -->
+
+
+<img width="225" height="55" src="./The_spectral_theorem_for_symmetric_matrices_files/img15.gif" alt="\begin{displaymath}q(x)=x\cdot Hx=\sum_{i=1}^n\sum_{j=1}^nH_{ij}x_ix_j.
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+The formula for <i>q</i>(<i>x</i>) involves <i>n</i><sup>2</sup> terms, and the variables are typically
+coupled.  However, if <i>H</i> happens to be a diagonal matrix, then the formula
+for <i>q</i>(<i>x</i>) simplifies considerably:
+<br><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+q(x)=\sum_{i=1}^nH_{ii}x_i^2.
+\end{displaymath} -->
+
+
+<img width="119" height="53" src="./The_spectral_theorem_for_symmetric_matrices_files/img16.gif" alt="\begin{displaymath}q(x)=\sum_{i=1}^nH_{ii}x_i^2.
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+Such a quadratic is easy to understand: In each coordinate direction <i>x</i><sub><i>i</i></sub>,
+the graph is a parabola, opening upward if <i>H</i><sub><i>ii</i></sub>&gt;0 and opening downward
+if <i>H</i><sub><i>ii</i></sub>&lt;0.  There is also the degenerate case <i>H</i><sub><i>ii</i></sub>=0, in which case
+<i>q</i> is constant with respect to <i>x</i><sub><i>i</i></sub> and the graph in that direction is
+a horizontal line.
+
+<p>
+Therefore, in two variables (the only case that can be visualized), a
+quadratic function defined by 
+<!-- MATH: $H=\mbox{diag}{(\lambda_1,\lambda_2)}$ -->
+<img width="121" height="31" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img17.gif" alt="$H=\mbox{diag}{(\lambda_1,\lambda_2)}$">
+has six possible
+shapes, corresponding to the following cases:
+</p><dl compact="">
+<dt>1.
+</dt><dd>
+<!-- MATH: $\lambda_1>0,\lambda_2>0$ -->
+<img width="102" height="29" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img18.gif" alt="$\lambda_1&gt;0,\lambda_2&gt;0$">;
+</dd><dt>2.
+</dt><dd>
+<!-- MATH: $\lambda_1<0,\lambda_2<0$ -->
+<img width="102" height="29" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img19.gif" alt="$\lambda_1&lt;0,\lambda_2&lt;0$">;
+</dd><dt>3.
+</dt><dd>
+<!-- MATH: $\lambda_1>0,\lambda_2<0$ -->
+<img width="102" height="29" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img20.gif" alt="$\lambda_1&gt;0,\lambda_2&lt;0$">
+or 
+<!-- MATH: $\lambda_1<0,\lambda_2>0$ -->
+<img width="102" height="29" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img21.gif" alt="$\lambda_1&lt;0,\lambda_2&gt;0$">;
+</dd><dt>4.
+</dt><dd>
+<!-- MATH: $\lambda_1>0,\lambda_2=0$ -->
+<img width="102" height="29" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img22.gif" alt="$\lambda_1&gt;0,\lambda_2=0$">
+or 
+<!-- MATH: $\lambda_1=0,\lambda_2>0$ -->
+<img width="102" height="29" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img23.gif" alt="$\lambda_1=0,\lambda_2&gt;0$">;
+</dd><dt>5.
+</dt><dd>
+<!-- MATH: $\lambda_1<0,\lambda_2=0$ -->
+<img width="102" height="29" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img24.gif" alt="$\lambda_1&lt;0,\lambda_2=0$">
+or 
+<!-- MATH: $\lambda_1=0,\lambda_2<0$ -->
+<img width="102" height="29" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img25.gif" alt="$\lambda_1=0,\lambda_2&lt;0$">;
+</dd><dt>6.
+</dt><dd>
+<!-- MATH: $\lambda_1=0,\lambda_2=0$ -->
+<img width="102" height="29" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img26.gif" alt="$\lambda_1=0,\lambda_2=0$">.
+</dd></dl>Four of the possibilities are graphed in Figure <a href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node2.html#quads">1</a>.
+<br>
+<div align="CENTER"><a name="quads">&nbsp;</a><a name="86">&nbsp;</a>
+<table width="50%">
+<caption><strong>Figure 1:</strong>
+The graphs of four quadratic functions: two positive
+eigenvalues (upper left), two negative eigenvalues (upper right),
+one positive and one negative eigenvalue (lower left),
+one positive and one zero eigenvalue (lower right).</caption>
+<tbody><tr><td>
+<div align="CENTER">
+
+<!-- MATH: $\includegraphics[height=3in,width=4in]{{quads.eps}}$ -->
+<img width="461" height="346" align="BOTTOM" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img27.gif" alt="\includegraphics[height=3in,width=4in]{{quads.eps}}"></div></td></tr>
+</tbody></table>
+</div>
+<br>
+<p>
+Now I will explain the change of variables that <i>diagonalizes</i> a
+symmetric matrix.  A vector
+<br></p><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+x=\left[\begin{array}{c}x_1\\x_2\\\vdots\\x_n\end{array}\right]
+\end{displaymath} -->
+
+
+<img width="81" height="94" src="./The_spectral_theorem_for_symmetric_matrices_files/img28.gif" alt="\begin{displaymath}x=\left[\begin{array}{c}x_1\\ x_2\\ \vdots\\ x_n\end{array}\right]
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+is implicitly expressed in terms of the <i>standard basis</i>
+
+<!-- MATH: $e^{(1)},e^{(2)},\ldots,e^{(n)}$ -->
+<img width="121" height="36" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img29.gif" alt="$e^{(1)},e^{(2)},\ldots,e^{(n)}$">:
+<br><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+x=\sum_{i=1}^nx_ie^{(i)},
+\end{displaymath} -->
+
+
+<img width="97" height="53" src="./The_spectral_theorem_for_symmetric_matrices_files/img30.gif" alt="\begin{displaymath}x=\sum_{i=1}^nx_ie^{(i)},
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+where
+<br><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+e^{(1)}=\left[\begin{array}{c}1\\0\\0\\\vdots\\0\end{array}\right],\
+e^{(2)}=\left[\begin{array}{c}0\\1\\0\\\vdots\\0\end{array}\right],\ \ldots.
+
+\end{displaymath} -->
+
+
+<img width="237" height="113" src="./The_spectral_theorem_for_symmetric_matrices_files/img31.gif" alt="\begin{displaymath}e^{(1)}=\left[\begin{array}{c}1\\ 0\\ 0\\ \vdots\\ 0\end{arra...
+...in{array}{c}0\\ 1\\ 0\\ \vdots\\ 0\end{array}\right],\ \ldots.
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+If 
+<!-- MATH: $\{u^{(1)},u^{(2)},\ldots,u^{(n)}\}$ -->
+<img width="142" height="36" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img32.gif" alt="$\{u^{(1)},u^{(2)},\ldots,u^{(n)}\}$">
+is an orthonormal set, then it is
+an alternate basis: Every 
+<!-- MATH: $x\in{\bf {\rm R}}^n$ -->
+<img width="52" height="29" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img33.gif" alt="$x\in{\bf {\rm R}}^n$">
+can be expressed as
+<br><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+x=\sum_{i=1}^n\alpha_iu^{(i)}.
+\end{displaymath} -->
+
+
+<img width="100" height="53" src="./The_spectral_theorem_for_symmetric_matrices_files/img34.gif" alt="\begin{displaymath}x=\sum_{i=1}^n\alpha_iu^{(i)}.
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+Moreover, the coefficients 
+<!-- MATH: $\alpha_1,\alpha_2,\ldots,\alpha_n$ -->
+<img width="99" height="28" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img35.gif" alt="$\alpha_1,\alpha_2,\ldots,\alpha_n$">
+are easy to
+compute:
+<br><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+\alpha_i=u^{(i)}\cdot x,\ i=1,2,\ldots,n.
+\end{displaymath} -->
+
+
+<img width="193" height="27" src="./The_spectral_theorem_for_symmetric_matrices_files/img36.gif" alt="\begin{displaymath}\alpha_i=u^{(i)}\cdot x,\ i=1,2,\ldots,n.
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+When the orthonormal basis forms a matrix 
+<!-- MATH: $U=[u^{(1)}|u^{(2)}|\ldots|u^{(n)}]$ -->
+<img width="163" height="36" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img37.gif" alt="$U=[u^{(1)}\vert u^{(2)}\vert\ldots\vert u^{(n)}]$">,
+then the computation of the coefficients 
+<!-- MATH: $\alpha_1,\alpha_2,\ldots,\alpha_n$ -->
+<img width="99" height="28" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img35.gif" alt="$\alpha_1,\alpha_2,\ldots,\alpha_n$">takes for the form of a matrix-vector product:
+<br><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+\left[\begin{array}{c}\alpha_1\\\alpha_2\\\vdots\\\alpha_n\end{array}\right]
+=\left[\begin{array}{c}u^{(1)}\cdot x\\u^{(2)}\cdot x\\
+\vdots\\u^{(n)}\cdot x\end{array}\right]=U^Tx.
+\end{displaymath} -->
+
+
+<img width="214" height="96" src="./The_spectral_theorem_for_symmetric_matrices_files/img38.gif" alt="\begin{displaymath}\left[\begin{array}{c}\alpha_1\\ \alpha_2\\ \vdots\\ \alpha_n...
+...(2)}\cdot x\\
+\vdots\\ u^{(n)}\cdot x\end{array}\right]=U^Tx.
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+The key point here is that the numbers 
+<!-- MATH: $\alpha_1,\alpha_2,\ldots,\alpha_n$ -->
+<img width="99" height="28" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img35.gif" alt="$\alpha_1,\alpha_2,\ldots,\alpha_n$">
+can be
+thought of as new variables representing the vector <i>x</i>.  Specifically,
+
+<!-- MATH: $x_1,x_2,\ldots,x_n$ -->
+<img width="96" height="28" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img14.gif" alt="$x_1,x_2,\ldots,x_n$">
+represent <i>x</i> in the standard basis
+
+<!-- MATH: $\{e^{(1)},e^{(2)},\ldots,e^{(n)}\}$ -->
+<img width="137" height="36" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img39.gif" alt="$\{e^{(1)},e^{(2)},\ldots,e^{(n)}\}$">,
+while 
+<!-- MATH: $\alpha_1,\alpha_2,\ldots,\alpha_n$ -->
+<img width="99" height="28" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img35.gif" alt="$\alpha_1,\alpha_2,\ldots,\alpha_n$">represent <i>x</i> in the alternate basis 
+<!-- MATH: $\{u^{(1)},u^{(2)},\ldots,u^{(n)}\}$ -->
+<img width="142" height="36" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img32.gif" alt="$\{u^{(1)},u^{(2)},\ldots,u^{(n)}\}$">.
+
+<p>
+I now digress to remind the reader of the following fundamental property
+of matrices, vectors, and the dot product: If 
+<!-- MATH: $A\in{\bf {\rm R}}^{m\times n}$ -->
+<img width="76" height="33" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img40.gif" alt="$A\in{\bf {\rm R}}^{m\times n}$">,
+then
+<br></p><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+y\cdot Ax=(A^Ty)\cdot x\ \ \mbox{for all}\x\in{\bf {\rm R}}^n,y\in{\bf {\rm R}}^m.
+\end{displaymath} -->
+
+
+<img width="279" height="28" src="./The_spectral_theorem_for_symmetric_matrices_files/img41.gif" alt="\begin{displaymath}y\cdot Ax=(A^Ty)\cdot x\ \ \mbox{for all}\x\in{\bf {\rm R}}^n,y\in{\bf {\rm R}}^m.
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+This is really the reason that the transpose of a matrix is important.
+
+<p>
+Assuming 
+<!-- MATH: $H\in{\bf {\rm R}}^{n\times n}$ -->
+<img width="76" height="33" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img42.gif" alt="$H\in{\bf {\rm R}}^{n\times n}$">
+is symmetric, it has a spectral decomposition
+<i>H</i>=<i>UDU</i><sup><i>T</i></sup>.  Therefore,
+<br></p><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+x\cdot Hx=x\cdot UDU^Tx=(U^Tx)\cdot D(U^Tx)=\sum_{i=1}^n\lambda_i\alpha_i^2,
+\end{displaymath} -->
+
+
+<img width="361" height="53" src="./The_spectral_theorem_for_symmetric_matrices_files/img43.gif" alt="\begin{displaymath}x\cdot Hx=x\cdot UDU^Tx=(U^Tx)\cdot D(U^Tx)=\sum_{i=1}^n\lambda_i\alpha_i^2,
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+where I have applied the change of variables 
+<!-- MATH: $\alpha=U^Tx$ -->
+<img width="67" height="18" align="BOTTOM" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img44.gif" alt="$\alpha=U^Tx$">.
+Therefore,
+the quadratic 
+<!-- MATH: $q(x)=x\cdot Hx$ -->
+<img width="98" height="31" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img45.gif" alt="$q(x)=x\cdot Hx$">
+is a simple decoupled quadratic when expressed
+in terms of the alternate basis 
+<!-- MATH: $\{u^{(1)},u^{(2)},\ldots,u^{(n)}\}$ -->
+<img width="142" height="36" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img32.gif" alt="$\{u^{(1)},u^{(2)},\ldots,u^{(n)}\}$">.
+Since every symmetric matrix has a spectral decomposition, this means that
+<em>every</em> quadratic function 
+<!-- MATH: $q(x)=x\cdot Hx$ -->
+<img width="98" height="31" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img45.gif" alt="$q(x)=x\cdot Hx$">
+can be expressed as a simple
+decoupled quadratic, provided the correct coordinate system is chosen.
+In particular, this shows that the graph of every quadratic in two variables
+looks like one of the graphs in Figure <a href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node2.html#quads">1</a> (or like one of the two
+other possibilities not illustrated in that figure), possibly rotated
+from the standard coordinates.
+
+<p>
+</p><p>
+</p><div><b>Example  2.2</b> &nbsp; 
+Define 
+<!-- MATH: $q:{\bf {\rm R}}^2\rightarrow{\bf {\rm R}}$ -->
+<img width="80" height="33" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img46.gif" alt="$q:{\bf {\rm R}}^2\rightarrow{\bf {\rm R}}$">
+by
+<br><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+q(x)=x_1^2+6x_1x_2+x_2^2.
+\end{displaymath} -->
+
+
+<i>q</i>(<i>x</i>)=<i>x</i><sub>1</sub><sup>2</sup>+6<i>x</i><sub>1</sub><i>x</i><sub>2</sub>+<i>x</i><sub>2</sub><sup>2</sup>.
+</div>
+<br clear="ALL">
+<p></p>
+Then 
+<!-- MATH: $q(x)=x\cdot Hx$ -->
+<img width="98" height="31" align="MIDDLE" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img45.gif" alt="$q(x)=x\cdot Hx$">,
+where
+<br><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+H=\left[\begin{array}{cc}1&3\\3&1\end{array}\right].
+\end{displaymath} -->
+
+
+<img width="107" height="45" src="./The_spectral_theorem_for_symmetric_matrices_files/img47.gif" alt="\begin{displaymath}H=\left[\begin{array}{cc}1&amp;3\\ 3&amp;1\end{array}\right].
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+The spectral decomposition of <i>H</i> is <i>H</i>=<i>UDU</i><sup><i>T</i></sup>, where
+<br><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+D=\left[\begin{array}{cc}4&0\\0&-2\end{array}\right],\
+U=\left[\begin{array}{cc}\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\end{array}\right].
+
+\end{displaymath} -->
+
+
+<img width="271" height="54" src="./The_spectral_theorem_for_symmetric_matrices_files/img48.gif" alt="\begin{displaymath}D=\left[\begin{array}{cc}4&amp;0\\ 0&amp;-2\end{array}\right],\
+U=\l...
+...}\\
+\frac{1}{\sqrt{2}}&amp;-\frac{1}{\sqrt{2}}\end{array}\right].
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+The vectors
+<br><p></p>
+<div align="CENTER">
+<!-- MATH: \begin{displaymath}
+u^{(1)}=\left[\begin{array}{r}\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}
+\end{array}\right],\
+u^{(2)}=\left[\begin{array}{r}\frac{1}{\sqrt{2}}\\-\frac{1}{\sqrt{2}}
+\end{array}\right]
+
+\end{displaymath} -->
+
+
+<img width="229" height="54" src="./The_spectral_theorem_for_symmetric_matrices_files/img49.gif" alt="\begin{displaymath}u^{(1)}=\left[\begin{array}{r}\frac{1}{\sqrt{2}}\\ \frac{1}{\...
+...{r}\frac{1}{\sqrt{2}}\\ -\frac{1}{\sqrt{2}}
+\end{array}\right]
+\end{displaymath}">
+</div>
+<br clear="ALL">
+<p></p>
+define the coordinate system illustrated in Figure <a href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node2.html#rot">2</a>.
+<br>
+<div align="CENTER"><a name="rot">&nbsp;</a><a name="176">&nbsp;</a>
+<table width="50%">
+<caption><strong>Figure 2:</strong>
+Standard coordinates and a rotated coordinate system.</caption>
+<tbody><tr><td>
+<div align="CENTER">
+
+<!-- MATH: $\includegraphics[height=3in,width=3in]{{rot.eps}}$ -->
+<img width="346" height="346" align="BOTTOM" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img50.gif" alt="\includegraphics[height=3in,width=3in]{{rot.eps}}"></div></td></tr>
+</tbody></table>
+</div>
+<br>
+The graph of <i>q</i>, which is shown in Figure <a href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node2.html#rot1">3</a>, is now predictable:
+It curves up in the direction of <i>u</i><sup>(1)</sup> and down in the direction of
+<i>u</i><sup>(2)</sup>.
+<br>
+<div align="CENTER"><a name="rot1">&nbsp;</a><a name="186">&nbsp;</a>
+<table width="50%">
+<caption><strong>Figure 3:</strong>
+The function 
+<!-- MATH: $q(x)=x_1^2+6x_1x_2+x_2^2$ -->
+<i>q</i>(<i>x</i>)=<i>x</i><sub>1</sub><sup>2</sup>+6<i>x</i><sub>1</sub><i>x</i><sub>2</sub>+<i>x</i><sub>2</sub><sup>2</sup>.</caption>
+<tbody><tr><td>
+<div align="CENTER">
+
+<!-- MATH: $\includegraphics[height=3in,width=4in]{{rot1.eps}}$ -->
+<img width="461" height="346" align="BOTTOM" border="0" src="./The_spectral_theorem_for_symmetric_matrices_files/img51.gif" alt="\includegraphics[height=3in,width=4in]{{rot1.eps}}"></div></td></tr>
+</tbody></table>
+</div>
+<br></div><p></p>
+
+<p>
+</p><hr>
+<!--Navigation Panel-->
+<a name="tex2html28" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node3.html">
+<img width="37" height="24" align="BOTTOM" border="0" alt="next" src="./The_spectral_theorem_for_symmetric_matrices_files/next_motif.gif"></a> 
+<a name="tex2html26" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/spectral.html">
+<img width="26" height="24" align="BOTTOM" border="0" alt="up" src="./The_spectral_theorem_for_symmetric_matrices_files/up_motif.gif"></a> 
+<a name="tex2html20" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node1.html">
+<img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="./The_spectral_theorem_for_symmetric_matrices_files/previous_motif.gif"></a>   
+<br>
+<b> Next:</b> <a name="tex2html29" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node3.html">Understanding stationary points</a>
+<b> Up:</b> <a name="tex2html27" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/spectral.html">The spectral theorem and</a>
+<b> Previous:</b> <a name="tex2html21" href="http://www.math.mtu.edu/~msgocken/ma5630spring2003/lectures/spectral/spectral/node1.html">Introduction</a>
+<!--End of Navigation Panel-->
+<address>
+<i>Mark S. Gockenbach</i>
+<br><i>2003-01-22</i>
+</address>
+
+
+<span style="border-radius: 3px; text-indent: 20px; width: auto; padding: 0px 4px 0px 0px; text-align: center; font-style: normal; font-variant: normal; font-weight: bold; font-stretch: normal; font-size: 11px; line-height: 20px; font-family: &quot;Helvetica Neue&quot;, Helvetica, sans-serif; color: rgb(255, 255, 255); background: url(&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==&quot;) 3px 50% / 14px 14px no-repeat rgb(189, 8, 28); position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; -webkit-font-smoothing: antialiased; top: 1360px; left: 572px;">Save</span><span style="width: 24px; height: 24px; background: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxtYXNrIGlkPSJtIj48cmVjdCBmaWxsPSIjZmZmIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiByeT0iNiIvPjxyZWN0IGZpbGw9IiMwMDAiIHg9IjUiIHk9IjUiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjEiIHJ5PSIxIi8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMTAiIHk9IjAiIHdpZHRoPSI0IiBoZWlnaHQ9IjI0Ii8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMCIgeT0iMTAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI0Ii8+PC9tYXNrPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IiNmZmYiIG1hc2s9InVybCgjbSkiLz48L3N2Zz4=&quot;) 50% 50% / 14px 14px no-repeat rgba(0, 0, 0, 0.4); position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; border-radius: 12px; top: 1358px; left: 991px;"></span></body></html>
