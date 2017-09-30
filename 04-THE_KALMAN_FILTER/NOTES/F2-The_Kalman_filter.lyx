@@ -1,0 +1,2923 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{listings}
+\definecolor{hellgelb}{rgb}{1,1,0.85}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+\lstset{
+      language=Matlab,
+      float=hbp,
+      basicstyle=\footnotesize\ttfamily,
+      identifierstyle=\color{colIdentifier},
+      keywordstyle=\color{colKeys},
+      stringstyle=\color{colString},
+      commentstyle=\itshape\color{colComments},
+      columns=fixed,
+      tabsize=4,
+      frame=single,
+      framerule=1pt,
+      extendedchars=true,
+      showspaces=false,
+      showstringspaces=false,
+      numbers=left,
+      numberstyle=\tiny\ttfamily,
+      numbersep=1em,
+      breaklines=true,
+      breakindent=10pt,
+      backgroundcolor=\color{hellgelb},
+      breakautoindent=true,
+      captionpos=t,
+      xleftmargin=1em,
+      xrightmargin=\fboxsep
+}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{pifont}
+\usepackage{color}
+\usepackage{esvect}
+
+\delimitershortfall=-1pt
+\let\Right\right
+\let\Left\left
+\makeatletter
+\def\right#1{\Right#1\@ifnextchar){\!\right}{}}
+\def\left#1{\Left#1\@ifnextchar({\!\left}{}}
+\makeatother
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 1
+\output_sync_macro "\synctex=1"
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 25mm
+\topmargin 25mm
+\rightmargin 25mm
+\bottommargin 25mm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+chaptername}{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+thechapter}{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+THE KALMAN FILTER
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig46.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+1 DIMENSION
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+x_t 
+\backslash
+, &= 
+\backslash
+, a_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, x_{t-1} 
+\backslash
+, + 
+\backslash
+, b_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, u_t 
+\backslash
+, + 
+\backslash
+, 
+\backslash
+epsilon_{R_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+z_t 
+\backslash
+, &= 
+\backslash
+, c_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, x_t 
+\backslash
+, + 
+\backslash
+, 
+\backslash
+epsilon_{Q_t}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+epsilon_{R_t}$
+\end_layout
+
+\end_inset
+
+ is the system noise:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(
+\backslash
+epsilon_{R_t}
+\backslash
+right) 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+mathcal{N}
+\backslash
+left(0, 
+\backslash
+, 
+\backslash
+sigma_{R_t}^2
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The term
+\series bold
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+epsilon_{Q_t}$
+\end_layout
+
+\end_inset
+
+ 
+\series default
+is the measurement noise:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(
+\backslash
+epsilon_{Q_t}
+\backslash
+right) 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+mathcal{N}
+\backslash
+left(0, 
+\backslash
+, 
+\backslash
+sigma_{Q_t}^2
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+PREDICTION:
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(x_t 
+\backslash
+, | 
+\backslash
+, x_{t-1}, 
+\backslash
+, u_t 
+\backslash
+right) 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+mathcal{N}
+\backslash
+left(a_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, x_{t-1} 
+\backslash
+, + 
+\backslash
+, b_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, u_t, 
+\backslash
+, 
+\backslash
+sigma_{R_t}^2
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+bel
+\backslash
+left(x_{t-1}
+\backslash
+right) 
+\backslash
+, &= 
+\backslash
+, p
+\backslash
+left(x_{t-1} 
+\backslash
+, | 
+\backslash
+, z_{t-1}
+\backslash
+right) 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+frac{p
+\backslash
+left(z_{t-1} 
+\backslash
+, | 
+\backslash
+, x_{t-1}
+\backslash
+right) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, p
+\backslash
+left(x_{t-1}
+\backslash
+right)}{p
+\backslash
+left(z_{t-1}
+\backslash
+right)} 
+\backslash
+ = 
+\backslash
+, 
+\backslash
+alpha 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, p
+\backslash
+left(z_{t-1} 
+\backslash
+, | 
+\backslash
+, x_{t-1}
+\backslash
+right) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+overline{bel}
+\backslash
+left(x_{t-1} 
+\backslash
+right) 
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&= 
+\backslash
+, 
+\backslash
+mathcal{N}(
+\backslash
+mu_{t-1},
+\backslash
+,
+\backslash
+sigma_{t-1}^{2})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{bel}
+\backslash
+left(x_t 
+\backslash
+right) 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+int_{x_{t-1} = -
+\backslash
+infty}^{+
+\backslash
+infty}{p
+\backslash
+left(x_t 
+\backslash
+, | 
+\backslash
+, x_{t-1}, 
+\backslash
+, u_t 
+\backslash
+right) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, bel
+\backslash
+left(x_{t-1}
+\backslash
+right) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, dx_{t-1}} 
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&= 
+\backslash
+, 
+\backslash
+int_{x_{t-1} = -
+\backslash
+infty}^{+
+\backslash
+infty}{
+\backslash
+mathcal{N}
+\backslash
+left(a_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, x_{t-1} 
+\backslash
+, + 
+\backslash
+, b_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, u_t, 
+\backslash
+, 
+\backslash
+sigma_{R_t}^2 
+\backslash
+right) 
+\backslash
+,
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+mathcal{N}
+\backslash
+left(
+\backslash
+mu_{t-1}, 
+\backslash
+, 
+\backslash
+sigma_{t-1}^2 
+\backslash
+right) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, dx_{t-1}} 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+mathcal{N}
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu_t}, 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+sigma_t}^{2}
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\series bold
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu_t} 
+\backslash
+, &= 
+\backslash
+, a_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+mu_{t-1} 
+\backslash
+, + 
+\backslash
+, b_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, u_t
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+sigma_t}^2 
+\backslash
+, &= 
+\backslash
+, a_t^2 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+sigma_{t-1}^2 
+\backslash
+, + 
+\backslash
+, 
+\backslash
+sigma_{R_t}^2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+CORRECTION:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(z_t 
+\backslash
+, | 
+\backslash
+, x_t
+\backslash
+right) 
+\backslash
+, & = 
+\backslash
+, 
+\backslash
+mathcal{N}(c_t 
+\backslash
+,
+\backslash
+cdot 
+\backslash
+, x_t, 
+\backslash
+, 
+\backslash
+sigma_{Q_t}^{2})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{bel}
+\backslash
+left(x_t
+\backslash
+right) 
+\backslash
+, & = 
+\backslash
+, 
+\backslash
+mathcal{N}(
+\backslash
+overline{
+\backslash
+mu_t}, 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+sigma_t}^{2})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+bel
+\backslash
+left(x_t
+\backslash
+right) 
+\backslash
+, & = 
+\backslash
+, p
+\backslash
+left(x_t 
+\backslash
+, | 
+\backslash
+, z_t
+\backslash
+right) 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+alpha 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, p
+\backslash
+left(z_t 
+\backslash
+, | 
+\backslash
+, x_t
+\backslash
+right) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+,
+\backslash
+overline{bel}
+\backslash
+left(x_t
+\backslash
+right) 
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& = 
+\backslash
+, 
+\backslash
+alpha 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+mathcal{N}(c_t 
+\backslash
+,
+\backslash
+cdot 
+\backslash
+, x_t, 
+\backslash
+, 
+\backslash
+sigma_{Q_t}^{2}) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+mathcal{N}( 
+\backslash
+overline{
+\backslash
+mu_t}, 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+sigma_t}^{2}) 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+mathcal{N}(
+\backslash
+mu_t, 
+\backslash
+, 
+\backslash
+sigma_t^{2})
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+K_t 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+frac{c_t 
+\backslash
+,
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+sigma_t}^2}{c_t^2 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+sigma_t}^2 
+\backslash
+, + 
+\backslash
+, 
+\backslash
+sigma_{Q_t}^2}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+mu_t 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+mu_t} 
+\backslash
+, + 
+\backslash
+, K_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+left(z_t 
+\backslash
+, - 
+\backslash
+, c_t 
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_t^2 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+left(1 
+\backslash
+, - 
+\backslash
+, K_t 
+\backslash
+, 
+\backslash
+cdot
+\backslash
+, c_t 
+\backslash
+right) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+K_t 
+\backslash
+, &= 
+\backslash
+, 0 ~ 
+\backslash
+longrightarrow ~ 
+\backslash
+begin{aligned}
+\backslash
+mu_t 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+mu_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_t^2 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\backslash
+end{aligned}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+K_t 
+\backslash
+, &> 
+\backslash
+, 0 
+\backslash
+,
+\backslash
+, 
+\backslash
+longrightarrow 
+\backslash
+,
+\backslash
+, 
+\backslash
+sigma_t^2 
+\backslash
+, < 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+sigma_t}^2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig47.pdf
+	lyxscale 50
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+N DIMENSIONS
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig48.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{x}_t 
+\backslash
+, &= 
+\backslash
+, A_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+vec{x}_{t-1} 
+\backslash
+, + 
+\backslash
+, B_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, U_t 
+\backslash
+, + 
+\backslash
+, 
+\backslash
+epsilon_{R_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{z}_t 
+\backslash
+, &= 
+\backslash
+, C_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+vec{x}_t 
+\backslash
+, + 
+\backslash
+, 
+\backslash
+epsilon_{Q_{t}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+epsilon_{R_t}$
+\end_layout
+
+\end_inset
+
+ is the system noise:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(
+\backslash
+epsilon_{R_t}
+\backslash
+right) 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+mathcal{N}
+\backslash
+left(0, 
+\backslash
+, R_t
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The term
+\series bold
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+epsilon_{Q_{t}}$
+\end_layout
+
+\end_inset
+
+ 
+\series default
+is the measurement noise:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(
+\backslash
+epsilon_{Q_{t}}
+\backslash
+right) 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+mathcal{N}
+\backslash
+left(0, 
+\backslash
+, Q_{t}
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+PREDICTION:
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(
+\backslash
+vec{x}_t 
+\backslash
+, | 
+\backslash
+, 
+\backslash
+vec{x}_{t-1}, 
+\backslash
+, U_t 
+\backslash
+right) 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+mathcal{N}
+\backslash
+left(A_{t} 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+vec{x}_{t-1} 
+\backslash
+, + 
+\backslash
+, B_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, U_t, 
+\backslash
+, R_t
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+bel
+\backslash
+left(
+\backslash
+vec{x}_{t-1}
+\backslash
+right) 
+\backslash
+, &= 
+\backslash
+, p
+\backslash
+left(
+\backslash
+vec{x}_{t-1} 
+\backslash
+, | 
+\backslash
+, 
+\backslash
+vec{z}_{t-1}
+\backslash
+right) 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+frac{p
+\backslash
+left(
+\backslash
+vec{z}_{t-1} 
+\backslash
+, | 
+\backslash
+, 
+\backslash
+vec{x}_{t-1}
+\backslash
+right) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, p
+\backslash
+left(
+\backslash
+vec{x}_{t-1}
+\backslash
+right)}{p
+\backslash
+left(
+\backslash
+vec{z}_{t-1}
+\backslash
+right)} 
+\backslash
+ = 
+\backslash
+, 
+\backslash
+alpha 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, p
+\backslash
+left(
+\backslash
+vec{z}_{t-1} 
+\backslash
+, | 
+\backslash
+, 
+\backslash
+vec{x}_{t-1}
+\backslash
+right) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+overline{bel}
+\backslash
+left(
+\backslash
+vec{x}_{t-1} 
+\backslash
+right) 
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&= 
+\backslash
+, 
+\backslash
+mathcal{N}(
+\backslash
+vec{
+\backslash
+mu}_{t-1},
+\backslash
+,
+\backslash
+Sigma_{t-1})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{bel}
+\backslash
+left(
+\backslash
+vec{x}_t 
+\backslash
+right) 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+int_{
+\backslash
+vec{x}_{t-1} = -
+\backslash
+infty}^{+
+\backslash
+infty}{p
+\backslash
+left(
+\backslash
+vec{x}_t 
+\backslash
+, | 
+\backslash
+, 
+\backslash
+vec{x}_{t-1}, 
+\backslash
+, U_t 
+\backslash
+right) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, bel
+\backslash
+left(
+\backslash
+vec{x}_{t-1}
+\backslash
+right) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, d
+\backslash
+vec{x}_{t-1}} 
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+&= 
+\backslash
+, 
+\backslash
+int_{
+\backslash
+vec{x}_{t-1} = -
+\backslash
+infty}^{+
+\backslash
+infty}{
+\backslash
+mathcal{N}
+\backslash
+left(A_{t} 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+vec{x}_{t-1} 
+\backslash
+, + 
+\backslash
+, B_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, U_t, 
+\backslash
+, R_t 
+\backslash
+right) 
+\backslash
+,
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+mathcal{N}
+\backslash
+left(
+\backslash
+vec{
+\backslash
+mu}_{t-1}, 
+\backslash
+, 
+\backslash
+Sigma_{t-1} 
+\backslash
+right) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, d
+\backslash
+vec{x}_{t-1}} 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+mathcal{N}
+\backslash
+left(
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t, 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+Sigma}_t
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\series bold
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t 
+\backslash
+, &= 
+\backslash
+, A_{t} 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+vec{
+\backslash
+mu}_{t-1} 
+\backslash
+, + 
+\backslash
+, B_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, U_t
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+Sigma}_t 
+\backslash
+, &= 
+\backslash
+, A_{t} 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+Sigma_{t-1} 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, A_{t}^T 
+\backslash
+, + 
+\backslash
+, R_t
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+CORRECTION:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\backslash
+left(
+\backslash
+vec{z}_t 
+\backslash
+, | 
+\backslash
+, 
+\backslash
+vec{x}_t
+\backslash
+right) 
+\backslash
+, & = 
+\backslash
+, 
+\backslash
+mathcal{N}(C_t 
+\backslash
+,
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+vec{x}_t, 
+\backslash
+, Q_{t})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{bel}
+\backslash
+left(
+\backslash
+vec{x}_t
+\backslash
+right) 
+\backslash
+, & = 
+\backslash
+, 
+\backslash
+mathcal{N}(
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t, 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+Sigma}_t)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+bel
+\backslash
+left(
+\backslash
+vec{x}_t
+\backslash
+right) 
+\backslash
+, & = 
+\backslash
+, p
+\backslash
+left(
+\backslash
+vec{x}_t 
+\backslash
+, | 
+\backslash
+, 
+\backslash
+vec{z}_t
+\backslash
+right) 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+alpha 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, p
+\backslash
+left(
+\backslash
+vec{z}_t 
+\backslash
+, | 
+\backslash
+, 
+\backslash
+vec{x}_t
+\backslash
+right) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+,
+\backslash
+overline{bel}
+\backslash
+left(
+\backslash
+vec{x}_t
+\backslash
+right) 
+\backslash
+, =
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& = 
+\backslash
+, 
+\backslash
+alpha 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+mathcal{N}(C_t 
+\backslash
+,
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+vec{x}_t, 
+\backslash
+, Q_{t}) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+mathcal{N}( 
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t, 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+Sigma}_t) 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+mathcal{N}(
+\backslash
+vec{
+\backslash
+mu}_t, 
+\backslash
+, 
+\backslash
+Sigma_t)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+K_t 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+Sigma}_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, C_t^T 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+left(C_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+Sigma}_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, C_t^T  
+\backslash
+, + 
+\backslash
+, Q_{t}
+\backslash
+right)^{-1}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+mu}_t 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t 
+\backslash
+, + 
+\backslash
+, K_t 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+left(
+\backslash
+vec{z}_t 
+\backslash
+, - 
+\backslash
+, C_t 
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sigma_t 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+left(I 
+\backslash
+, - 
+\backslash
+, K_t 
+\backslash
+, 
+\backslash
+cdot
+\backslash
+, C_t 
+\backslash
+right) 
+\backslash
+, 
+\backslash
+cdot 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+Sigma}_t
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\series default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+K_t 
+\backslash
+, = 
+\backslash
+, 0 
+\backslash
+,
+\backslash
+, 
+\backslash
+longrightarrow 
+\backslash
+,
+\backslash
+, 
+\backslash
+vec{
+\backslash
+mu}_t 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sigma_t 
+\backslash
+, &= 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+Sigma}_t
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Belonging to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+mathbb{R}^{Nx1}$
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{x}_t$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{x}_{t-1}$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+epsilon_{R_t}$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+mu}_t$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+mu}_{t-1}$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Belonging to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+mathbb{R}^{NxN}$
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$A_{t}$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_t$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+overline{
+\backslash
+Sigma}_t$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+Sigma_{t}$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+Sigma_{t-1}$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Belonging to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+mathbb{R}^{Mx1}$
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$U_t$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Belonging to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+mathbb{R}^{NxM}$
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$B_t$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Belonging to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+mathbb{R}^{Lx1}$
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{z}_t$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+epsilon_{Q_{t}}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Belonging to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+mathbb{R}^{LxN}$
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$C_t$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Belonging to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+mathbb{R}^{LxL}$
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$Q_{t}$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Belonging to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+mathbb{R}^{NxL}$
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$K_t$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
