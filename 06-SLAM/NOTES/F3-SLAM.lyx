@@ -1,0 +1,3198 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{listings}
+\definecolor{hellgelb}{rgb}{1,1,0.85}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+\lstset{
+      language=Matlab,
+      float=hbp,
+      basicstyle=\footnotesize\ttfamily,
+      identifierstyle=\color{colIdentifier},
+      keywordstyle=\color{colKeys},
+      stringstyle=\color{colString},
+      commentstyle=\itshape\color{colComments},
+      columns=fixed,
+      tabsize=4,
+      frame=single,
+      framerule=1pt,
+      extendedchars=true,
+      showspaces=false,
+      showstringspaces=false,
+      numbers=left,
+      numberstyle=\tiny\ttfamily,
+      numbersep=1em,
+      breaklines=true,
+      breakindent=10pt,
+      backgroundcolor=\color{hellgelb},
+      breakautoindent=true,
+      captionpos=t,
+      xleftmargin=1em,
+      xrightmargin=\fboxsep
+}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{pifont}
+\usepackage{color}
+\usepackage{accents}
+
+\delimitershortfall=-1pt
+\let\Right\right
+\let\Left\left
+\makeatletter
+\def\right#1{\Right#1\@ifnextchar){\!\right}{}}
+\def\left#1{\Left#1\@ifnextchar({\!\left}{}}
+\makeatother
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package babel
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "Latin Modern Roman"
+\font_sans "default" "Latin Modern Sans"
+\font_typewriter "default" "Latin Modern Mono"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 1
+\output_sync_macro "\synctex=1"
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 25mm
+\topmargin 25mm
+\rightmargin 25mm
+\bottommargin 25mm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+How many landmarks does the ONLINE SLAM algorithm need to have a good performanc
+e?
+\end_layout
+
+\begin_layout Standard
+There's no simple answer.
+ If there are a few landmarks then the landmark assignment is good because
+ if there's only few it's hard to confuse them.
+ On the other hand it means for the localization that if there are only
+ a few landmarks the algorithm has less observations to work with, so the
+ accuracy is low or even if there are too few landmarks there can be parts
+ in the trajectory without observations at all and the algorithm only runs
+ the prediction, therefore the pose uncertainty will grow quickly.
+ In conversely, if there are many landmarks then localization is good, however,
+ it's easy to confuse them.
+ In order to have many landmarks for good localization and still not to
+ confuse them the algorithm needs distinct landmarks.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig50.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In our case all landmarks were the same because in the real world they actually
+ had exactly the same dimensions.
+ But in practice the landmarks may be different among them in different
+ ways.
+ For example, it is very usual that they differ in dimensions or in color.
+ Therefore, if the algorithm uses the camera in addition it would have been
+ able to detect the different colors of our landmarks and then it could
+ have added the color as a component in the description of the landmarks.
+ But there are other features that can be used to distinguish the landmarks.
+ It can be the dimensions of the landmark, it can be a detector that detects
+ if a surface is flat or that detects the curvature of a surface or that
+ detects if there is a dihedral latch or even if there's a corner.
+ A camera can be used to detect an image of the object, so the algorithm
+ is able to detect feature points for which it can derive a high dimensional
+ vector.
+ In general, the idea is to use landmark signatures, so that each landmark
+ is described by its position and also its signature.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig51.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now our algorithm worked in the following way: The robot takes a scan from
+ the world.
+ Then the algorithm detects the observed cylinders in the scan and then
+ it looks within a certain fixed radius for the closest landmark.
+ If there isn't a match between a cylinder and a landmark the algorithm
+ creates a new landmark.
+ In our experiments we used a radius of 50 cm, then a radius of 40 cm and
+ also a radius of 30 cm and we found out that the algorithm is brittle with
+ respect to this parameter.
+\end_layout
+
+\begin_layout Standard
+Now let's think about how to make the landmark assignment process more robust
+ and reliable.
+ Imagine the following situation.
+ The robot measures the cylinder labeled as A and the cylinder labeled as
+ B.
+ In our map there is a landmark labeled as A' that the robot has observed
+ very often.
+ Consequently, the uncertainty ellipse for the landmark A' is pretty small.
+ On the other hand, there is also a landmark labeled as B', which is a bit
+ further away from cylinder B, than the distance from landmark A' to cylinder
+ A.
+ Besides, the uncertainty ellipse for the landmark B' is really large.
+\end_layout
+
+\begin_layout Standard
+Obviously the cylinder A shouldn't be assigned to landmark A'.
+ Let's explain this.
+ The uncertainty ellipse for the landmark A' is really small, due to the
+ fact that the robot has observed this landmark many times, so it means
+ that the landmark A' is very well positioned in the world.
+ If the cylinder A is not very very close to the landmark A', which is very
+ well positioned in the world, is because, it's very sure that there is
+ another landmark next to the cylinder A.
+\end_layout
+
+\begin_layout Standard
+\align center
+(Note that we haven't talked about radius to do the assignment yet)
+\end_layout
+
+\begin_layout Standard
+On the other hand, the cylinder B should be assigned to the landmark B'.
+ The uncertainty ellipse for the landmark B' is really large, so it means
+ that the landmark B' couldn't be properly positioned in the world.
+ In this occasion, and due to the large uncertainty ellipse for the landmark
+ B', the cylinder B is considered to be close enough to this landmark to
+ be assigned to it.
+\end_layout
+
+\begin_layout Standard
+The landmark assignment process should take into account the uncertainty
+ of the robot as well.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig53.pdf
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The new landmark assignment process is called
+\series bold
+ maximum likelihood landmark
+\series default
+ assignment and is based on the Mahalanobis distance.
+ The general expression for the squared Mahalanobis distance between any
+ measurement, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{z}_t$
+\end_layout
+
+\end_inset
+
+, and the expected measurement to any world landmark, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+hat{z}}_t
+\backslash
+,=
+\backslash
+,h
+\backslash
+left(
+\backslash
+vec{x}_t,
+\backslash
+,
+\backslash
+vec{p}_W
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+, is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+M_{t}^2
+\backslash
+,=
+\backslash
+,
+\backslash
+left(
+\backslash
+vec{z}_t
+\backslash
+,-
+\backslash
+,
+\backslash
+vec{
+\backslash
+hat{z}}_{t}
+\backslash
+right)^T
+\backslash
+,
+\backslash
+cdot
+\backslash
+, Q_{t}^{-1}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(
+\backslash
+vec{z}_t
+\backslash
+,-
+\backslash
+,
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Q_{jt}
+\backslash
+,=
+\backslash
+, H_{t}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+Sigma}_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, H_{t}^T
+\backslash
+,+
+\backslash
+, Q
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where the term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{p}_W$
+\end_layout
+
+\end_inset
+
+ represents the coordinates of a world landmark:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{p}_W
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+x_W
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+y_W
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's denote 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$M_{jt}^2$
+\end_layout
+
+\end_inset
+
+ to the squared Mahalanobis distance between any measurement, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{z}_t$
+\end_layout
+
+\end_inset
+
+, and the expected measurement to the world landmark number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j,
+\backslash
+,
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+,=
+\backslash
+,h
+\backslash
+left(
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_{t},
+\backslash
+,{
+\backslash
+vec{
+\backslash
+overline{p}}_W}_j
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+M_{jt}^2
+\backslash
+,=
+\backslash
+,
+\backslash
+left(
+\backslash
+vec{z}_t
+\backslash
+,-
+\backslash
+,
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+right)^T
+\backslash
+,
+\backslash
+cdot
+\backslash
+, Q_{jt}^{-1}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(
+\backslash
+vec{z}_t
+\backslash
+,-
+\backslash
+,
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Q_{jt}
+\backslash
+,=
+\backslash
+, H_{jt}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+Sigma}_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, H_{jt}^T
+\backslash
+,+
+\backslash
+, Q
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where the term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+${
+\backslash
+vec{
+\backslash
+overline{p}}_W}_j$
+\end_layout
+
+\end_inset
+
+ represents the predicted coordinates for the world landmark number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j$
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+vec{
+\backslash
+overline{p}}_W}_j
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{{x_W}_j}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{{y_W}_j}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, let's denote 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$M_{jit}^2$
+\end_layout
+
+\end_inset
+
+ to the squared Mahalanobis distance between the measurement number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$i$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{z}_{it}$
+\end_layout
+
+\end_inset
+
+, and the expected measurement to the world landmark number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j,
+\backslash
+,
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+,=
+\backslash
+,h
+\backslash
+left(
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_{t},
+\backslash
+,{
+\backslash
+vec{
+\backslash
+overline{p}}_W}_j
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+M_{jit}^2
+\backslash
+,=
+\backslash
+,
+\backslash
+left(
+\backslash
+vec{z}_{it}
+\backslash
+,-
+\backslash
+,
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+right)^T
+\backslash
+,
+\backslash
+cdot
+\backslash
+, Q_{jt}^{-1}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(
+\backslash
+vec{z}_{it}
+\backslash
+,-
+\backslash
+,
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Q_{jt}
+\backslash
+,=
+\backslash
+, H_{jt}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+Sigma}_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, H_{jt}^T
+\backslash
+,+
+\backslash
+, Q
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The subscript 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j$
+\end_layout
+
+\end_inset
+
+ is the number of the registered world landmark that the algorithm is currently
+ using.
+ The predicted 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x$
+\end_layout
+
+\end_inset
+
+ coordinate for the world landmark number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+overline{
+\backslash
+mu}_{{x_W}_j}$
+\end_layout
+
+\end_inset
+
+, is stored within the predicted state vector, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t$
+\end_layout
+
+\end_inset
+
+, at the index:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+i
+\backslash
+,=
+\backslash
+,3
+\backslash
+,+
+\backslash
+,(2
+\backslash
+,j)
+\backslash
+,-
+\backslash
+,1
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The predicted 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$y$
+\end_layout
+
+\end_inset
+
+ coordinate for the world landmark number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+overline{
+\backslash
+mu}_{{y_W}_j}$
+\end_layout
+
+\end_inset
+
+, is stored within the predicted state vector, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t$
+\end_layout
+
+\end_inset
+
+, at the index
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+i
+\backslash
+,=
+\backslash
+,3
+\backslash
+,+
+\backslash
+,(2
+\backslash
+,j)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{x_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{y_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{{x_W}_1}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{{y_W}_1}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vdots
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{{x_W}_j}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{{y_W}_j}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vdots
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{{x_W}_N}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{{y_W}_N}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\backslash
+begin{matrix*}[l]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+longleftarrow i
+\backslash
+,=
+\backslash
+,0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+longleftarrow i
+\backslash
+,=
+\backslash
+,1
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+longleftarrow i
+\backslash
+,=
+\backslash
+,2
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{white}{
+\backslash
+overline{
+\backslash
+mu}_{{x_W}_1}}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{white}{
+\backslash
+overline{
+\backslash
+mu}_{{y_W}_1}}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{white}{
+\backslash
+vdots}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+longleftarrow
+\backslash
+text{Predicted $x$ coordinated for the world landmark number $j$, } i
+\backslash
+,=
+\backslash
+, 3
+\backslash
+,+
+\backslash
+,(2
+\backslash
+,j)
+\backslash
+,-
+\backslash
+,1
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+longleftarrow
+\backslash
+text{Predicted $y$ coordinated for the world landmark number $j$, } i
+\backslash
+,=
+\backslash
+, 3
+\backslash
+,+
+\backslash
+,(2
+\backslash
+,j)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{white}{
+\backslash
+vdots}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{white}{
+\backslash
+overline{
+\backslash
+mu}_{{x_W}_N}}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{white}{
+\backslash
+overline{
+\backslash
+mu}_{{y_W}_N}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{matrix*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The observation vector, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{z}_t$
+\end_layout
+
+\end_inset
+
+, is comprises by two terms:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{z}_t
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+D_t
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phi_t
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$D_t$
+\end_layout
+
+\end_inset
+
+ is the distance from the laser scanner to a detected landmark.
+\end_layout
+
+\begin_layout Standard
+The term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+phi_t$
+\end_layout
+
+\end_inset
+
+ is the angle defined between the laser scanner's longitudinal axis and
+ the imaginary line that joints the laser scanner with a detected landmark.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig55.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The expected observation vector, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+,=
+\backslash
+,h
+\backslash
+left(
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t,
+\backslash
+, {
+\backslash
+vec{p}_W}_j
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+, is comprises by two terms:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\backslash
+hat{D}_{jt}
+\backslash
+
+\backslash
+
+\backslash
+hat{
+\backslash
+phi}_{jt}
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{D}_{jt}$
+\end_layout
+
+\end_inset
+
+ is the distance from the laser scanner's predicted pose, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_{lt}^{
+\backslash
+,T}
+\backslash
+,=
+\backslash
+,
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_{x_{lt}},
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{y_{lt}},
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_{t}}
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+, to the predicted position for the registered world landmark number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_{{x_W}_j},
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{{y_W}_j}
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hat{D}_{jt}
+\backslash
+,=
+\backslash
+,
+\backslash
+sqrt{
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_{{x_W}_j}
+\backslash
+,-
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{x_{lt}}
+\backslash
+right)^2
+\backslash
+,+
+\backslash
+,
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_{{y_W}_j}
+\backslash
+,-
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{y_{lt}}
+\backslash
+right)^2}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{x_{lt}}
+\backslash
+, =
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{x_t}
+\backslash
+, +
+\backslash
+, sd
+\backslash
+,
+\backslash
+cos
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t}
+\backslash
+right)
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+overline{
+\backslash
+mu}_{y_{lt}}
+\backslash
+, =
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{y_t}
+\backslash
+, +
+\backslash
+, sd
+\backslash
+,
+\backslash
+sin
+\backslash
+left(
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t}
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{
+\backslash
+phi}_{jt}$
+\end_layout
+
+\end_inset
+
+ is the angle between:
+\end_layout
+
+\begin_layout Itemize
+The laser scanner's predicted orientation angle, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t}$
+\end_layout
+
+\end_inset
+
+ and
+\end_layout
+
+\begin_layout Itemize
+The orientation angle of the imaginary line that joints the laser scanner's
+ predicted position with the predicted position for the registered world
+ landmark number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+arctan
+\backslash
+left(
+\backslash
+dfrac{
+\backslash
+overline{
+\backslash
+mu}_{{y_W}_j}
+\backslash
+,-
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{y_{lt}}}{
+\backslash
+overline{
+\backslash
+mu}_{{x_W}_j}
+\backslash
+,-
+\backslash
+,
+\backslash
+overline {
+\backslash
+mu}_{x_{lt}}}
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hat{
+\backslash
+phi}_{jt}
+\backslash
+,=
+\backslash
+,
+\backslash
+arctan
+\backslash
+left(
+\backslash
+dfrac{
+\backslash
+overline{
+\backslash
+mu}_{{y_W}_j}
+\backslash
+,-
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{y_{lt}}}{
+\backslash
+overline{
+\backslash
+mu}_{{x_W}_j}
+\backslash
+,-
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{x_{lt}}}
+\backslash
+right)
+\backslash
+,-
+\backslash
+,
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig57.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note:
+\end_layout
+
+\begin_layout Standard
+The difference
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{z}_t
+\backslash
+,-
+\backslash
+,
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is a measurement of how well the detected landmark matches with the registered
+ world landmark number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The matrix 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$Q$
+\end_layout
+
+\end_inset
+
+ is the covariance matrix due to the uncertainty (error) produced in the
+ measure system.
+ The matrix 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+overline{
+\backslash
+Sigma}_t$
+\end_layout
+
+\end_inset
+
+ is the uncertainty (error) in the predicted state vector, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t$
+\end_layout
+
+\end_inset
+
+.
+ By multiplying the matrix 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+overline{
+\backslash
+Sigma}_t$
+\end_layout
+
+\end_inset
+
+ from the left by the term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$H_{jt}$
+\end_layout
+
+\end_inset
+
+, and from the right by the term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$H_{jt}^T$
+\end_layout
+
+\end_inset
+
+, the algorithm is propagating the uncertainty (error) through the function
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$h
+\backslash
+left(
+\backslash
+vec{x}_t,
+\backslash
+, 
+\backslash
+vec{p}_W
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+.
+ Therefore, the term 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$H_{jt}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+overline{
+\backslash
+Sigma}_t
+\backslash
+,
+\backslash
+cdot
+\backslash
+, H_{jt}^T$
+\end_layout
+
+\end_inset
+
+ represents the uncertainty propagation.
+ Basically this term is due to the uncertainty (error) in the robot's predicted
+ pose and the uncertainty in the measure system.
+\end_layout
+
+\begin_layout Standard
+Then the algorithm uses a maximum distance threshold, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+epsilon$
+\end_layout
+
+\end_inset
+
+, to accept the match between the detected landmark number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$i$
+\end_layout
+
+\end_inset
+
+ and the registered world landmark number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j$
+\end_layout
+
+\end_inset
+
+.
+ The match is accepted or rejected based on the squared Malahanobis distance.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+M_{jit}^2
+\backslash
+,
+\backslash
+leq
+\backslash
+,
+\backslash
+epsilon
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+left(
+\backslash
+vec{z}_{it}
+\backslash
+,-
+\backslash
+,
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+right)^T
+\backslash
+,
+\backslash
+cdot
+\backslash
+, Q_{jt}^{
+\backslash
+,-1}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(
+\backslash
+vec{z}_{it}
+\backslash
+,-
+\backslash
+,
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+right)
+\backslash
+,
+\backslash
+leq
+\backslash
+,
+\backslash
+epsilon
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$M_{jit}^2
+\backslash
+,
+\backslash
+leq
+\backslash
+,
+\backslash
+epsilon$
+\end_layout
+
+\end_inset
+
+ then the algorithm accepts the match between the detected landmark number
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$i$
+\end_layout
+
+\end_inset
+
+ and the registered world landmark number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j$
+\end_layout
+
+\end_inset
+
+.
+ Otherwise, the match is rejected.
+\end_layout
+
+\begin_layout Standard
+What is happening here is that:
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+The algorithm is accepting the match between the detected landmark 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$i$
+\end_layout
+
+\end_inset
+
+ and the world landmark number 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$j$
+\end_layout
+
+\end_inset
+
+ if the measurement 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{z}_{it}$
+\end_layout
+
+\end_inset
+
+ is inside, or in the border, of the projection ellipse defined by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+left(
+\backslash
+vec{z}_{t}
+\backslash
+,-
+\backslash
+,
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+right)^T
+\backslash
+,
+\backslash
+cdot
+\backslash
+,Q_{jt}^{
+\backslash
+,-1}
+\backslash
+,
+\backslash
+cdot
+\backslash
+,
+\backslash
+left(
+\backslash
+vec{z}_{t}
+\backslash
+,-
+\backslash
+,
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+right)
+\backslash
+,=
+\backslash
+,
+\backslash
+epsilon$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This projection ellipse belongs to the Gaussian distribution 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+mathcal{N}
+\backslash
+left(
+\backslash
+vec{z}_t,
+\backslash
+,
+\backslash
+vec{
+\backslash
+hat{z}}_{jt},
+\backslash
+, Q_{jt}
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig59.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The projection ellipse is centered at the vector 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+hat{z}}_{jt}
+\backslash
+,=
+\backslash
+,h
+\backslash
+left(
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t,
+\backslash
+, {
+\backslash
+vec{
+\backslash
+overline{p}}_W}_j
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+.
+ The projection ellipse is oriented according to the orthonormal eigenvectors
+ of the covariance matrix 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$Q_{jt}$
+\end_layout
+
+\end_inset
+
+.
+ The principal axes' lengths of the projection ellipse depend on the eigenvalues
+ of the covariance matrix 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$Q_{jt}$
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+sqrt{
+\backslash
+epsilon
+\backslash
+,
+\backslash
+lambda_1}$
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+sqrt{
+\backslash
+epsilon
+\backslash
+,
+\backslash
+lambda_2}$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig60.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Regarding the landmark assignment, now, there is also a provisional landmark
+ list.
+ Let's consider that the robot sees a landmark for the first time.
+ Now the algorithm will not put this landmark into the specific state vector
+ as a standard landmark.
+ Rather the algorithm will store that landmark in the provisional landmark
+ list and it will add to the covariance matrix the landmark's position variances.
+ The robot moves on and it observes the landmark again (for the second time),
+ therefore the landmark uncertainty ellipse will decrease.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig61.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The algorithm will put the landmark into the final landmark list only after
+ several observations indicate that this landmark has been found consistently.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig62.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In practice, it is relatively easy to handle this.
+ The idea is that any newly observed landmark is considered provisional
+ and it is stored into the specific state vector.
+ But the observation model is modified in a way that for provisional landmarks
+ this model only handles the position of these landmark as variables (concept
+ of mathematics variable) and the robot's position and orientation are not
+ consider as variables.
+ In this way as long as a landmark is considered provisional the robot will
+ influence, by subsequent observations, the accuracy of that provisional
+ landmark's position but that provisional landmark won't influence the robot's
+ pose.
+ So the algorithm adds a flag to know whether a landmark is considered provision
+al or not, and therefore it can be used a slightly different observation
+ model.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+OVERVIEW:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+FULL SLAM problem
+\series default
+: the algorithm computes the posterior over all states and assignments of
+ landmarks.
+ This problem is usually computationally infeasible.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+ONLINE SLAM problem
+\series default
+: this problem is easier to handle and it uses a deterministic computation
+ of landmark assignments so instead of providing the full posterior over
+ all states and assignments you sign on the fly using a deterministic algorithm.
+ This is also its main drawback because as we saw it's brittle with respect
+ to landmark confusion.
+ Even though the ONLINE SLAM is less complex than the full slam it still
+ has a huge update complexity that grows with the number of landmarks because
+ the size of the specific state vector grows with a number of landmarks
+ so it is potentially unbound.
+ Nevertheless ONLINE SLAM has been used by many groups with considerable
+ success and as you have seen for a small problem it has worked out perfectly.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig63.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

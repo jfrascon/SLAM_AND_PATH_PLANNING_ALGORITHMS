@@ -1,0 +1,2736 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{listings}
+\definecolor{hellgelb}{rgb}{1,1,0.85}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+\lstset{
+      language=Matlab,
+      float=hbp,
+      basicstyle=\footnotesize\ttfamily,
+      identifierstyle=\color{colIdentifier},
+      keywordstyle=\color{colKeys},
+      stringstyle=\color{colString},
+      commentstyle=\itshape\color{colComments},
+      columns=fixed,
+      tabsize=4,
+      frame=single,
+      framerule=1pt,
+      extendedchars=true,
+      showspaces=false,
+      showstringspaces=false,
+      numbers=left,
+      numberstyle=\tiny\ttfamily,
+      numbersep=1em,
+      breaklines=true,
+      breakindent=10pt,
+      backgroundcolor=\color{hellgelb},
+      breakautoindent=true,
+      captionpos=t,
+      xleftmargin=1em,
+      xrightmargin=\fboxsep
+}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{pifont}
+\usepackage{color}
+\usepackage{accents}
+\delimitershortfall=-1pt
+\let\Right\right
+\let\Left\left
+\makeatletter
+\def\right#1{\Right#1\@ifnextchar){\!\right}{}}
+\def\left#1{\Left#1\@ifnextchar({\!\left}{}}
+\makeatother
+
+\setcounter{MaxMatrixCols}{20}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "Latin Modern Roman"
+\font_sans "default" "Latin Modern Sans"
+\font_typewriter "default" "Latin Modern Mono"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 1
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 25mm
+\topmargin 25mm
+\rightmargin 25mm
+\bottommargin 25mm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The robot's position is a big blue dot.
+ Around the robot's position is the position uncertainty ellipse, in blue,
+ and finally, the
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+pm
+\backslash
+,
+\backslash
+sigma_{
+\backslash
+theta_t}$
+\end_layout
+
+\end_inset
+
+ of uncertainty in heading.
+ At this position the robot sees 4 landmarks relative to its own coordinate
+ system.
+ These landmarks are depicted in green in the robot's coordinate system
+ and they are also depicted in green in the world coordinate system.
+ So, these green dots are simply the measurements transformed into the world
+ coordinate system according to the robot's current location and orientation.
+ Remember, the world's coordinate system is the robot's first coordinate
+ system.
+ The estimated position for each landmark is depicted in magenta.
+ These positions are also part of our system state now, in addition to the
+ robot's estimated pose.
+ The landmarks' position uncertainty ellipses are also depicted in magenta.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig11.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the beginning the robot starts at an arbitrary position and orientation
+ in the world.
+ At this moment, we have defined that the robot's uncertainty in position
+ and heading is zero.
+ In the SLAM algorithm the built map has its origin at the robot's initial
+ position.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig12.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The robot observes six cylinders from its initial pose.
+ The discovered landmarks' coordinates are added to the algorithm's state.
+ Besides, the position initial uncertainty of each discovered landmark is
+ added to the algorithm's covariance matrix.
+ All this data is added to the algorithm using the function
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{add
+\backslash
+_landmark
+\backslash
+_to
+\backslash
+_state (initial
+\backslash
+_coords)}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{align*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vec{
+\backslash
+mu}_t
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\backslash
+mu_{x_t}
+\backslash
+
+\backslash
+
+\backslash
+mu_{y_t}
+\backslash
+
+\backslash
+
+\backslash
+mu_{
+\backslash
+theta_t}
+\backslash
+end{pmatrix} ~~
+\backslash
+Longrightarrow ~~
+\backslash
+vec{
+\backslash
+mu}_t
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\backslash
+mu_{x_t}
+\backslash
+
+\backslash
+
+\backslash
+mu_{y_t}
+\backslash
+
+\backslash
+
+\backslash
+mu_{
+\backslash
+theta_t}
+\backslash
+
+\backslash
+
+\backslash
+mu_{{x_W}_1}
+\backslash
+
+\backslash
+
+\backslash
+mu_{{y_W}_1}
+\backslash
+
+\backslash
+
+\backslash
+vdots
+\backslash
+
+\backslash
+
+\backslash
+mu_{{x_W}_N}
+\backslash
+
+\backslash
+
+\backslash
+mu_{{y_W}_N}
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{align*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sigma_t
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_t
+\backslash
+hphantom{y_t}}^2 &
+\backslash
+sigma_{x_ty_t} &
+\backslash
+sigma_{x_t
+\backslash
+theta_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_ty_t} &
+\backslash
+sigma_{y_t
+\backslash
+hphantom{y_t}}^2 &
+\backslash
+sigma_{y_t
+\backslash
+theta_t}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_t
+\backslash
+theta_t} &
+\backslash
+sigma_{y_t
+\backslash
+theta_t} &
+\backslash
+sigma_{
+\backslash
+theta_t
+\backslash
+hphantom{y_t}}^2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\backslash
+
+\backslash
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Big
+\backslash
+Downarrow
+\backslash
+
+\backslash
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sigma_t
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_t}^2 &
+\backslash
+sigma_{x_ty_t} &
+\backslash
+sigma_{x_t
+\backslash
+theta_t} & 0 & 0 &
+\backslash
+ldots & 0 & 0 &
+\backslash
+ldots & 0 & 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_ty_t} &
+\backslash
+sigma_{y_t}^2 &
+\backslash
+sigma_{y_t
+\backslash
+theta_t} & 0 & 0 &
+\backslash
+ldots & 0 & 0 &
+\backslash
+ldots & 0 & 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_t
+\backslash
+theta_t} &
+\backslash
+sigma_{y_t
+\backslash
+theta_t} &
+\backslash
+sigma_{
+\backslash
+theta_t}^2 & 0 & 0 &
+\backslash
+ldots & 0 & 0 &
+\backslash
+ldots & 0 & 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+0 & 0 & 0 &
+\backslash
+sigma_{{x_W}_0}^2 & 0 &
+\backslash
+ldots & 0 & 0 &
+\backslash
+ldots & 0 & 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+0 & 0 & 0 & 0 &
+\backslash
+sigma_{{y_W}_0}^2 &
+\backslash
+ldots & 0 & 0 &
+\backslash
+ldots & 0 & 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vdots &
+\backslash
+vdots &
+\backslash
+vdots &
+\backslash
+vdots &
+\backslash
+vdots &
+\backslash
+ddots &
+\backslash
+vdots &
+\backslash
+vdots &
+\backslash
+vdots &
+\backslash
+vdots &
+\backslash
+vdots
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+0 & 0 & 0 & 0 & 0 &
+\backslash
+ldots &
+\backslash
+sigma_{{x_W}_j}^2 & 0 &
+\backslash
+ldots & 0 & 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+0 & 0 & 0 & 0 & 0 &
+\backslash
+ldots & 0 &
+\backslash
+sigma_{{y_W}_j}^2 &
+\backslash
+ldots & 0 & 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vdots &
+\backslash
+vdots &
+\backslash
+vdots &
+\backslash
+vdots &
+\backslash
+vdots &
+\backslash
+vdots &
+\backslash
+vdots &
+\backslash
+vdots &
+\backslash
+ddots &
+\backslash
+vdots &
+\backslash
+vdots
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+0 & 0 & 0 & 0 & 0 &
+\backslash
+ldots & 0 & 0 &
+\backslash
+ldots &
+\backslash
+sigma_{{x_W}_N}^2 & 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+0 & 0 & 0 & 0 & 0 &
+\backslash
+ldots & 0 & 0 &
+\backslash
+ldots & 0 &
+\backslash
+sigma_{{y_W}_N}^2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+sigma_{{x_W}_0}^2
+\backslash
+,=
+\backslash
+,
+\backslash
+sigma_{{y_W}_0}^2
+\backslash
+,=
+\backslash
+,
+\backslash
+ldots
+\backslash
+,=
+\backslash
+,
+\backslash
+sigma_{{x_W}_N}^2
+\backslash
+,=
+\backslash
+,
+\backslash
+sigma_{{y_W}_N}^2
+\backslash
+,=
+\backslash
+,
+\backslash
+infty$
+\end_layout
+
+\end_inset
+
+ when these values are added to the algorithm's covariance matrix (for practical
+ purposes instead of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+infty$
+\end_layout
+
+\end_inset
+
+ we use 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+100
+\end_layout
+
+\end_inset
+
+ meters).
+ These initial uncertainty ellipses (in fact when 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+sigma_{{x_W}_j}^2
+\backslash
+,=
+\backslash
+,
+\backslash
+sigma_{{y_W}_j}^2$
+\end_layout
+
+\end_inset
+
+, the major axis' length is equal the minor axis' length, so we have a circle)
+ are so big that we can't observe them in the GUI.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+ Main part of the algorithm:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# Give values to algorithm's parameters
+\end_layout
+
+\begin_layout Plain Layout
+
+# Read data from files
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+for i in xrange(len(logfile.motor_ticks)): # Loop A
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+	# Prediction.
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+	control = array(logfile.motor_ticks[i]) * ticks_to_mm
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+	kf.predict(control)
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+    # Correction.
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+    observations = get_observations(logfile.scan_data[i], depth_jump, minimum_val
+id_distance, cylinder_offset, kf, max_cylinder_distance)
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+	for obs in observations: 			  # Loop B
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+		measurement, cylinder_world, cylinder_scanner, cylinder_index = obs
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+		if cylinder_index == -1:
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+			cylinder_index = kf.add_landmark_to_state(cylinder_world)
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+		kf.correct(measurement, cylinder_index)
+\end_layout
+
+\begin_layout Plain Layout
+
+	# Write data  to file
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After the for loop labeled as B finishes its execution for the first time
+ the algorithm has obtained:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig13.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From its initial pose the robot observes 6 landmarks.
+ So the algorithm adds the first landmark to the specific state and also
+ to the covariance matrix.
+ Then the algorithm executes the correction stage using the first landmark
+ added previously.
+ Then the algorithm adds the second landmark to the specific state and also
+ to the covariance matrix.
+ Then it executes the correction stage using two landmarks.
+ Finally when the algorithm has added the six landmarks and has executed
+ 6 corrections stages (one per cylinder observation) the result is the one
+ shown in the previous figure.
+\begin_inset Newline newline
+\end_inset
+
+The robot is stopped for a while in its initial pose.
+ So, the prediction stage doesn't modify the algorithm's specific state.
+ From this pose the robot observes 6 cylinders in several scans.
+ Each one of those scans with 6 cylinders implies the execution of the for
+ loop labeled as B with 6 iterations (one iteration per observed cylinder),
+ therefore, 6 correction stages.
+ In this occasion, all the cylinders observed are already present in the
+ algorithm's specific state.
+ So, after the last correction stage, for the last cylinder observed in
+ the last scan taken from the same robot's pose, the algorithm has reduced
+ the landmarks' uncertainty ellipses considerably, as it is show below.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig14.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If the robot moves then its pose uncertainty (position uncertainty and heading
+ uncertainty) starts to get larger and larger, and as usual, it is especially
+ large when the robot turns left for the first time because it doesn't observe
+ many landmarks at that point.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig15.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig16.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If the robot goes on its uncertainty pose gets smaller again.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig17.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now let's look at the landmarks' uncertainties.
+ The error ellipse for the landmarks A and E is small but the error ellipse
+ for the landmarks B, C and F is larger.
+ The reason for this is that our coordinate system is actually anchored
+ to the point O.
+ This point has 0 variance in position and orientation and the further away
+ a cylinder is from the robot the first time it is observed the larger the
+ error will be, and even though the robot drives around for a while these
+ uncertainties will stay the same.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig18.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, let's look at landmark D.
+ In the beginning, while the robot is stopped in its initial pose, the robot
+ observes the landmark D for a while, so the uncertainty ellipse of this
+ landmark gets smaller, relatively fast.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig20.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig21.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig22.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, as the robot moves, it still observes the landmark D, but the uncertainty
+ ellipse of that landmark doesn't get smaller as fast as it did previously
+ because now the robot's pose has also accumulated some uncertainty.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig23.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig24.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As long as the robot has an observation that is tied to a landmark (the
+ green point close to each landmark) the uncertainty ellipse of that landmark
+ gets smaller.
+ When the robot doesn't have an observation of a landmark anymore the size
+ of the uncertainty ellipse for that landmark stays the same but that landmark's
+ position will move a little bit when the landmarks in the vicinity move.
+ But again, the size of the uncertainty ellipse of the non-observed landmarks
+ will stay the same.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig25.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, the robot starts observing the landmark D again, and its uncertainty
+ ellipse gets smaller again.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig26.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, the landmark D is out of the robot's field of view again and the uncertaint
+y ellipse of this landmark stays the same.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig27.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, the robot starts observing the landmark D again, and its uncertainty
+ ellipse gets smaller again.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig28.png
+	lyxscale 25
+	scale 80
+	rotateOrigin leftBaseline
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, basically, whenever the robot has a landmark observation, i.e,
+ whenever there is a green point tied to a landmark in the GUI, the algorithm
+ adds information and when the information increases the uncertainty decreases.
+\end_layout
+
+\begin_layout Standard
+Now let's change the covariance matrix:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sigma_t
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_t
+\backslash
+hphantom{y_t}}^2
+\backslash
+,=
+\backslash
+, 0 &
+\backslash
+sigma_{x_ty_t}
+\backslash
+,=
+\backslash
+, 0 &
+\backslash
+sigma_{x_t
+\backslash
+theta_t}
+\backslash
+,=
+\backslash
+, 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_ty_t}
+\backslash
+,=
+\backslash
+, 0 &
+\backslash
+sigma_{y_t
+\backslash
+hphantom{y_t}}^2
+\backslash
+,=
+\backslash
+, 0 &
+\backslash
+sigma_{y_t
+\backslash
+theta_t}
+\backslash
+,=
+\backslash
+, 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_t
+\backslash
+theta_t}
+\backslash
+,=
+\backslash
+, 0 &
+\backslash
+sigma_{y_t
+\backslash
+theta_t}
+\backslash
+,=
+\backslash
+, 0 &
+\backslash
+sigma_{
+\backslash
+theta_t
+\backslash
+hphantom{y_t}}^2
+\backslash
+,=
+\backslash
+, 0
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\backslash
+
+\backslash
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Big
+\backslash
+Downarrow
+\backslash
+
+\backslash
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sigma_t
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_t
+\backslash
+hphantom{y_t}}^2
+\backslash
+,=
+\backslash
+, 10 &
+\backslash
+sigma_{x_ty_t}
+\backslash
+,=
+\backslash
+, 0
+\backslash
+hphantom{0} &
+\backslash
+sigma_{x_t
+\backslash
+theta_t}
+\backslash
+,=
+\backslash
+, 0
+\backslash
+hphantom{
+\backslash
+left.
+\backslash
+dfrac{00}{000}
+\backslash
+,
+\backslash
+pi
+\backslash
+right)^2}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_ty_t}
+\backslash
+,=
+\backslash
+, 0
+\backslash
+hphantom{0} &
+\backslash
+sigma_{y_t
+\backslash
+hphantom{y_t}}^2
+\backslash
+,=
+\backslash
+, 10 &
+\backslash
+sigma_{y_t
+\backslash
+theta_t}
+\backslash
+,=
+\backslash
+, 0
+\backslash
+hphantom{
+\backslash
+left.
+\backslash
+dfrac{00}{000}
+\backslash
+,
+\backslash
+pi
+\backslash
+right)^2}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_t
+\backslash
+theta_t}
+\backslash
+,=
+\backslash
+, 0
+\backslash
+hphantom{0} &
+\backslash
+sigma_{y_t
+\backslash
+theta_t}
+\backslash
+,=
+\backslash
+, 0
+\backslash
+hphantom{0} &
+\backslash
+sigma_{
+\backslash
+theta_t
+\backslash
+hphantom{y_t}}^2
+\backslash
+,=
+\backslash
+,
+\backslash
+left(
+\backslash
+dfrac{10}{180}
+\backslash
+,
+\backslash
+pi
+\backslash
+right)^2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig29.png
+	lyxscale 25
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+After the robot drives for a while we´ll see the size of the uncertainty
+ ellipse of each landmark doesn't get smaller anymore.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig31.png
+	lyxscale 25
+	scale 80
+	rotateOrigin leftBaseline
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig32.png
+	lyxscale 25
+	scale 80
+	rotateOrigin leftBaseline
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig33.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig34.png
+	lyxscale 25
+	scale 80
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+In the end, the size of the landmarks' uncertainty ellipses, the size of
+ the position uncertainty ellipse for the robot and the size of the heading
+ uncertainty sector for the robot are larger than in the previous case.
+ Why is this the case? Simply because the overall uncertainty is tied to
+ the robot's uncertainty in the initial pose, i.e, the pose at the point
+ labeled as O.
+ Therefore, if you have a large variance in the beginning the algorithm
+ never be able to obtain small variances for the landmarks' positions, no
+ matter how many relative measurements the robot obtains.
+ So, the uncertainty ellipses for the landmarks won't get smaller and since
+ the robot uses the landmarks in the correction step of the EKF, the uncertainty
+ for the robot won't get smaller either.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+If we make the variances even larger:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{gather*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sigma_t
+\backslash
+,=
+\backslash
+,
+\backslash
+begin{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_t
+\backslash
+hphantom{y_t}}^2
+\backslash
+,=
+\backslash
+, 30 &
+\backslash
+sigma_{x_ty_t}
+\backslash
+,=
+\backslash
+, 0
+\backslash
+hphantom{0} &
+\backslash
+sigma_{x_t
+\backslash
+theta_t}
+\backslash
+,=
+\backslash
+, 0
+\backslash
+hphantom{
+\backslash
+left.
+\backslash
+dfrac{00}{000}
+\backslash
+,
+\backslash
+pi
+\backslash
+right)^2}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_ty_t}
+\backslash
+,=
+\backslash
+, 0
+\backslash
+hphantom{0} &
+\backslash
+sigma_{y_t
+\backslash
+hphantom{y_t}}^2
+\backslash
+,=
+\backslash
+, 30 &
+\backslash
+sigma_{y_t
+\backslash
+theta_t}
+\backslash
+,=
+\backslash
+, 0
+\backslash
+hphantom{
+\backslash
+left.
+\backslash
+dfrac{00}{000}
+\backslash
+,
+\backslash
+pi
+\backslash
+right)^2}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sigma_{x_t
+\backslash
+theta_t}
+\backslash
+,=
+\backslash
+, 0
+\backslash
+hphantom{0} &
+\backslash
+sigma_{y_t
+\backslash
+theta_t}
+\backslash
+,=
+\backslash
+, 0
+\backslash
+hphantom{0} &
+\backslash
+sigma_{
+\backslash
+theta_t
+\backslash
+hphantom{y_t}}^2
+\backslash
+,=
+\backslash
+,
+\backslash
+left(
+\backslash
+dfrac{20}{180}
+\backslash
+,
+\backslash
+pi
+\backslash
+right)^2
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pmatrix}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{gather*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+we will easily see the effect.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{figure}[H]
+\backslash
+centering{}
+\backslash
+includegraphics[scale=1.0]{../FIGURES/fig36.png}
+\backslash
+end{figure}
+\backslash
+par
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+So, the robot starts now with a larger associated uncertainty and as it
+ moves the larger variances in the initial pose translates to a larger variance
+ of the landmarks' positions, of the robot's position and of the robot's
+ heading, no matter how many measurements the algorithm integrates during
+ the trip.
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{figure}[H]
+\backslash
+centering{}
+\backslash
+includegraphics[scale=0.8]{../FIGURES/fig37.png}
+\backslash
+end{figure}
+\backslash
+par
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{figure}[H]
+\backslash
+centering{}
+\backslash
+includegraphics[scale=0.8]{../FIGURES/fig38.png}
+\backslash
+end{figure}
+\backslash
+par
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{figure}[H]
+\backslash
+centering{}
+\backslash
+includegraphics[scale=0.8]{../FIGURES/fig39.png}
+\backslash
+end{figure}
+\backslash
+par
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{figure}[H]
+\backslash
+centering{}
+\backslash
+includegraphics[scale=0.8]{../FIGURES/fig40.png}
+\backslash
+end{figure}
+\backslash
+par
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+Finally let's have a look at the maximum cylinder distance.
+ This distance is set, by default, to 50 cm.
+ Now let's set this distance to 40 cm.
+ Initially the algorithm gets exactly the same results as previously.
+ But after a while, the robot has the wrong heading and so the cylinder
+ that it observes is considerably far away from the landmark that should
+ be associated to it.
+ Anyway, the cylinder is close enough to the proper landmark according to
+ the 40 cm threshold, so the cylinder is assigned to the correct landmark.
+\end_layout
+
+\begin_layout Standard
+\align block
+But in the next step the observed cylinder is too far away from any of the
+ landmarks, therefore, the algorithm sets up a new landmark with position
+ variances set to infinity.
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{figure}[H]
+\backslash
+centering{}
+\backslash
+includegraphics[scale=0.8]{../FIGURES/fig42.png}
+\backslash
+end{figure}
+\backslash
+par
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+The robot observes more landmarks again, so it corrects the landmarks' positions
+ and what we see is that after a while the newly inserted landmark is moved
+ very close to the old landmark.
+ What we see is that the landmark assignment is pretty simple and it is
+ also brittle.
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{figure}[H]
+\backslash
+centering{}
+\backslash
+includegraphics[scale=0.8]{../FIGURES/fig43.png}
+\backslash
+end{figure}
+\backslash
+par
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{figure}[H]
+\backslash
+centering{}
+\backslash
+includegraphics[scale=0.8]{../FIGURES/fig44.png}
+\backslash
+end{figure}
+\backslash
+par
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{figure}[H]
+\backslash
+centering{}
+\backslash
+includegraphics[scale=1.0]{../FIGURES/fig45.png}
+\backslash
+end{figure}
+\backslash
+par
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+Let's make the maximum cylinder distance even smaller: 30 cm.
+\end_layout
+
+\begin_layout Standard
+\align block
+The algorithm starts perfectly, as in the previous case.
+ When the robot moves around the first corner the algorithm makes new landmark
+ and a bit more later it creates one more landmark.
+ In the end the algorithm obtains ten landmarks instead of six.
+ This behavior shows us how brittle this landmark assignment process actually
+ is and obviously you could try to improve the algorithm.
+ For example, we could think about unifying landmarks which turn out to
+ be close after observing them for a while but there is other techniques.
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{figure}[H]
+\backslash
+centering{}
+\backslash
+includegraphics[scale=0.8]{../FIGURES/fig46.png}
+\backslash
+end{figure}
+\backslash
+par
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{figure}[H]
+\backslash
+centering{}
+\backslash
+includegraphics[scale=0.8]{../FIGURES/fig47.png}
+\backslash
+end{figure}
+\backslash
+par
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{figure}[H]
+\backslash
+centering{}
+\backslash
+includegraphics[scale=0.8]{../FIGURES/fig48.png}
+\backslash
+end{figure}
+\backslash
+par
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{figure}[H]
+\backslash
+centering{}
+\backslash
+includegraphics[scale=0.8]{../FIGURES/fig49.png}
+\backslash
+end{figure}
+\backslash
+par
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,736 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{listings}
+\definecolor{hellgelb}{rgb}{1,1,0.85}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+\lstset{
+      language=Matlab,
+      float=hbp,
+      basicstyle=\footnotesize\ttfamily,
+      identifierstyle=\color{colIdentifier},
+      keywordstyle=\color{colKeys},
+      stringstyle=\color{colString},
+      commentstyle=\itshape\color{colComments},
+      columns=fixed,
+      tabsize=4,
+      frame=single,
+      framerule=1pt,
+      extendedchars=true,
+      showspaces=false,
+      showstringspaces=false,
+      numbers=left,
+      numberstyle=\tiny\ttfamily,
+      numbersep=1em,
+      breaklines=true,
+      breakindent=10pt,
+      backgroundcolor=\color{hellgelb},
+      breakautoindent=true,
+      captionpos=t,
+      xleftmargin=1em,
+      xrightmargin=\fboxsep
+}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{pifont}
+\usepackage{color}
+
+\delimitershortfall=-1pt
+\let\Right\right
+\let\Left\left
+\makeatletter
+\def\right#1{\Right#1\@ifnextchar){\!\right}{}}
+\def\left#1{\Left#1\@ifnextchar({\!\left}{}}
+\makeatother
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 25mm
+\topmargin 25mm
+\rightmargin 25mm
+\bottommargin 25mm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig01.png
+	lyxscale 25
+	scale 75
+	clip
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This lecture is about the simultaneous localization and mapping algorithm,
+ which is the topic that gives name to this course.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig02.png
+	lyxscale 25
+	scale 75
+	clip
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's have a look at what we have done so far.
+ Here's the robot at a given position having a certain orientation and we
+ know that there is some uncertainty (error) associated to its position
+ and orientation.
+ The uncertainty in the robot's position, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+left( x_t, 
+\backslash
+, y_t 
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+, is expressed with an ellipse, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+Sigma_t$
+\end_layout
+
+\end_inset
+
+, while the uncertainty in the robot's orientation, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+theta_t$
+\end_layout
+
+\end_inset
+
+, is expressed with a circular sector, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+pm 
+\backslash
+, 
+\backslash
+sigma_{
+\backslash
+theta_t}$
+\end_layout
+
+\end_inset
+
+.
+ Now, the robot moves and the inaccuracies in the movement induce an increase
+ in the uncertainty of the robot's pose.
+ After the robot's motion the EKF algorithm calculates the predicted pose
+ for the robot, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+overline{
+\backslash
+mu}}_t 
+\backslash
+, = 
+\backslash
+, 
+\backslash
+left( 
+\backslash
+overline{
+\backslash
+mu}_{x_t}, 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+mu}_{y_t}, 
+\backslash
+, 
+\backslash
+overline{
+\backslash
+mu}_{
+\backslash
+theta_t}  
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+, aka, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+vec{
+\backslash
+widetilde{x}}_t$
+\end_layout
+
+\end_inset
+
+.
+ If the robot goes on moving and the algorithm only carries out the prediction
+ step, the uncertainty associated to the position and orientation will increase
+ continuously.
+ But fortunately there are some landmarks in the scene with 
+\series bold
+known positions
+\series default
+ and by measuring distances and bearings to those well-positioned landmarks
+ the algorithm is able to correct the pose for the robot.
+ This correction step also decrease the uncertainty associated to the position
+ and orientation for the robot.
+ Again, until this lecture, to perform the correction step it is essential
+ that the landmarks' coordinates are known in advance, and with that data
+ the EKF algorithm, or the PF algorithm, can resolve the localization problem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig03.png
+	lyxscale 25
+	scale 75
+	clip
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What happens if you don't know the positions of the landmarks in advance?
+ This is actually the usual case, because it is very hard to get hold of
+ cadastral maps or floor plans and even if you manage to do so you will
+ often notice that they are not very useful for localization because the
+ buildings have been built in a different way or they have been modified
+ later on or there are so many additional items like chairs and tables,
+ that are not part of the map, but modify a huge portion of what the robot
+ sees.
+ 
+\end_layout
+
+\begin_layout Standard
+Let's think about the following.
+ The robot is somewhere and since there isn't a map of landmarks the algorithm
+ will have to produce that map on its own.
+ Since the algorithm starts with an empty map it can define the robot's
+ position in the map origin, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+left(0, 
+\backslash
+, 0
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+, and define the orientation along the x-axis, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+left( 0^{
+\backslash
+circ} 
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+.
+ Besides, it can consider the uncertainty in position and heading angle
+ as 0.
+ From the pose occupied by the robot, the robot's laser scanner measures
+ the distance and the bearing to each landmark within its range of view.
+ The algorithm can use all those pair of measurements to define the landmarks'
+ positions in the real world, i.e, in the world that has its origin in the
+ starting position of the robot.
+ It has to be noted that the defined landmarks are oriented along the heading
+ angle of the robot at the starting position.
+ Having defined those landmarks the algorithm will do the same as it did
+ in the previous lectures.
+ Therefore, the robot moves along, the algorithm carries out the prediction
+ step, the uncertainty for the position and heading angle of the robot increases
+, then the laser scanner get some landmark observations (distance and bearing
+ to each landmark within its range of view) and finally the algorithm uses
+ those measurements to correct the position and orientation for the robot
+ and get a smaller uncertainty ellipse for the position and a smaller circular
+ sector for the heading angle.
+ Instead of taking the landmarks from a map, which was obtained by some
+ external means, the algorithm takes the following steps:
+\end_layout
+
+\begin_layout Standard
+Whenever the algorithm recognizes a landmark for the first time it determines
+ its position, relative to the map which it currently builds up, and after
+ that this landmark can be used for the localization of the robot at all
+ subsequent poses where that landmark is observed again by the laser scanner,
+ i.e, whenever that landmark is within the range of view of the laser.
+ Well, it is not exactly as easy as that because when the algorithm recognises
+ a landmark for the first time the measurement of the distance and bearing
+ to the landmark induces an uncertainty (error) in the landmark's position.
+ What becomes clear is that the algorithm can't simply put a landmark into
+ the map when it recognizes the landmark for the first time and then to
+ assume that the landmark's position is correct.
+ When the algorithm recognizes a landmark for the first time it puts that
+ new landmark into the map with a certain uncertainty in position.
+ Then, every time the laser scanner takes a scan that contains a measurement
+ for that landmark (distance and bearing) the algorithm updates the landmark's
+ position and reduces its uncertainty in position.
+ This is the same process that the algorithm carries out with the robot's
+ pose.
+\end_layout
+
+\begin_layout Standard
+In the previous EKF implementation, the system state was the robot's pose,
+ i.e, its position and heading angle.
+ Now, in the SLAM algorithm the system state comprises the robot's pose
+ and the positions of the landmarks that the algorithm finds (coordinate
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_{L_k}$
+\end_layout
+
+\end_inset
+
+ and coordinate 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$y_{L_k}$
+\end_layout
+
+\end_inset
+
+ of each found landmark).
+ What you see now, immediately, is that the state vector doesn't have a
+ constant size anymore.
+ For each landmark that the algorithm observes, and that it didn't observe
+ before, the state vector grows by two elements.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig04.png
+	lyxscale 25
+	scale 75
+	clip
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's consider that the robot starts in the pose 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$(0, 
+\backslash
+, 0, 
+\backslash
+, 0^{
+\backslash
+circ})$
+\end_layout
+
+\end_inset
+
+ with a large uncertainty in position and heading angle.
+ Later on the robot observes some landmarks and since the uncertainty for
+ its pose is large the uncertainty ellipses for those landmarks will be
+ large too.
+ The robot moves and observes those landmarks again, so all those uncertainty
+ ellipses will get a bit smaller.
+ Let's consider that the robot moves for a real long time in the environment,
+ observing those landmarks over and over again.
+ Therefore, my hope is that those uncertainty ellipses get smaller and smaller
+ until they are really really small so that the landmarks are not uncertain
+ anymore.
+ So that this situation is equivalent to what we had earlier, in the EKF
+ approach, where the landmarks were assumed to be error-free.
+ What do you think? Will the uncertainty in the landmarks' positions go
+ down to zero as the number of measurements goes to infinity?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig06.pdf
+	lyxscale 25
+	clip
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig08.pdf
+	lyxscale 25
+	clip
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig10.pdf
+	lyxscale 25
+	clip
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
