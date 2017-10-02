@@ -1,0 +1,993 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{listings}
+\definecolor{hellgelb}{rgb}{1,1,0.85}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+\lstset{
+      language=Matlab,
+      float=hbp,
+      basicstyle=\footnotesize\ttfamily,
+      identifierstyle=\color{colIdentifier},
+      keywordstyle=\color{colKeys},
+      stringstyle=\color{colString},
+      commentstyle=\itshape\color{colComments},
+      columns=fixed,
+      tabsize=4,
+      frame=single,
+      framerule=1pt,
+      extendedchars=true,
+      showspaces=false,
+      showstringspaces=false,
+      numbers=left,
+      numberstyle=\tiny\ttfamily,
+      numbersep=1em,
+      breaklines=true,
+      breakindent=10pt,
+      backgroundcolor=\color{hellgelb},
+      breakautoindent=true,
+      captionpos=t,
+      xleftmargin=1em,
+      xrightmargin=\fboxsep
+}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{pifont}
+\usepackage{color}
+\usepackage{pdfpages}
+\usepackage{accents}
+\delimitershortfall=-1pt
+\let\Right\right
+\let\Left\left
+\makeatletter
+\def\right#1{\Right#1\@ifnextchar){\!\right}{}}
+\def\left#1{\Left#1\@ifnextchar({\!\left}{}}
+\makeatother
+
+\setcounter{MaxMatrixCols}{20}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package babel
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "Latin Modern Roman"
+\font_sans "default" "Latin Modern Sans"
+\font_typewriter "default" "Latin Modern Mono"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 1
+\output_sync_macro "\synctex=1"
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_author "Juan Francisco Rascón"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 25mm
+\topmargin 25mm
+\rightmargin 25mm
+\bottommargin 25mm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+THE POTENTIAL FIELD AROUND THE OBSTACLES
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig28.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Distance transform
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The previous information was gathered form: https://homepages.inf.ed.ac.uk/rbf/HIPR2
+/distance.htm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The distance transform is an operator normally only applied to 
+\series bold
+binary images
+\series default
+(so, binary matrices) .
+ The result of the transform is a 
+\series bold
+graylevel image 
+\series default
+of the
+\series bold
+ pixels 
+\series default
+that are
+\series bold
+ inside 
+\series default
+the
+\series bold
+ foreground regions
+\series default
+.
+ The resulting image looks similar to the input image.
+ Those graylevel intensities of the pixels that are inside the foreground
+ regions show the 
+\series bold
+distance
+\series default
+ to the 
+\series bold
+closest boundary
+\series default
+ from each point (
+\emph on
+in our case the distance from each free space node to the closest obstacle
+ node
+\emph default
+).
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+One way to think about the distance transform is to first imagine that foregroun
+d regions in the input binary image are made of some uniform slow burning
+ inflammable material.
+ Then consider simultaneously starting a fire at all points on the boundary
+ of a foreground region and letting the fire burn its way into the interior.
+ If we then label each point in the interior with the amount of time that
+ the fire took to first reach that point, then we have effectively computed
+ the distance transform of that region.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There are several different sorts of distance transform, depending upon
+ which distance metric is being used to determine the distance between pixels.
+ The most common distance metrics are: the 
+\series bold
+chessboard
+\series default
+ distance metric, the 
+\series bold
+Euclidean
+\series default
+ distance metric and the 
+\series bold
+city block
+\series default
+ distance metric (aka 
+\series bold
+Manhattan
+\series default
+ distance metric).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig29.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Euclidean distance transforms
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There is a dual to the distance transform described above which produces
+ the distance transform for the background region rather than the foreground
+ region.
+ It can be considered as a process of inverting the original image and then
+ applying the standard transform as above.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+How it works
+\end_layout
+
+\begin_layout Standard
+The distance transform can be calculated efficiently using clever algorithms
+ in only two passes (e.g.
+ Rosenfeld and Pfaltz 1968).
+ 
+\end_layout
+
+\begin_layout Standard
+In python you should use:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{scipy.ndimage.morphology.distance
+\backslash
+_transform
+\backslash
+_edt(input
+\backslash
+_binary
+\backslash
+_matrix)}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includepdf[landscape=true]{../FIGURES/fig32.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includepdf[landscape=true]{../FIGURES/fig34.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includepdf[landscape=true]{../FIGURES/fig36.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includepdf[landscape=true]{../FIGURES/fig38.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includepdf[landscape=true]{../FIGURES/fig40.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includepdf[landscape=true]{../FIGURES/fig42.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includepdf[landscape=true]{../FIGURES/fig45.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includepdf[landscape=true]{../FIGURES/fig47.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includepdf{../FIGURES/fig50.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includepdf[landscape=true]{../FIGURES/fig52.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includepdf[landscape=true]{../FIGURES/fig54.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includepdf{../FIGURES/fig56.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The cost associated to the node 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$world
+\backslash
+_map 
+\backslash
+left( i, 
+\backslash
+, j 
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+ due to the presence of a potential field around the obstacles is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+cost_{PF}(i\text{, j)=\frac{{world\_map(i,j)}}{64}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+left(i, j
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+ are the i-th row and the j-th column in the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{world
+\backslash
+_map}
+\end_layout
+
+\end_inset
+
+ matrix.
+ The above equation uses values of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{world
+\backslash
+_map}
+\end_layout
+
+\end_inset
+
+ between 0 and 254.
+\end_layout
+
+\begin_layout Standard
+Remember:
+\end_layout
+
+\begin_layout Itemize
+The value 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$world
+\backslash
+_map
+\backslash
+left(i, 
+\backslash
+, j
+\backslash
+right) 
+\backslash
+,= 
+\backslash
+, 0$
+\end_layout
+
+\end_inset
+
+, in these path planning lectures, represents a free space node and any
+ path can pass through that node.
+\end_layout
+
+\begin_layout Itemize
+The value 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$world
+\backslash
+_map
+\backslash
+left(i, 
+\backslash
+, j
+\backslash
+right) 
+\backslash
+,= 
+\backslash
+, 255$
+\end_layout
+
+\end_inset
+
+, in these path planning lectures, represents an obstacle node and no one
+ path can pass through that node.
+ This value can't be used in the above equation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The total cost associated to the node 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$world
+\backslash
+_map 
+\backslash
+left( i, 
+\backslash
+, j 
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$total
+\backslash
+_cost
+\backslash
+left(i,
+\backslash
+, j
+\backslash
+right) 
+\backslash
+, = 
+\backslash
+, A 
+\backslash
+, + 
+\backslash
+, B 
+\backslash
+, + 
+\backslash
+, C 
+\backslash
+, + 
+\backslash
+, D$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where:
+\end_layout
+
+\begin_layout Itemize
+A is the total cost of the previous node in the path.
+\end_layout
+
+\begin_layout Itemize
+B is the cost of the transition between the previous node in the path and
+ the current node (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$world
+\backslash
+_map 
+\backslash
+left( i, 
+\backslash
+, j 
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+C is the cost associated to the node 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$world
+\backslash
+_map 
+\backslash
+left( i, 
+\backslash
+, j 
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+ due to the presence of a potential field around the obstacles, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$cost_{PF} 
+\backslash
+left( i, 
+\backslash
+, j 
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+D is the estimated Euclidean distance between the current node (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$world
+\backslash
+_map 
+\backslash
+left( i, 
+\backslash
+, j 
+\backslash
+right)$
+\end_layout
+
+\end_inset
+
+) and the goal node.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig62.pdf
+	lyxscale 25
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../FIGURES/fig63.pdf
+	lyxscale 25
+	scale 95
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
