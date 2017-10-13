@@ -49,18 +49,5 @@
 ---
 
 ### [10. Filtering](https://www.youtube.com/watch?v=zRuXKGNIb4o&list=PLpUPoM7Rgzi_7YWn14Va2FODh7LzADBSm&index=26)
-<<<<<<< HEAD
 ![Cover image lecture 1](FIGURES/C10.png)
-||||||| merged common ancestors
 
-<video id="10-Filtering" width="960" height="540" poster="FIGURES/C10.png" controls preload="auto">
-  <source src="VIDEOS/V10.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-=======
-
-<video id="10-Filtering" width="960" height="540" poster="FIGURES/C10.png" controls preload="auto">
-  <source src="VIDEOS/V10.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
->>>>>>> 67c8e8ad4c3ec8919f404fcf98474b6a6d13b1b7
