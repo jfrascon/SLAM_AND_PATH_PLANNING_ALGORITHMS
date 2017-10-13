@@ -4,7 +4,7 @@
 
 ### [1. Filtering ](https://www.youtube.com/watch?v=6JEN_5rp6bI&list=PLpUPoM7Rgzi_7YWn14Va2FODh7LzADBSm&index=17)
 
-<video id="01-Filtering" width="960" height="540" poster="FIGURES/C01.png" controls preload="auto">
+<video id="01-Filtering" width="960" height="540" poster="../FIGURES/C01.png" controls preload="auto">
   <source src="VIDEOS/V01.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
