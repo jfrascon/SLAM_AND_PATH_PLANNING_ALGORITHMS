@@ -1,0 +1,224 @@
+%% LyX 2.3.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{extbook}
+\usepackage{lmodern}
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=25mm,bmargin=25mm,lmargin=25mm,rmargin=25mm}
+\pagestyle{empty}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\setlength{\parindent}{0bp}
+\usepackage{babel}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+ {hyperref}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{listings}
+\definecolor{hellgelb}{rgb}{1,1,0.85}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+\lstset{
+      language=Matlab,
+      float=hbp,
+      basicstyle=\footnotesize\ttfamily,
+      identifierstyle=\color{colIdentifier},
+      keywordstyle=\color{colKeys},
+      stringstyle=\color{colString},
+      commentstyle=\itshape\color{colComments},
+      columns=fixed,
+      tabsize=4,
+      frame=single,
+      framerule=1pt,
+      extendedchars=true,
+      showspaces=false,
+      showstringspaces=false,
+      numbers=left,
+      numberstyle=\tiny\ttfamily,
+      numbersep=1em,
+      breaklines=true,
+      breakindent=10pt,
+      backgroundcolor=\color{hellgelb},
+      breakautoindent=true,
+      captionpos=t,
+      xleftmargin=1em,
+      xrightmargin=\fboxsep
+}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{pifont}
+\usepackage{color}
+
+\delimitershortfall=-1pt
+\let\Right\right
+\let\Left\left
+\makeatletter
+\def\right#1{\Right#1\@ifnextchar){\!\right}{}}
+\def\left#1{\Left#1\@ifnextchar({\!\left}{}}
+\makeatother
+
+\makeatother
+
+\begin{document}
+\pagenumbering{gobble}
+
+\begin{landscape}
+\begin{center}
+\textbf{Robot's coordinates in the global reference frame}
+\par\end{center}
+
+\begin{figure}[H]
+\centering\includegraphics[scale=0.95]{../FIGURES/fig01}
+\end{figure}
+
+\end{landscape}
+
+Given:
+\begin{center}
+the robot's initial pose, $\left(x_0, \, y_0, \, \theta_0\right)$,
+and the motion commands, $(l, \, r)$.\\
+\par\end{center}
+
+\begin{align*}
+\alpha \, &= \, \omega \, t\\
+r \, &= \, \left(Rs \, + \, \frac{W}{2} \right) \, \alpha\\
+l \, &= \, \left(Rs \, - \, \frac{W}{2} \right) \, \alpha\\
+\dot{r} \, &= \, \left(Rs \, + \, \frac{W}{2} \right) \, \dot{\alpha} \, \longrightarrow \, v_r \, = \, \left(Rs \, + \, \frac{W}{2} \right) \, \omega\\ 
+\dot{l} \, &= \, \left(Rs \, - \, \frac{W}{2} \right) \, \dot{\alpha} \, \longrightarrow \, v_l \, = \, \left(Rs \, - \, \frac{W}{2} \right) \, \omega 
+\end{align*}
+
+\begin{align*}
+\omega \, &= \, \dfrac{v_r \, - \, v_l}{W}\\
+Rs \, &= \, \dfrac{v_r \, + \, v_l}{2 \, \omega} \, = \, \dfrac{W}{2} \, \dfrac{v_r \, + \, v_l}{v_r \, - \, v_l} 
+\end{align*}
+
+Distance travelled by each wheel:
+
+\begin{align*}
+D_r \, &= \, r_w \, \phi_r\\
+D_l \, &= \, r_w \, \phi_l
+\end{align*}
+
+\begin{align*}
+\dot{D_r} \, &= \, r_w \, \dot{\phi_r} \, \longrightarrow \, v_r \, = \, r_w \, \omega_r\\
+\dot{D_l} \, &= \, r_w \, \dot{\phi_l} \, \longrightarrow \, v_l \, = \, r_w \, \omega_l
+\end{align*}
+
+\begin{align*}
+\omega \, &= \, \dfrac{r_w}{W} \, \left(\omega_r \, - \, \omega_l \right)\\
+Rs \, &= \, \dfrac{W}{2} \, \left( \dfrac{\omega_r \, + \, \omega_l}{\omega_r \, - \, \omega_l} \right) 
+\end{align*}
+
+\begin{align*}
+x_l \, &= \, x \, + \, sd \, \cos\left(\theta\right)\\
+y_l \, &= \, y \, + \, sd \, \sin\left(\theta\right)
+\end{align*}
+
+\begin{align*}
+\cos\left(u \, \pm \, v\right) \, = \, \cos u \, \cos v \, \mp \, \sin u \, \sin v\\
+\sin\left(u \, \pm \, v\right) \, = \, \sin u \, \cos v \, \pm \, \cos u \, \sin v
+\end{align*}
+
+\begin{align*}
+\cos\left(u \, - \, v\right) - \cos\left(u \, + \, v\right) \, = \, 2 \, \sin\left(u\right) \, \sin\left(v\right)\\
+\sin\left(u \, + \, v\right) - \sin\left(u \, - \, v\right) \, = \, 2 \, \cos\left(u\right) \, \sin\left(v\right)\\
+\end{align*}
+
+\begin{align*}
+Ch \, = \, 2 \, \left(Rs \, + \, \dfrac{W}{2}\right) \, sin\left(\dfrac{\alpha}{2}\right)
+\end{align*}
+
+\begin{align*}
+x \, &= \, x_0 \, + \, x_{@} \, + \, x_{\#}\\
+&= \, x_0 \, + \, x' \, \cos\left(\theta_0\right) \, + \, y' \, \cos\left(\theta \, + \, 90^{\circ}\right)\\
+&= \, x_0 \, + \, Ch \, \cos\left(\dfrac{\alpha}{2}\right) \, \cos\left(\theta_0\right) + \, Ch \, \sin\left(\dfrac{\alpha}{2}\right) \, \cos\left(\theta \, + \, 90^{\circ}\right)\\
+&= \, x_0 \, + \, Ch \, \cos\left(\dfrac{\alpha}{2}\right) \, \cos\left(\theta_0\right) - \, Ch \, \sin\left(\dfrac{\alpha}{2}\right) \, \sin\left(\theta\right)\\
+&= \, x_0 \, + \, Ch \, \cos\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right)\\
+& = \, x_0 \, + \, 2 \, \left(Rs \, + \, \dfrac{W}{2}\right) \, sin\left(\dfrac{\alpha}{2}\right) \, \cos\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right)
+\end{align*}
+
+\begin{align*}
+v_x \, = \, \dot{x} \, = \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \omega \, \cos \left(\theta_0 \, + \, \alpha \right)
+\end{align*}
+
+\begin{align*}
+y \, &= \, y_0 \, + \, y_{@} \, + \, y_{\#}\\
+&= \, y_0 \, + \, x' \, \sin\left(\theta_0\right) \, + \, y' \, \sin\left(\theta \, + \, 90^{\circ}\right)\\
+&= \, y_0 \, + \, Ch \, \cos\left(\dfrac{\alpha}{2}\right) \, \sin\left(\theta_0\right) + \, Ch \, \sin\left(\dfrac{\alpha}{2}\right) \, \sin\left(\theta \, + \, 90^{\circ}\right)\\
+&= \, y_0 \, + \, Ch \, \cos\left(\dfrac{\alpha}{2}\right) \, \sin\left(\theta_0\right) + \, Ch \, \sin\left(\dfrac{\alpha}{2}\right) \, \cos\left(\theta_0\right)\\
+&= \, y_0 \, + \, Ch \, \sin\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right)\\
+&=\, y_0 \, + \, 2 \, \left(Rs \, + \, \dfrac{W}{2}\right) \, sin\left(\dfrac{\alpha}{2}\right) \, \sin\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right)
+\end{align*}
+
+\begin{align*}
+v_y \, = \, \dot{y} \, = \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \omega \, \sin \left(\theta_0 \, + \, \alpha \right)
+\end{align*}
+
+Another way to calculate the robot's coordinates in the global reference
+frame:
+
+\begin{align*}
+x_c \, &= \, x_0 \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta_0 \, + \, 90^{\circ}\right)\\
+&= \, x_0 \, - \, \left(Rs \, + \, \dfrac{W}{2}\right) \, sin\left(\theta_0\right)\\
+y_c \, &= \, y_0 \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \sin\left(\theta_0 \, + \, 90^{\circ}\right)\\
+&= \, y_0 \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta_0\right)\\
+\end{align*}
+
+\begin{align*}
+x_c \, &= \, x \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta \, + \, 90^{\circ}\right)\\
+&= \, x \, - \, \left(Rs \, + \, \dfrac{W}{2}\right) \, sin\left(\theta\right)\\
+y_c \, &= \, y \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \sin\left(\theta \, + \, 90^{\circ}\right)\\
+&= \, y \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta_0\right)\\
+\end{align*}
+
+\begin{align*}
+x \, &= \, x_c \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \sin\left(\theta\right)\\
+&= \, x_0 \, - \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \sin\left(\theta_0\right) \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \sin\left(\theta\right)\\
+&= \, x_0 \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \left(\sin\left(\theta\right) \, - \, \sin\left(\theta_0\right)\right)\\
+&= \, x_0 \, + \, 2 \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right) \, \sin\left(\dfrac{\alpha}{2}\right)
+\end{align*}
+
+\begin{align*}
+y \, &= \, y_c \, - \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta\right)\\
+&= \, y_0 \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta_0\right) - \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta\right)\\
+&= \, y_0 \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \left(\cos\left(\theta_0\right) \, - \, \cos\left(\theta\right) \right)\\
+&= \, y_0 \, + \, 2 \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \sin\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right) \, \sin\left(\dfrac{\alpha}{2}\right)
+\end{align*}
+
+\newpage
+
+\begin{landscape}
+\begin{center}
+\textbf{Robot's coordinates in the global reference frame}
+\par\end{center}
+
+\begin{figure}[H]
+\centering\includegraphics[scale=0.95]{../FIGURES/fig02}
+\end{figure}
+
+\end{landscape}
+
+Given the robot's initial pose, $\left(x_0, \, y_0, \, \theta_0\right)$,
+and the motion commands, $(l, \, r)$:
+
+\begin{align*}
+x \,&=\, x_0 \, + \, l \, \cos\left(\theta_0\right)\\
+y \,&=\, y_0 \, + \, l \, \sin\left(\theta_0\right)\\
+x_l \,&=\, x \, + \, sd \, \cos\left(\theta\right)\\
+y_l \,&=\, y \, + \, sd \, \sin\left(\theta\right)
+\end{align*}
+\end{document}
