@@ -940,8 +940,6 @@ dfrac{W}{2}
 \backslash
 , 
 \backslash
-left(
-\backslash
 dfrac{v_r 
 \backslash
 , + 
@@ -950,9 +948,7 @@ dfrac{v_r
 \backslash
 , - 
 \backslash
-, v_l}
-\backslash
-right)  
+, v_l}  
 \backslash
 , = 
 \backslash
