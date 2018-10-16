@@ -1404,7 +1404,7 @@ cos
 \backslash
 left(
 \backslash
-theta 
+theta_0 
 \backslash
 , + 
 \backslash
@@ -1471,7 +1471,7 @@ cos
 \backslash
 left(
 \backslash
-theta 
+theta_0 
 \backslash
 , + 
 \backslash
@@ -1538,7 +1538,7 @@ sin
 \backslash
 left(
 \backslash
-theta
+theta_0
 \backslash
 right)
 \backslash
@@ -1825,7 +1825,7 @@ sin
 \backslash
 left(
 \backslash
-theta 
+theta_0 
 \backslash
 , + 
 \backslash
@@ -1892,7 +1892,7 @@ sin
 \backslash
 left(
 \backslash
-theta 
+theta_0 
 \backslash
 , + 
 \backslash

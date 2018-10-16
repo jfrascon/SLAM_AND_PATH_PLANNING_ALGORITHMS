@@ -1,4 +1,4 @@
-%% LyX 2.3.0 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.3.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[oneside,english]{extbook}
 \usepackage{lmodern}
@@ -84,14 +84,14 @@
 \begin{figure}[H]
 \centering\includegraphics[scale=0.95]{../FIGURES/fig01}
 \end{figure}
-
 \end{landscape}
 
 Given:
-\begin{center}
-the robot's initial pose, $\left(x_0, \, y_0, \, \theta_0\right)$,
-and the motion commands, $(l, \, r)$.\\
-\par\end{center}
+\noindent \begin{flushleft}
+The robot's initial pose, $\left(x_0, \, y_0, \, \theta_0\right)$,
+and the wheels' angular velocities $(\omega_l, \, \omega_r)$, the
+following expressions can be derived:\\
+\par\end{flushleft}
 
 \begin{align*}
 \alpha \, &= \, \omega \, t\\
@@ -103,7 +103,15 @@ l \, &= \, \left(Rs \, - \, \frac{W}{2} \right) \, \alpha\\
 
 \begin{align*}
 \omega \, &= \, \dfrac{v_r \, - \, v_l}{W}\\
-Rs \, &= \, \dfrac{v_r \, + \, v_l}{2 \, \omega} \, = \, \dfrac{W}{2} \, \dfrac{v_r \, + \, v_l}{v_r \, - \, v_l} 
+Rs \, &= \, \dfrac{v_r \, + \, v_l}{2 \, \omega} \, = \, \dfrac{v}{\omega} \, = \, \dfrac{W}{2} \, \left( \dfrac{v_r \, + \, v_l}{v_r \, - \, v_l} \right)
+\end{align*}
+
+Summary:
+
+\begin{align*}
+\omega \, &= \, \dfrac{v_r \, - \, v_l}{W}\\
+v \, &= \, \dfrac{v_r \, + \, v_l}{2}\\
+Rs \, &= \, \dfrac{v}{\omega} \, = \, \dfrac{W}{2} \, \left(\dfrac{v_r \, + \, v_l}{v_r \, - \, v_l}\right)
 \end{align*}
 
 Distance travelled by each wheel:
@@ -118,9 +126,12 @@ D_l \, &= \, r_w \, \phi_l
 \dot{D_l} \, &= \, r_w \, \dot{\phi_l} \, \longrightarrow \, v_l \, = \, r_w \, \omega_l
 \end{align*}
 
+So, finally:
+
 \begin{align*}
-\omega \, &= \, \dfrac{r_w}{W} \, \left(\omega_r \, - \, \omega_l \right)\\
-Rs \, &= \, \dfrac{W}{2} \, \left( \dfrac{\omega_r \, + \, \omega_l}{\omega_r \, - \, \omega_l} \right) 
+\omega \, &= \, \dfrac{v_r \, - \, v_l}{W} \, = \, \dfrac{r_w}{W} \, \left(\omega_r \, - \, \omega_l \right)\\
+v \, &= \, \dfrac{v_r \, + \, v_l}{2} \, = \, \dfrac{r_w}{2} \, \left(\omega_r \, + \, \omega_l\right)\\
+Rs \, &= \, \dfrac{v}{\omega} \, = \, \dfrac{W}{2} \, \left(\dfrac{v_r \, + \, v_l}{v_r \, - \, v_l}\right)  \, = \, \dfrac{W}{2} \, \left( \dfrac{\omega_r \, + \, \omega_l}{\omega_r \, - \, \omega_l} \right) 
 \end{align*}
 
 \begin{align*}
@@ -139,64 +150,118 @@ y_l \, &= \, y \, + \, sd \, \sin\left(\theta\right)
 \end{align*}
 
 \begin{align*}
-Ch \, = \, 2 \, \left(Rs \, + \, \dfrac{W}{2}\right) \, sin\left(\dfrac{\alpha}{2}\right)
+Ch \, = \, 2 \, Rs \, sin\left(\dfrac{\alpha}{2}\right)
 \end{align*}
 
 \begin{align*}
 x \, &= \, x_0 \, + \, x_{@} \, + \, x_{\#}\\
-&= \, x_0 \, + \, x' \, \cos\left(\theta_0\right) \, + \, y' \, \cos\left(\theta \, + \, 90^{\circ}\right)\\
-&= \, x_0 \, + \, Ch \, \cos\left(\dfrac{\alpha}{2}\right) \, \cos\left(\theta_0\right) + \, Ch \, \sin\left(\dfrac{\alpha}{2}\right) \, \cos\left(\theta \, + \, 90^{\circ}\right)\\
-&= \, x_0 \, + \, Ch \, \cos\left(\dfrac{\alpha}{2}\right) \, \cos\left(\theta_0\right) - \, Ch \, \sin\left(\dfrac{\alpha}{2}\right) \, \sin\left(\theta\right)\\
+&= \, x_0 \, + \, x' \, \cos\left(\theta_0\right) \, + \, y' \, \cos\left(\theta_0 \, + \, 90^{\circ}\right)\\
+&= \, x_0 \, + \, Ch \, \cos\left(\dfrac{\alpha}{2}\right) \, \cos\left(\theta_0\right) + \, Ch \, \sin\left(\dfrac{\alpha}{2}\right) \, \cos\left(\theta_0 \, + \, 90^{\circ}\right)\\
+&= \, x_0 \, + \, Ch \, \cos\left(\dfrac{\alpha}{2}\right) \, \cos\left(\theta_0\right) - \, Ch \, \sin\left(\dfrac{\alpha}{2}\right) \, \sin\left(\theta_0\right)\\
 &= \, x_0 \, + \, Ch \, \cos\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right)\\
-& = \, x_0 \, + \, 2 \, \left(Rs \, + \, \dfrac{W}{2}\right) \, sin\left(\dfrac{\alpha}{2}\right) \, \cos\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right)
+& = \, x_0 \, + \, 2 \, Rs \, sin\left(\dfrac{\alpha}{2}\right) \, \cos\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right)\\
+& = \, x_0 \, + \, Rs \, \left( \sin \left(\theta_0 \, + \, \alpha \right) - \sin \left( \theta_0 \right) \right)
 \end{align*}
 
 \begin{align*}
-v_x \, = \, \dot{x} \, = \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \omega \, \cos \left(\theta_0 \, + \, \alpha \right)
+v_x \, = \, \dot{x} \, &= \, Rs \, \omega \, \cos \left(\theta_0 \, + \, \alpha \right)\\
+&= \, v \, \cos \left(\theta_0 \, + \, \alpha \right)
 \end{align*}
 
 \begin{align*}
 y \, &= \, y_0 \, + \, y_{@} \, + \, y_{\#}\\
-&= \, y_0 \, + \, x' \, \sin\left(\theta_0\right) \, + \, y' \, \sin\left(\theta \, + \, 90^{\circ}\right)\\
-&= \, y_0 \, + \, Ch \, \cos\left(\dfrac{\alpha}{2}\right) \, \sin\left(\theta_0\right) + \, Ch \, \sin\left(\dfrac{\alpha}{2}\right) \, \sin\left(\theta \, + \, 90^{\circ}\right)\\
+&= \, y_0 \, + \, x' \, \sin\left(\theta_0\right) \, + \, y' \, \sin\left(\theta_0 \, + \, 90^{\circ}\right)\\
+&= \, y_0 \, + \, Ch \, \cos\left(\dfrac{\alpha}{2}\right) \, \sin\left(\theta_0\right) + \, Ch \, \sin\left(\dfrac{\alpha}{2}\right) \, \sin\left(\theta_0 \, + \, 90^{\circ}\right)\\
 &= \, y_0 \, + \, Ch \, \cos\left(\dfrac{\alpha}{2}\right) \, \sin\left(\theta_0\right) + \, Ch \, \sin\left(\dfrac{\alpha}{2}\right) \, \cos\left(\theta_0\right)\\
 &= \, y_0 \, + \, Ch \, \sin\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right)\\
-&=\, y_0 \, + \, 2 \, \left(Rs \, + \, \dfrac{W}{2}\right) \, sin\left(\dfrac{\alpha}{2}\right) \, \sin\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right)
+&=\, y_0 \, + \, 2 \, Rs \, sin\left(\dfrac{\alpha}{2}\right) \, \sin\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right)\\
+&=\, y_0 \, + \, Rs \, \left( cos \left( \theta_0 \right) \, - \, \cos \left( \theta_0 \, + \, \alpha \right) \right)
 \end{align*}
 
 \begin{align*}
-v_y \, = \, \dot{y} \, = \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \omega \, \sin \left(\theta_0 \, + \, \alpha \right)
+v_y \, = \, \dot{y} \, &= \, Rs \, \omega \, \sin \left(\theta_0 \, + \, \alpha \right)\\
+&= \, v \, \sin \left(\theta_0 \, + \, \alpha \right)
 \end{align*}
 
 Another way to calculate the robot's coordinates in the global reference
 frame:
 
 \begin{align*}
-x_c \, &= \, x_0 \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta_0 \, + \, 90^{\circ}\right)\\
-&= \, x_0 \, - \, \left(Rs \, + \, \dfrac{W}{2}\right) \, sin\left(\theta_0\right)\\
-y_c \, &= \, y_0 \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \sin\left(\theta_0 \, + \, 90^{\circ}\right)\\
-&= \, y_0 \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta_0\right)\\
+x_c \, &= \, x_0 \, + \, Rs \, \cos \left( \theta_0 \, + \, 90^{\circ} \right)\\
+&= \, x_0 \, - \, Rs \, sin \left( \theta_0 \right)\\
+y_c \, &= \, y_0 \, + \, Rs \, \sin \left( \theta_0 \, + \, 90^{\circ} \right)\\
+&= \, y_0 \, + \, Rs \, \cos \left( \theta_0 \right)\\
 \end{align*}
 
 \begin{align*}
-x_c \, &= \, x \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta \, + \, 90^{\circ}\right)\\
-&= \, x \, - \, \left(Rs \, + \, \dfrac{W}{2}\right) \, sin\left(\theta\right)\\
-y_c \, &= \, y \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \sin\left(\theta \, + \, 90^{\circ}\right)\\
-&= \, y \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta_0\right)\\
+x_c \, &= \, x \, + \, Rs \, \cos \left( \theta_0 \, + \, \alpha \, + \, 90^{\circ} \right)\\
+&= \, x \, - \, Rs \, sin \left( \theta_0 \, + \, \alpha \right)\\
+y_c \, &= \, y \, + \, Rs \sin \left( \theta_0 \, + \, \alpha \, + \, 90^{\circ} \right)\\
+&= \, y \, + \, Rs \, \cos\left( \theta_0 \, + \, \alpha \right)\\
 \end{align*}
 
 \begin{align*}
-x \, &= \, x_c \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \sin\left(\theta\right)\\
-&= \, x_0 \, - \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \sin\left(\theta_0\right) \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \sin\left(\theta\right)\\
-&= \, x_0 \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \left(\sin\left(\theta\right) \, - \, \sin\left(\theta_0\right)\right)\\
-&= \, x_0 \, + \, 2 \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right) \, \sin\left(\dfrac{\alpha}{2}\right)
+x \, &= \, x_c \, + \, Rs \, \sin \left( \theta_0 \, + \, \alpha \right)\\
+&= \, x_0 \, - \, Rs \, \sin\left(\theta_0\right) \, + \, Rs \, \sin \left(\theta_0 \, + \, \alpha \right)\\
+&= \, x_0 \, + \, Rs \, \left( \sin \left( \theta_0 \, + \, \alpha \right) \, - \, \sin \left( \theta_0 \right) \right)\\
+&= \, x_0 \, + \, 2 \, Rs \, \cos\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right) \, \sin\left(\dfrac{\alpha}{2}\right)
 \end{align*}
 
 \begin{align*}
-y \, &= \, y_c \, - \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta\right)\\
-&= \, y_0 \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta_0\right) - \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta\right)\\
-&= \, y_0 \, + \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \left(\cos\left(\theta_0\right) \, - \, \cos\left(\theta\right) \right)\\
-&= \, y_0 \, + \, 2 \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \sin\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right) \, \sin\left(\dfrac{\alpha}{2}\right)
+y \, &= \, y_c \, - \, Rs \, \cos \left( \theta_0 \, + \, \alpha \right)\\
+&= \, y_0 \, + \, Rs \cos \left( \theta_0 \right) - \, Rs \, \cos \left( \theta_0 \, + \, \alpha \right)\\
+&= \, y_0 \, + \, Rs \, \left( \cos \left( \theta_0 \right) \, - \, \cos \left( \theta_0 \, + \, \alpha \right) \right)\\
+&= \, y_0 \, + \, 2 \, Rs \, \sin\left(\theta_0 \, + \, \dfrac{\alpha}{2}\right) \, \sin\left(\dfrac{\alpha}{2}\right)
+\end{align*}
+
+\newpage
+
+For completeness, let's considerate the case when the robot is located
+at the pose $\left(x_0, \, y_0, \, \theta_0\right)$ and wants to
+get to the pose $\left(x, \, y, \, \theta\right)$, i.e, any pose
+known in advanced in the robot's environment. The easiest way to move
+between these two points is by describing and arc.
+
+But, what is the turning radius, i.e $Rs$, that allows the robot
+to describe that arc?
+
+As the first figure depicts, the initial and final poses are linked
+by the chord $Ch$.
+
+\begin{align*}
+\Delta x \, &= \, x \, - \, x_0\\
+\Delta y \, &= \, y \, - \, x_0\\
+Ch^2 \, &= \, {\Delta x}^2 \, + \, {\Delta y}^2 \, = \, x'^2 \, + \, y'^2
+\end{align*}
+
+The heading error, i.e, the difference between the chord's angle and
+the robot's orientation is:
+
+\begin{align*}
+\theta_{err} \, &= \, \dfrac{\alpha}{2} \, = \, \arctan \left( \dfrac{\Delta \, y}{\Delta x} \right) \, - \, \theta_0\\
+\end{align*}
+
+So, the turning radius (with sign) $Rs$ can be computed, geometrically,
+as:
+
+\begin{align*}
+Rs \, &= \, d \, + \, y'\\
+Rs^2 \, &= \, d^2 \, + \, x'^2 \, = \, (Rs \, - \, y')^2 \, + \, x'^2
+\end{align*}
+
+Also:
+
+\begin{align*}
+y' \, &= \, Ch \, \sin \left( \theta_{err} \right)
+\end{align*}
+
+Therefore:
+
+\begin{align*}
+Rs^2 \, &= \, \left( Rs \, - \, y' \right)^2 \, + \, x'^2 \\
+&= \, Rs^2 \, + \, y'^2 \, - \, 2 \, Rs \, y' + x'^2\\
+&= \, Rs^2 \, + \, Ch^2 \, - \, 2 \, Rs \,y'\\
+Rs \, &= \, \dfrac{Ch^2}{2 \, y'} \, = \, \dfrac{Ch^2}{2 \, Ch \, \sin \left( \theta_{err} \right)} \,= \, \dfrac{Ch}{2 \, \sin \left( \theta_{err} \right)}
 \end{align*}
 
 \newpage
@@ -209,7 +274,6 @@ y \, &= \, y_c \, - \, \left(Rs \, + \, \dfrac{W}{2}\right) \, \cos\left(\theta\
 \begin{figure}[H]
 \centering\includegraphics[scale=0.95]{../FIGURES/fig02}
 \end{figure}
-
 \end{landscape}
 
 Given the robot's initial pose, $\left(x_0, \, y_0, \, \theta_0\right)$,
